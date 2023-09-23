@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import '~quill/dist/quill.snow.css';
+@include mat.core();
+$CloudCompete-FE-primary: mat.define-palette(mat.$indigo-palette);
+$CloudCompete-FE-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$CloudCompete-FE-warn: mat.define-palette(mat.$red-palette);
+$CloudCompete-FE-theme: mat.define-light-theme((color: (primary: $CloudCompete-FE-primary,
+        accent: $CloudCompete-FE-accent,
+        warn: $CloudCompete-FE-warn,
+      )));
+@include mat.all-component-themes($CloudCompete-FE-theme); 
+
+.gap-5{
+    gap: 10px;
+}
