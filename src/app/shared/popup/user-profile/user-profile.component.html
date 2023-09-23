@@ -1,0 +1,135 @@
+<div class="profile-main">
+    <div class="profile-head">
+        <img class="bg" src="../../../../assets/images/bg-img.jpg" alt="">
+        <div class="profile-div input-file-control" alt="" (fileDropped)="addImage($event)">
+            <div class="profile">
+                <img class="profile-img" [src]="selected_image" alt="" *ngIf="selected_image">
+                <button class="profile-img no-profile-img"
+                    *ngIf="!selected_image">{{user?.contact_person?nameProfileImg(user?.contact_person):nameProfileImg(user?.contact?.email)}}</button>
+                <div class="img-div" *ngIf="edit_user">
+                    <img class="edit-img" src="../../../../assets/icons/add-image.svg" alt="">
+                    <input class='input-box-file' type="file" [(ngModel)]="new_img" #fileDropRefProject
+                        id="fileDropRefProject" (change)="addImage($event)" accept="image/png,image/jpeg">
+                </div>
+            </div>
+        </div>
+        <img class="close-icon" src="../../../../assets/icons/close-icon.svg" mat-dialog-close alt="">
+    </div>
+    <div class="profile-body">
+        <div class="w-full flex flex-wrap justify-between items-center">
+            <div class="profile-name">{{user?.contact_person}}</div>
+            <div class="no-user" *ngIf="!user?.contact_person"></div>
+            <!-- <div class="label label-email" *ngIf="edit_user">{{user_email}}</div> -->
+            <div class="link" (click)="changePassword()" *ngIf="!signInWithSocialMedia">Change password</div>
+        </div>
+        <hr>
+        <div class="read-only" *ngIf="!edit_user">
+            <div class="sub-title flex items-center gap-2 mt-5">
+                <div>User Detail</div>
+                <button (click)="edit_user=true">
+                    <img class="icon-edit" src="/assets/icons/edit-profile.svg" alt="">
+                </button>
+            </div>
+            <!-- <div class="flex gap-4 items-center field">
+                <img class="img-label" src="../../../../assets/icons/job.svg" alt="">
+                <div class="label">{{user?.position_role}}</div>
+            </div> -->
+            <!-- <div class="flex gap-4 items-center field">
+                <img class="img-label" src="../../../../assets/icons/building.svg" alt="">
+                <div class="label">Geologix</div>
+            </div> -->
+            <div class="flex gap-4 items-center field">
+                <img class="img-label" src="../../../../assets/icons/email.svg" alt="">
+                <div class="label">{{user?.email?user?.email:user_email}}</div>
+            </div>
+            <div class="flex gap-4 items-center field">
+                <img class="img-label" src="../../../../assets/icons/phone-call.svg" alt="">
+                <div class="label">{{user?.phone}} • Mobile</div>
+            </div>
+            <!-- <div class="flex gap-4 items-center field">
+                <img class="img-label" src="../../../../assets/icons/role.svg" alt="">
+                <div class="label">
+                    <span *ngIf="user?.is_buyer">BUYER, </span>
+                    <span *ngIf="user?.is_isv">ISV, </span>
+                    <span *ngIf="user?.is_si">SI</span>
+                </div>
+            </div> -->
+            <!-- <div class="flex gap-4 items-center field">
+                <img class="img-label" src="../../../../assets/icons/map.svg" alt="">
+                <div class="label">233 Willmohr Street, Cressey, Iowa, PO1962</div>
+            </div> -->
+        </div>
+        <form [formGroup]="userDetailForm" class="flex flex-col gap-4" *ngIf="edit_user">
+            <div class="sub-title">User Detail</div>
+            <div class=" w-full">
+                <label class="form-label">Name<span class="required">*</span></label>
+                <input type="text" class="form-input" formControlName="contact_person" placeholder="name">
+            </div>
+            <div class="w-full">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-input" formControlName="email" readonly>
+            </div>
+            <div class="w-full">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-input" formControlName="phone" placeholder="phone">
+            </div>
+            <!-- <div class="w-full">
+                <label class="form-label">Persona</label>
+                <div class="flex items-center gap-5">
+                    <div>
+                        <input class="input-checkbox" type="checkbox" id="p1" name="p1" value="Bike"
+                            formControlName="is_buyer">
+                        <label class="form-label" for="p1">Buyer</label>
+                    </div>
+                    <div>
+                        <input class="input-checkbox" type="checkbox" id="p2" name="p2" value="Bike"
+                            formControlName="is_isv">
+                        <label class="form-label" for="p2">ISV</label>
+                    </div>
+                    <div>
+                        <input class="input-checkbox" type="checkbox" id="p3" name="p3" value="Bike"
+                            formControlName="is_si">
+                        <label class="form-label" for="p3">SI</label>
+                    </div>
+                </div>
+            </div> -->
+            <div class="flex flex-row justify-center gap-3">
+                <button class="form-close-btn" (click)="edit_user=false">Close</button>
+                <button class="form-submit-btn" (click)="updateContact(userDetailForm?.value,false)"
+                    [disabled]="!userDetailForm.valid">Update</button>
+            </div>
+        </form>
+        <form class="mt-5 flex flex-col gap-4" [formGroup]="companyDetailForm" >
+            <div class="flex items-center gap-2">
+                <div class="sub-title">Business email</div>
+                <button (click)="edit_company=true">
+                    <img class="icon-edit" src="/assets/icons/edit-profile.svg" alt="">
+                </button>
+                <div class="label-status success" *ngIf="user?.business_email_verified">Verified</div>
+                <div class="label-status danger" *ngIf="!user?.business_email_verified">Unverified</div>
+            </div>
+            <div class="read-only" *ngIf="!edit_company&&user?.business_email">
+                <div class="flex gap-4 items-center field">
+                    <img class="img-label" src="../../../../assets/icons/job.svg" alt="">
+                    <div class="label">{{user?.business_email}}</div>
+                </div>
+            </div>
+            <div class="w-full" *ngIf="edit_company||!user?.business_email">
+                <input type="text" class="form-input" formControlName="business_email" placeholder="Business Email">
+            </div>
+            <!-- <div class="w-full">
+                <label class="form-label">Company name<span class="required">*</span></label>
+                <input type="text" class="form-input" formControlName="company_name">
+            </div> -->
+            <div class="mt-2 flex flex-row justify-center gap-3" *ngIf="edit_company||!user?.business_email">
+                <button class="form-close-btn" (click)="edit_company=false">Close</button>
+                <button class="form-submit-btn" (click)="updateContact(companyDetailForm?.value,true)"
+                    [disabled]="!companyDetailForm.valid">Verify</button>
+            </div>
+        </form>
+        <div class="flex justify-center mt-5">
+            <button class="form-submit-btn" *ngIf="user?.business_email&&!user?.business_email_verified&&!edit_company"
+                (click)="edit_company=true">Verify Business Email</button>
+        </div>
+    </div>
+</div>

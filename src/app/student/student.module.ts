@@ -8,6 +8,7 @@ import { StudentsAttendanceComponent } from './students-attendance/students-atte
 import { TimeTableComponent } from './time-table/time-table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     CommonModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    SharedModule
   ]
 })
 export class StudentModule { }

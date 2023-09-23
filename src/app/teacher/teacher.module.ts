@@ -9,6 +9,7 @@ import { StudentsListViewComponent } from './students-list-view/students-list-vi
 import { TimeTableComponent } from './time-table/time-table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     CommonModule,
-    TeacherRoutingModule
+    TeacherRoutingModule,
+    SharedModule,
   ]
 })
 export class TeacherModule { }

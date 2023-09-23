@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-student.component';
 
 @Component({
   selector: 'app-students-list-view',
@@ -27,9 +29,26 @@ export class StudentsListViewComponent implements OnInit {
       status:"deactivated"
     }
   ]
-  constructor() { }
+  constructor(
+    private _dialog:MatDialog,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  addStudent(){
+    let dialogRef = this._dialog.open(AddStudentComponent, {
+      width: '400px',
+      height: '100%',
+      data: {},
+      position: {
+        top: '0px',
+        right: '0px',
+      },
+      // enterAnimationDuration: '500ms',
+      direction: 'ltr',
+      panelClass: "side-popup"
+    });
   }
 
 }

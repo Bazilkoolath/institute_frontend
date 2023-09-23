@@ -1,0 +1,13 @@
+<div>
+    <div class="header flex justify-between items-center">
+        <div class="sub-title-text">Warning Message</div>
+        <img src="../../../assets/icons/close-icon.svg" class="close-icon" mat-button mat-dialog-close>
+    </div>
+   <div class="container">
+        <p class="normal-text text-center">Are you sure ?</p>
+        <div class="flex justify-center gap-5 popup">
+            <button class="submit-btn close-btn" mat-button mat-dialog-close>No</button>
+            <button class="submit-btn" mat-button [mat-dialog-close]="true">Yes</button>
+        </div>
+   </div>
+</div>
