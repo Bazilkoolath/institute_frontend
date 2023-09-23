@@ -1,0 +1,14 @@
+<nav class="h-100" id="sidebar" style="position: fixed;">
+    <div class="sidebar-header">
+        <h3>Wisdom</h3>
+    </div>
+    <div class="list-unstyled sidebar-btn-div d-flex flex-column gap-3">
+        <button class="sidebar-btn" [routerLink]="['dashboard']" routerLinkActive="router-link-active">DashBoard</button>
+        <!-- <button class="sidebar-btn" [routerLink]="['dashboard']" routerLinkActive="router-link-active">Course List</button>  -->
+        <button class="sidebar-btn" [routerLink]="['students-list']" routerLinkActive="router-link-active">Students List</button>
+        <button class="sidebar-btn" [routerLink]="['teachers-list']" routerLinkActive="router-link-active">Teachers List</button>
+        <button class="sidebar-btn" [routerLink]="['students-payment']" routerLinkActive="router-link-active">Students Payment</button>
+        <button class="sidebar-btn" [routerLink]="['teachers-payment']" routerLinkActive="router-link-active">Teachers Payment</button>
+        <!-- <button class="sidebar-btn" [routerLink]="['dashboard']" routerLinkActive="router-link-active">Announcemet</button> -->
+    </div>
+</nav>

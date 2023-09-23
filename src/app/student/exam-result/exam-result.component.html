@@ -1,0 +1,523 @@
+<div>
+    <div style="min-height: 100%;background-color: rgb(243, 243, 243);margin-top: 0%;">
+
+        <div class="container">
+            <h3 class="p-4">Exam List</h3>
+            <div class="d-flex">
+                <div class="w-25 me-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>All</option>
+                        <option value="1">10th</option>
+                        <option value="2">9th</option>
+                        <option value="3">8th</option>
+                    </select>
+                </div>
+                <div class="input-group w-25">
+                    <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" style="background-color: gray;" type="button"><i
+                                class="fa fa-search"></i></button>
+                    </div>
+
+                </div>
+                <!-- Modal -->
+                <!-- Button trigger modal -->
+                <div class="ms-5"><button type="button" class="btn btn-success " data-bs-toggle="modal"
+                        data-bs-target="#addexamModal">Add Exam</button></div>
+            </div>
+            <!-- Add Exam Modal -->
+
+            <div class="modal fade" id="addexamModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Exam</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form3Example3" class="form-control" placeholder="Exam Name" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>All</option>
+                                    <option value="1">10th</option>
+                                    <option value="2">9th</option>
+                                    <option value="3">8th</option>
+                                </select>
+                            </div>
+
+                            <div class="form-outline mb-4 ">
+                                <input type="date" id="form3Example3" class="form-control" placeholder="Date" />
+                            </div>
+                            <div class="form-outline d-flex">
+                                <input type="text" id="form3Example3" class="form-control w-75" placeholder="Subject name" />
+                                <input type="text" id="form3Example3" class="form-control w-25" placeholder="Maximum Mark" />
+                                <button class="btn btn-primary ml-1">Add</button>
+                            </div>
+                            
+                            <table class="table mt-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col">Maximum Mark</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>English</td>
+                                        <td>100</td>
+                                        <td><a><i class="fas fa-trash-alt"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Maths</td>
+                                        <td>100</td>
+                                        <td><a><i class="fas fa-trash-alt"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Physics</td>
+                                        <td>100</td>
+                                        <td><a><i class="fas fa-trash-alt"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="form-check">
+                                <label class="mr-5" for="">Status :</label>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label mr-5" for="flexRadioDefault1">
+                                    Active
+                                </label>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Not Active
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary ">Save </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+
+
+            <!-- Table -->
+
+            <table class="table mt-4" style="background-color: white;">
+                <thead>
+                    <tr>
+                        <th scope="col">Exam code</th>
+                        <th scope="col">Exam name </th>
+                        <th scope="col">Class</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Exam </td>
+                        <td>8th</td>
+                        <td style="color: green;">Active </td>
+
+                        <td style="color: gray;">
+                            <a data-bs-toggle="modal" data-bs-target="#editExamModal" class="mr-4"><i
+                                    class="fas fa-edit"></i></a>
+                            <a data-bs-toggle="modal" data-bs-target="#deleteExamModal"><i
+                                    class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Exam </td>
+                        <td>8th</td>
+                        <td style="color: green;">Active </td>
+                        <td style="color: gray;">
+                            <a data-bs-toggle="modal" data-bs-target="#editExamModal" class="mr-4"><i
+                                    class="fas fa-edit"></i></a>
+                            <a data-bs-toggle="modal" data-bs-target="#deleteExamModal"><i
+                                    class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Exam </td>
+                        <td>8th</td>
+                        <td style="color: green;">Active </td>
+                        <td style="color: gray;">
+                            <a data-bs-toggle="modal" data-bs-target="#editExamModal" class="mr-4"><i
+                                    class="fas fa-edit"></i></a>
+                            <a data-bs-toggle="modal" data-bs-target="#deleteExamModal"><i
+                                    class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Exam Edit Modal -->
+
+            <div class="modal fade" id="editExamModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Exam</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form3Example3" class="form-control" placeholder="Exam Name" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>All</option>
+                                    <option value="1">10th</option>
+                                    <option value="2">9th</option>
+                                    <option value="3">8th</option>
+                                </select>
+                            </div>
+
+                            <div class="form-outline mb-4 ">
+                                <input type="date" id="form3Example3" class="form-control" placeholder="Date" />
+                            </div>
+
+                            <div class="form-outline d-flex">
+                                <input type="text" id="form3Example3" class="form-control w-75" placeholder="Subject name" />
+                                <input type="text" id="form3Example3" class="form-control w-25" placeholder="Maximum Mark" />
+                                <button class="btn btn-primary ml-1">Add</button>
+                            </div>
+                            
+                            <table class="table mt-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col">Maximum Mark</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>English</td>
+                                        <td>100</td>
+                                        <td><a><i class="fas fa-trash-alt"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Maths</td>
+                                        <td>100</td>
+                                        <td><a><i class="fas fa-trash-alt"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Physics</td>
+                                        <td>100</td>
+                                        <td><a><i class="fas fa-trash-alt"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="form-check">
+                                <label class="mr-5" for="">Status :</label>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label mr-5" for="flexRadioDefault1">
+                                    Active
+                                </label>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Not Active
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary ">Save </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Exam delete Modal -->
+
+            <div class="modal fade" id="deleteExamModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+
+
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div>
+                            <p class="pt-2 fs-5" style="text-align: center;">Are you sure !!!</p>
+                        </div>
+                        <div class="form-outline mb-4 w-100 d-flex justify-content-center">
+                            <button type="button" class="btn btn-danger me-1 w-25">Yes</button>
+                            <button type="button" class="btn btn-success ms-1 w-25">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <!-- add exam - end  -->
+
+
+            <!-- ************************************************************************************* -->
+
+
+            <!-- exam mark add -->
+
+            <!-- <hr class="mt-5 "> -->
+            <div style="background-color: white;">
+                <div class="container">
+                <h3 class="p-4 mt-5">Add Students Mark</h3>
+                <div class="d-flex">
+                    <div class="w-25 me-2">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Exam</option>
+                            <option value="1">....</option>
+                            <option value="2">....</option>
+                            <option value="3">....</option>
+                        </select>
+                    </div>
+                    <div class="input-group w-25">
+                        <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" style="background-color: gray;" type="button"><i
+                                    class="fa fa-search"></i></button>
+                        </div>
+
+                    </div>
+                    <!-- Modal -->
+                    <!-- Button trigger modal -->
+                    <div class="ms-5"><button type="button" class="btn btn-success " data-bs-toggle="modal"
+                            data-bs-target="#addstudentresultModal">Add Student Mark</button></div>
+                </div>
+                <!-- Add Students Mark Modal -->
+
+                <div class="modal fade" id="addstudentresultModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add Student Mark </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                
+
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="form3Example3" class="form-control"
+                                            placeholder="Reg .no" />
+                                            <p class="mt-2 text-success">*Name of student by Reg.no</p>
+                                    </div>
+
+                                    <div class="d-flex mb-4">
+                                        <div class="form-outline ">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Select Subject</option>
+                                                <option value="1">English</option>
+                                                <option value="2">Maths</option>
+                                                <option value="3">Science</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-outline ">
+                                            <input type="text" id="form3Example3" class="form-control"
+                                                placeholder="Mark" />
+                                        </div>
+                                        <button class="btn btn-primary">Add</button>
+                                        <button class="btn btn-success">Edit</button>
+                                    </div>
+
+                                    <table class="table mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Subject</th>
+                                                <th scope="col">Mark</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Abdc </td>
+                                                <td>80</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Abdc </td>
+                                                <td>80</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Abdc </td>
+                                                <td>80</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary ">Save </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+
+                <!-- Table -->
+
+                <table class="table mt-4" style="background-color: white;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Reg no</th>
+                            <th scope="col">Student name </th>
+                            <th scope="col" class="text-success">/* Subjects */</th>
+                            <th scope="col">Total Mark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Abdc </td>
+                            <td class="text-success">/* mark */ </td>
+                            <td>80</td>
+                            <td style="color: gray;">
+                                <a data-bs-toggle="modal" data-bs-target="#editStudentMarkModal" class="mr-4"><i
+                                        class="fas fa-edit"></i></a>
+                                <a data-bs-toggle="modal" data-bs-target="#deleteStudentMarkModal"><i
+                                        class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Abdc </td>
+                            <td class="text-success">/* mark */ </td>
+                            <td>80</td>
+                            <td style="color: gray;">
+                                <a data-bs-toggle="modal" data-bs-target="#editStudentMarkModal" class="mr-4"><i
+                                        class="fas fa-edit"></i></a>
+                                <a data-bs-toggle="modal" data-bs-target="#deleteStudentMarkModal"><i
+                                        class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Abdc </td>
+                            <td class="text-success">/* mark */ </td>
+                            <td>80</td>
+                            <td style="color: gray;">
+                                <a data-bs-toggle="modal" data-bs-target="#editStudentMarkModal" class="mr-4"><i
+                                        class="fas fa-edit"></i></a>
+                                <a data-bs-toggle="modal" data-bs-target="#deleteStudentMarkModal"><i
+                                        class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Student Mark Edit Modal -->
+
+                <div class="modal fade" id="editStudentMarkModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit Exam</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="d-flex mb-4">
+                                    <div class="form-outline ">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Select Subject</option>
+                                            <option value="1">English</option>
+                                            <option value="2">Maths</option>
+                                            <option value="3">Science</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-outline ">
+                                        <input type="text" id="form3Example3" class="form-control"
+                                            placeholder="Mark" />
+                                    </div>
+                                    <button class="btn btn-primary">Add</button>
+                                    <button class="btn btn-success">Edit</button>
+                                </div>
+
+                                <table class="table mt-4">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Subject</th>
+                                            <th scope="col">Mark</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Abdc </td>
+                                            <td>80</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Abdc </td>
+                                            <td>80</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Abdc </td>
+                                            <td>80</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary ">Save </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Mark delete Modal -->
+
+                <div class="modal fade" id="deleteStudentMarkModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div>
+                                <p class="pt-2 fs-5" style="text-align: center;">Are you sure !!!</p>
+                            </div>
+                            <div class="form-outline mb-4 w-100 d-flex justify-content-center">
+                                <button type="button" class="btn btn-danger me-1 w-25">Yes</button>
+                                <button type="button" class="btn btn-success ms-1 w-25">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

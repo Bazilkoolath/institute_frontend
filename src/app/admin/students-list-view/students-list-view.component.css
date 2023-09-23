@@ -1,0 +1,22 @@
+.status-chip{
+    padding: 2.5px 15px;
+    font-size: 14px;
+    border-radius: 15px;
+    width: fit-content;
+    border: none;
+}
+
+.active{
+    background-color: rgb(221, 246, 221);
+    color: green;
+}
+
+.pending{
+    background-color: rgb(226, 241, 248);
+    color: rgb(0, 120, 168);
+}
+
+.rejected{
+    background-color: rgb(255, 229, 229);
+    color: rgb(221, 8, 8);
+}

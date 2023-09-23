@@ -1,0 +1,38 @@
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #011c38;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #011c38;
+}
+.sidebar-btn{
+    color: #fff;
+    margin: 0 10px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.sidebar-btn:hover{
+    background-color: #7386D5;
+}
+.router-link-active{
+    background-color: #7386D5;
+}

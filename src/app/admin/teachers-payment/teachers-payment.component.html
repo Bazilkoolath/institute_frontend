@@ -1,0 +1,102 @@
+<div style="min-height: 100%;background-color: rgb(243, 243, 243);margin-top: 0%;">
+
+    <div class="container">
+        <h3 class="p-4">Teachers Salary</h3>
+        <div class="d-flex">
+           
+            <div class="input-group w-25">
+                <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" style="background-color: gray;" type="button"><i
+                            class="fa fa-search"></i></button>
+                </div>
+
+            </div>
+
+            <button type="button" class="btn btn-success ml-1" data-bs-toggle="modal"
+                data-bs-target="#studentfeeRegModal">Payment Update</button>
+
+        </div>
+
+        <!--  Fee Update register Modal -->
+
+        <div class="modal fade" id="studentfeeRegModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Payment Update</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-outline mb-4 ">
+                                <label for="">Register Number</label>
+                                <input type="text" id="form3Example3" class="form-control" placeholder="Register Number" />
+                                <p class="mt-2 text-success">*Name of teacher by Reg.no</p>
+                            </div>
+                            <div class="d-flex">
+                                
+                                <div class="form-outline mb-4 w-50 ml-1">
+                                    <label for="">Amount</label>
+                                    <input type="text" id="form3Example3" class="form-control" placeholder="Amount" />
+                                </div>
+                            </div>
+                        
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                        data-bs-target="#RecieptModal">Update </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+
+        
+
+        <!-- Table -->
+
+        <table class="table mt-4" style="background-color: white;">
+                <thead>
+                    <tr>
+                        <th scope="col">Reg no</th>
+                        <th scope="col">Full name</th>
+                        <th scope="col">Deparetment</th>
+                        <th scope="col">Total Paid Amount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Last Updated Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>English</td>
+                        <td>5000</td>
+                        <td>Active</td>
+                        <td>10-10-2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>English</td>
+                        <td>5000</td>
+                        <td>Active</td>
+                        <td>17-10-2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>English</td>
+                        <td>5000</td>
+                        <td>Active</td>
+                        <td>1-10-2023</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+    </div>
+</div>
