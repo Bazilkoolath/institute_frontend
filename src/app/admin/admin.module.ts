@@ -6,12 +6,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StudentsAttendanceComponent } from './students-attendance/students-attendance.component';
 import { StudentsFeeComponent } from './students-fee/students-fee.component';
-import { StudentsListViewComponent } from './students-list-view/students-list-view.component';
 import { TeachersListComponent } from './teachers-list/teachers-list.component';
 import { TeachersPaymentComponent } from './teachers-payment/teachers-payment.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SharedModule } from '../shared/shared.module';
+import { StudentsListViewComponent } from './students-list-view/students-list-view.component';
 
 
 @NgModule({
