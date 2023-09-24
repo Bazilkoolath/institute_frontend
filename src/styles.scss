@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@import '~quill/dist/quill.snow.css';
 @include mat.core();
 $CloudCompete-FE-primary: mat.define-palette(mat.$indigo-palette);
 $CloudCompete-FE-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
