@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-payment.component.scss']
 })
 export class AddPaymentComponent {
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }

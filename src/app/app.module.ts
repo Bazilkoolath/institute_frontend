@@ -6,12 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { StudentPaymentComponent } from './shared/popup/student-payment/student-payment.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    StudentPaymentComponent,
+    AppComponent
    
   ],
   imports: [
