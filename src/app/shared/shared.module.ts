@@ -16,6 +16,7 @@ import { InfoPopupComponent } from './popup/info-popup/info-popup.component';
 import { LoaderComponent } from './popup/loader/loader.component';
 import { WarningPopupComponent } from './popup/warning-popup/warning-popup.component';
 import { AddStudentComponent } from './popup/add-student/add-student.component';
+import { AddPaymentComponent } from './popup/add-payment/add-payment.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AddStudentComponent } from './popup/add-student/add-student.component';
     WarningPopupComponent,
     SearchFilterPipe,
     AddStudentComponent,
+    AddPaymentComponent,
   ],
   imports: [
     CommonModule,
@@ -57,7 +59,8 @@ import { AddStudentComponent } from './popup/add-student/add-student.component';
     LoaderComponent,
     WarningPopupComponent,
     SearchFilterPipe,
-    AddStudentComponent
+    AddStudentComponent,
+    AddPaymentComponent
   ]
 })
 export class SharedModule { }

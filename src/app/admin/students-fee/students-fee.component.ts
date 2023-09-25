@@ -15,7 +15,7 @@ export class StudentsFeeComponent implements OnInit {
       name:"basil",
       phone:"0548448",
       course:"sd",
-      status:"active"
+      status:"paid"
     },{
       id:2,
       name:"sahal",
@@ -37,24 +37,6 @@ export class StudentsFeeComponent implements OnInit {
   ngOnInit(): void {
 
   }
-    addStudent(){
-      let dialogRef = this._dialog.open(AddStudentComponent, {
-        width: '400px',
-        height: '100%',
-        data: {},
-        position: {
-          top: '0px',
-          right: '0px',
-        },
-        // enterAnimationDuration: '500ms',
-        direction: 'ltr',
-        panelClass: "side-popup"
-      });
-    }
-  }
-
-
-function addStudent() {
-  throw new Error('Function not implemented.');
+    
 }
 
