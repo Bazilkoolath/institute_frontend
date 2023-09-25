@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { SearchFilterPipe } from './pipe/search-filter.pipe';
 import { InfoPopupComponent } from './popup/info-popup/info-popup.component';
 import { LoaderComponent } from './popup/loader/loader.component';
@@ -41,6 +42,7 @@ import { AddPaymentComponent } from './popup/add-payment/add-payment.component';
     MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
+    FullCalendarModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -60,7 +62,8 @@ import { AddPaymentComponent } from './popup/add-payment/add-payment.component';
     WarningPopupComponent,
     SearchFilterPipe,
     AddStudentComponent,
-    AddPaymentComponent
+    AddPaymentComponent,
+    FullCalendarModule
   ]
 })
 export class SharedModule { }

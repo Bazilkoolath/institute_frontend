@@ -30,7 +30,7 @@ import { StudentsListViewComponent } from './students-list-view/students-list-vi
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class AdminModule { }
