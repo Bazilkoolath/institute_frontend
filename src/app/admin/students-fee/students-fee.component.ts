@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-student.component';
+import { AddPaymentComponent } from 'src/app/shared/popup/add-payment/add-payment.component';
+
 
 @Component({
   selector: 'app-students-fee',
@@ -8,26 +9,25 @@ import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-studen
   styleUrls: ['./students-fee.component.css']
 })
 export class StudentsFeeComponent implements OnInit {
-
-  students_list:any[]=[
+  studentsfee:any[]=[
     {
       id:1,
-      name:"basil",
-      phone:"0548448",
+      name:"student1",
+      Paid_Amount:"0548448",
       course:"sd",
-      status:"paid"
+      Payment_Status:"paid",
     },{
       id:2,
-      name:"sahal",
-      phone:"0548448",
+      name:"student2",
+      Paid_Amount:"0548448",
       course:"sd",
-      status:"pending"
+      Payment_Status:"paid",
     },{
       id:3,
-      name:"sahal",
-      phone:"0548448",
+      name:"student3",
+      Paid_Amount:"0548448",
       course:"sd",
-      status:"deactivated"
+      Payment_Status:"no",
     }
   ]
   constructor(
@@ -36,6 +36,20 @@ export class StudentsFeeComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+  addPayment(){
+    let dialogRef = this._dialog.open(AddPaymentComponent, {
+      width: '400px',
+      height: '100%',
+      data: {},
+      position: {
+        top: '0px',
+        right: '0px',
+      },
+      // enterAnimationDuration: '500ms',
+      direction: 'ltr',
+      panelClass: "side-popup"
+    });
   }
     
 }
