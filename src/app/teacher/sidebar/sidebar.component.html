@@ -1,13 +1,11 @@
-<nav class="h-100" id="sidebar">
+<nav class="h-100" id="sidebar" style="position: fixed;">
     <div class="sidebar-header">
         <h3>Institution</h3>
     </div>
-
     <div class="list-unstyled sidebar-btn-div d-flex flex-column gap-3">
         <button class="sidebar-btn " [routerLink]="['dashboard']" routerLinkActive="router-link-active">DashBoard</button>
+        <button class="sidebar-btn" [routerLink]="['exam-result']" routerLinkActive="router-link-active">Exam Result</button>
         <button class="sidebar-btn" [routerLink]="['students-attendance']" routerLinkActive="router-link-active">Student Attendance</button>
-        <button class="sidebar-btn" [routerLink]="['students-fee']" routerLinkActive="router-link-active">Student Fee</button>
-        <button class="sidebar-btn" [routerLink]="['students-list-view']" routerLinkActive="router-link-active">Student List View</button>
-        <button class="sidebar-btn" [routerLink]="['time-table']" routerLinkActive="router-link-active">Time Table</button>
+        <button class="sidebar-btn" [routerLink]="['time-table']" routerLinkActive="router-link-active">Time <Table></Table></button>
     </div>
 </nav>
