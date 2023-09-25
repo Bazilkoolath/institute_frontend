@@ -6,7 +6,7 @@ import { Role } from '../constants/enum';
 import { GeneralService } from './general.service';
 import { api_constants } from '../constants/api-constants';
 import { MatDialog } from '@angular/material/dialog';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 declare var pendo: any;
 
@@ -27,7 +27,7 @@ export class ProfileService {
     private router: Router,
     private _generalService: GeneralService,
     private _dialog: MatDialog,
-    private _toaster: ToastrService,
+    // private _toaster: ToastrService,
   ) { }
 
 
@@ -55,22 +55,6 @@ export class ProfileService {
             $this.logout(false)
           }
           $this.changeLoaderStatus.next(false)
-        },
-      })
-  }
-
-  loginSocialMedia(code: any) {
-    this.changeLoaderStatus.next(true)
-    const formData = new FormData();
-    formData.append("code", code);
-    let $this = this
-    this.apiService.ExecutePost(this.apiService.baseUrl + api_constants.get_access_token, formData)
-      .pipe(takeUntil(this.unsubscribe))
-      .subscribe({
-        next(response: any) {
-          $this._generalService.setAccessToken = response?.access_token
-          $this.getProfileData("")
-        }, error(err: any) {
         },
       })
   }
