@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AddTeacherComponent } from 'src/app/shared/popup/add-teacher/add-teacher.component';
 
 
@@ -33,6 +34,7 @@ export class TeachersListComponent implements OnInit {
 
   constructor(
     private _dialog:MatDialog,
+    private _router:Router
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +52,10 @@ export class TeachersListComponent implements OnInit {
       direction: 'ltr',
       panelClass: "side-popup"
     });
+  }
+  teacherDetails(id:any){
+    console.log(id)
+     this._router.navigateByUrl('/admin/teacher-detail/'+id)
   }
 
 }

@@ -9,6 +9,10 @@ import { TimeTableComponent } from './time-table/time-table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SharedModule } from '../shared/shared.module';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { ResultDetailsComponent } from './result-details/result-details.component';
+import { ReferencesComponent } from './references/references.component';
+import { SilabusComponent } from './silabus/silabus.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { SharedModule } from '../shared/shared.module';
     DashboardComponent,
     ExamResultComponent,
     StudentsAttendanceComponent,
-    TimeTableComponent
+    TimeTableComponent,
+    AccountSettingsComponent,
+    ResultDetailsComponent,
+    ReferencesComponent,
+    SilabusComponent
   ],
   imports: [
     CommonModule,

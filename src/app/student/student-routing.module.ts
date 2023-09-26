@@ -5,6 +5,10 @@ import { ExamResultComponent } from './exam-result/exam-result.component';
 import { StudentsAttendanceComponent } from './students-attendance/students-attendance.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { StudentComponent } from './student.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { ReferencesComponent } from './references/references.component';
+import { ResultDetailsComponent } from './result-details/result-details.component';
+import { SilabusComponent } from './silabus/silabus.component';
 
 const routes: Routes = [
   {
@@ -27,6 +31,18 @@ const routes: Routes = [
   },{
     path:'time-table',
     component:TimeTableComponent
+  },{
+    path:"account-setings",
+    component:AccountSettingsComponent
+  },{
+    path:"references",
+    component:ReferencesComponent
+  },{
+    path:"result-details",
+    component:ResultDetailsComponent
+  },{
+    path:"silabus",
+    component:SilabusComponent
   }]}
 ];
 

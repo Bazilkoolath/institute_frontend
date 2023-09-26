@@ -42,7 +42,7 @@
             <tbody>
                 <tr *ngFor="let item of  teacher_list; let i=index">
                     <th scope="row">{{i+1}}</th>
-                    <td>{{item?.name}}</td>
+                    <td><div (click)="teacherDetails(item?.id)">{{item?.name}}</div></td>
                     <td>{{item?.phone}}</td>
                     <td>{{item?.course}}</td>
                    <td>

@@ -6,6 +6,12 @@ import { StudentsFeeComponent } from './students-fee/students-fee.component';
 import { StudentsListViewComponent } from './students-list-view/students-list-view.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { TeacherComponent } from './teacher.component';
+import { ExamResultComponent } from './exam-result/exam-result.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { ReferencesComponent } from './references/references.component';
+import { ResultDetailsComponent } from './result-details/result-details.component';
+import { SilabusComponent } from './silabus/silabus.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
 
 const routes: Routes = [
   {
@@ -31,6 +37,24 @@ const routes: Routes = [
   },{
     path:'time-table',
     component:TimeTableComponent
+  },{
+    path:'exam-result',
+    component:ExamResultComponent
+  },{
+    path:"account-setings",
+    component:AccountSettingsComponent
+  },{
+    path:"references",
+    component:ReferencesComponent
+  },{
+    path:"result-details",
+    component:ResultDetailsComponent
+  },{
+    path:"silabus",
+    component:SilabusComponent
+  },{
+    path:"students-details",
+    component:StudentDetailComponent
   }]}
 ];
 

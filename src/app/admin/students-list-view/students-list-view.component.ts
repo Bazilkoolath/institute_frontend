@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-student.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-students-list-view',
@@ -31,6 +32,7 @@ export class StudentsListViewComponent implements OnInit {
   ]
   constructor(
     private _dialog:MatDialog,
+    private _router:Router
   ) { }
 
   ngOnInit(): void {
@@ -51,4 +53,12 @@ export class StudentsListViewComponent implements OnInit {
     });
   }
 
+  studentDetails(id:any){
+    console.log(id)
+     this._router.navigateByUrl('/admin/student-detail/'+id)
+  }
+
+  
+    
 }
+

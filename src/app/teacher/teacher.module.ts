@@ -10,6 +10,12 @@ import { TimeTableComponent } from './time-table/time-table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SharedModule } from '../shared/shared.module';
+import { ExamResultComponent } from './exam-result/exam-result.component';
+import { ResultDetailsComponent } from './result-details/result-details.component';
+import { ReferencesComponent } from './references/references.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { SilabusComponent } from './silabus/silabus.component';
 
 
 @NgModule({
@@ -21,7 +27,13 @@ import { SharedModule } from '../shared/shared.module';
     StudentsAttendanceComponent,
     StudentsFeeComponent,
     StudentsListViewComponent,
-    TimeTableComponent
+    TimeTableComponent,
+    ExamResultComponent,
+    ResultDetailsComponent,
+    ReferencesComponent,
+    StudentDetailComponent,
+    AccountSettingsComponent,
+    SilabusComponent
   ],
   imports: [
     CommonModule,

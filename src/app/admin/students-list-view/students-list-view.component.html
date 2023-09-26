@@ -32,7 +32,7 @@
             <thead>
                 <tr>
                     <th scope="col">Reg no</th>
-                    <th scope="col">Full name</th>
+                    <th scope="col">Full name </th>
                     <th scope="col">Mobile no</th>
                     <th scope="col">Course</th>
                     <th scope="col">Status</th>
@@ -42,7 +42,7 @@
             <tbody>
                 <tr *ngFor="let item of students_list; let i=index">
                     <th scope="row">{{i+1}}</th>
-                    <td>{{item?.name}}</td>
+                    <td><div (click)="studentDetails(item?.id)"> {{item?.name}}</div></td>
                     <td>{{item?.phone}}</td>
                     <td>{{item?.course}}</td>
                    <td>
@@ -52,7 +52,7 @@
                    </td>
                     <td style="color: gray;">
                         <a data-bs-toggle="modal" data-bs-target="#editModal" class="mr-4"><i
-                                class="fas fa-edit"></i></a>
+                            class="fas fa-edit"></i></a>
                         <a data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
