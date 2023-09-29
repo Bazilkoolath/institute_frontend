@@ -36,48 +36,11 @@ export class GeneralService {
     }
   }
 
-  set setTokenExpiryTime(token: any) {
-    localStorage.setItem('tokenExpiryTime', token)
-  }
 
-  get getTokenExpiryTime(){
-    if (localStorage.getItem('tokenExpiryTime')) {
-      return localStorage.getItem('tokenExpiryTime')
-    }
-    else {
-      return null
-    }
-  }
-
-  get getSigninWith() {
-    if (localStorage.getItem('amplify-signin-with-hostedUI')) {
-      let data:any=localStorage.getItem('amplify-signin-with-hostedUI')
-      return JSON.parse(data )
-    } else {
-      return null
-    }
-  }
 
   logOut() {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
 
-
-
-
-
-
-  set setCart(data: any) {
-    localStorage.setItem('cart', JSON.stringify(data))
-  }
-
-  get getCart() {
-    if (localStorage.getItem('cart')) {
-      let data:any=localStorage.getItem('cart')
-      return JSON.parse(data )
-    } else {
-      return null
-    }
-  }
 }

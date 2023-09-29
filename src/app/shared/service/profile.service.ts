@@ -27,7 +27,6 @@ export class ProfileService {
     private router: Router,
     private _generalService: GeneralService,
     private _dialog: MatDialog,
-    // private _toaster: ToastrService,
   ) { }
 
 
@@ -52,40 +51,17 @@ export class ProfileService {
         },
         error(err) {
           if(window?.location?.pathname!="/verify"){
-            $this.logout(false)
+            $this.logout()
           }
           $this.changeLoaderStatus.next(false)
         },
       })
   }
 
-  // userDetail() {
-  //   let dialogRef = this._dialog.open(UserProfileComponent, {
-  //     width: '400px',
-  //     height: '100%',
-  //     data: {
-  //       edit: true
-  //     },
-  //     position: {
-  //       top: '0px',
-  //       right: '0px',
-  //     },
-  //     enterAnimationDuration: '500ms',
-  //     direction: 'ltr',
-  //     panelClass: "side-popup"
-  //   });
-  // }
 
-  logout(saveCart?:boolean) {
-  //   if(saveCart){
-  //   this._cartService.saveCartToDB(true)
-  // }
-  //   this.profileData.next(null);   
-  //   this._generalService.logOut()
-    // window.location.href=`https://${environment.cognito.oauth.domain}/logout?client_id=${environment.cognito.userPoolWebClientId}&logout_uri=${environment.cognito.oauth.redirectSignOut}`
+
+  logout() {
+
   }
 
-  setLoaderStatus(status:boolean){
-    this.changeLoaderStatus.next(status)
-  }
 }

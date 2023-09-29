@@ -24,29 +24,27 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="card " style="width: 90%;">
               <div class="card-body py-5 px-md-5">
-                <form>
+                <form [formGroup]="loginForm">
                     <h3 class="my-5 display-4 fw-bold ls-tight">Sign up</h3>
                   <!-- Email input -->
                   <div class="form-outline mb-4">
-                    <input type="email" id="form3Example3" class="form-control" placeholder="user name"/>
-                    <!-- <label class="form-label" for="form3Example3">Email address</label> -->
+                    <input type="email"  class="form-control" formControlName="email" placeholder="user name"/>
                   </div>
   
                   <!-- Password input -->
                   <div class="form-outline mb-4">
-                    <input type="password" id="form3Example4" class="form-control" placeholder="password"/>
-                    <!-- <label class="form-label" for="form3Example4">Password</label> -->
+                    <input type="password" class="form-control" formControlName="password" placeholder="password"/>
                   </div>
   
                   
   
                   <!-- Submit button -->
-                  <button type="submit" class="btn btn-primary btn-block mb-4">
-                    Sign up
+                  <button type="submit" class="btn btn-primary btn-block mb-4" (click)="login(loginForm?.value)">
+                    Login
                   </button>
   
                   <!-- Register buttons -->
-                  <div class="text-center">
+                  <!-- <div class="text-center">
                     <p>or sign up with:</p>
                     <button type="button" class="btn btn-link btn-floating mx-1">
                       <i class="fab fa-facebook-f"></i>
@@ -63,7 +61,7 @@
                     <button type="button" class="btn btn-link btn-floating mx-1">
                       <i class="fab fa-github"></i>
                     </button>
-                  </div>
+                  </div> -->
                 </form>
               </div>
             </div>
