@@ -3,50 +3,31 @@
         <h5 class="modal-title" id="exampleModalLabel">Student registration</h5>
         <button type="button" class="btn-close" mat-dialog-close>x</button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" [formGroup]="studentForm" >
         <div class="form-outline mb-2">
             <label for="">Full Name</label>
-            <input type="text" id="form3Example3" class="form-control" placeholder="Full Name" />
-        </div>
-        <div class="form-outline mb-2">
-            <label for="">Gardian Name</label>
-            <input type="text" id="form3Example3" class="form-control" placeholder="Gardian Name" />
+            <input type="text" formControlName="name" class="form-control" placeholder="Full Name" />
         </div>
         <div class="form-outline mb-2">
             <label for="">Course</label>
-            <input type="text " id="form3Example3" class="form-control " placeholder="Course" />
+            <input type="text " formControlName="course" class="form-control " placeholder="Course" />
         </div>
         <div class="form-outline mb-2 ">
             <label for="">Date of Birth</label>
-            <input type="date" id="form3Example3" class="form-control" placeholder="DOB" />
+            <input type="date" formControlName="dob" class="form-control" placeholder="DOB" />
         </div>
         <div class="form-outline mb-2 ">
             <label for="">Phone number</label>
-            <input type="number" id="form3Example3" class="form-control" placeholder="Phone" />
-        </div>
-        <div class="form-outline mb-2 ">
-            <label for="">User name</label>
-            <input type="text" id="form3Example3" class="form-control" placeholder="User name" />
+            <input type="number" formControlName="phone" class="form-control" placeholder="Phone" />
         </div>
         <div class="form-outline mb-2 ">
             <label for="">Email</label>
-            <input type="password" id="form3Example3" class="form-control" placeholder="password" />
-        </div>
-        <div class="form-check">
-            <label class="mr-5" for="">Gender :</label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label mr-5" for="flexRadioDefault1">
-                Male
-            </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-            <label class="form-check-label" for="flexRadioDefault2">
-                Female
-            </label>
+            <input type="password" formControlName="email" class="form-control" placeholder="email" />
         </div>
 
     </div>
     <div class="d-flex gap-5 p-4">
         <button type="button" class="btn btn-secondary" mat-dialog-close>Close</button>
-        <button type="button" class="btn btn-primary ">Add Student </button>
+        <button type="button" class="btn btn-primary " (click)="addStudent(studentForm?.value)">Add Student </button>
     </div>
 </div>

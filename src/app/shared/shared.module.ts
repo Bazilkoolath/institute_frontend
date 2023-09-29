@@ -18,6 +18,7 @@ import { LoaderComponent } from './popup/loader/loader.component';
 import { WarningPopupComponent } from './popup/warning-popup/warning-popup.component';
 import { AddStudentComponent } from './popup/add-student/add-student.component';
 import { AddPaymentComponent } from './popup/add-payment/add-payment.component';
+import { AddTeacherComponent } from './popup/add-teacher/add-teacher.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AddPaymentComponent } from './popup/add-payment/add-payment.component';
     WarningPopupComponent,
     SearchFilterPipe,
     AddStudentComponent,
+    AddTeacherComponent,
     AddPaymentComponent,
   ],
   imports: [

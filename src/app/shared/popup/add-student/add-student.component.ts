@@ -14,7 +14,7 @@ import { api_constants } from '../../constants/api-constants';
 })
 export class AddStudentComponent implements OnInit {
   private unsubscribe = new Subject<void>();
-  loginForm: any = FormGroup
+  studentForm: any = FormGroup
   button_loader: boolean=false
   constructor(
     public _dialogRef: MatDialogRef<AddStudentComponent>,
@@ -23,15 +23,24 @@ export class AddStudentComponent implements OnInit {
     private _apiService: ApiService,
     private _generalService: GeneralService,
     private _profileService: ProfileService,) {
-      this.loginForm = this._form_builder.group({
+      this.studentForm = this._form_builder.group({
         email: [null, Validators.compose([Validators.required, Validators.email])],
-        password: [null, Validators.compose([Validators.required, Validators.minLength(8)])],
+        name: [null, Validators.required],
+        phone: [null, Validators.required],
+        course: [null, Validators.required],
+        dob: [null, Validators.required],
       })
      }
 
+     get f() {
+      return this.studentForm.controls;
+    }
+  
+
   ngOnInit(): void {
   }
-  login(data: any) {
+
+  addStudent(data: any) {
     this.button_loader = true
     const formData = new FormData();
     formData.append("email", data?.email);
