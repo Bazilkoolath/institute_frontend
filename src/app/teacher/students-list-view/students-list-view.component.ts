@@ -5,7 +5,7 @@ import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-studen
 @Component({
   selector: 'app-students-list-view',
   templateUrl: './students-list-view.component.html',
-  styleUrls: ['./students-list-view.component.css']
+  styleUrls: ['./students-list-view.component.scss']
 })
 export class StudentsListViewComponent implements OnInit {
   students_list:any[]=[

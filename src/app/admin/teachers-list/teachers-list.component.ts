@@ -7,7 +7,7 @@ import { AddTeacherComponent } from 'src/app/shared/popup/add-teacher/add-teache
 @Component({
   selector: 'app-teachers-list',
   templateUrl: './teachers-list.component.html',
-  styleUrls: ['./teachers-list.component.css']
+  styleUrls: ['./teachers-list.component.scss']
 })
 export class TeachersListComponent implements OnInit {
   teacher_list:any[]=[
