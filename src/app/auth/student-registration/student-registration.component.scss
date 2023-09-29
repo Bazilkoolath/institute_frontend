@@ -17,3 +17,12 @@
     margin-top: -24px;
     margin-left: 160px;
 }
+
+.link{
+    color: rgb(35, 97, 240);
+    font-weight: 600;
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}

@@ -10,13 +10,14 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex gap-50" [ngClass]="{'row-1':i%2==0,'row-2':i%2!=0}" *ngFor="let item of results;let i=index">
-            <span scope="row">{{i+1}}</span>
-            <span>{{item?.name}}</span>
-            <span>{{item?.published_date}} </span>
-            <span>
-                more..
-            </span>
-        </div>
+        <table>
+            <tr class="d-flex gap-50 row-div" [ngClass]="{'row-1':i%2==0,'row-2':i%2!=0}" *ngFor="let item of results;let i=index">
+                <td scope="row">{{i+1}}</td>
+               <td class="w-100 d-flex gap-50 justify-content-between">
+                    <div class="title">{{item?.name}}</div>
+                    <div>{{item?.published_date}} </div>
+               </td>
+            </tr>
+        </table>
     </div>
 </div>
