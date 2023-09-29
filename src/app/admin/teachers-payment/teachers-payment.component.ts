@@ -5,7 +5,7 @@ import { AddPaymentComponent } from 'src/app/shared/popup/add-payment/add-paymen
 @Component({
   selector: 'app-teachers-payment',
   templateUrl: './teachers-payment.component.html',
-  styleUrls: ['./teachers-payment.component.css']
+  styleUrls: ['./teachers-payment.component.scss']
 })
 export class TeachersPaymentComponent implements OnInit {
   teacherfee:any[]=[

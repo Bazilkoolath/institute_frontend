@@ -7,13 +7,13 @@ import { GeneralService } from 'src/app/shared/service/general.service';
 import { ProfileService } from 'src/app/shared/service/profile.service';
 
 @Component({
-  selector: 'app-teacher-login',
-  templateUrl: './teacher-login.component.html',
-  styleUrls: ['./teacher-login.component.scss']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.scss']
 })
-export class TeacherLoginComponent {
+export class AdminLoginComponent {
   private unsubscribe = new Subject<void>();
-  teacherLoginForm: any = FormGroup
+  adminLoginForm: any = FormGroup
   toggle_icon: boolean = false
   button_loader: boolean = false
   submited: boolean = false
@@ -24,7 +24,7 @@ export class TeacherLoginComponent {
     private _generalService: GeneralService,
     private _profileService: ProfileService,
   ) {
-    this.teacherLoginForm = this._form_builder.group({
+    this.adminLoginForm = this._form_builder.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
       password: [null, Validators.compose([Validators.required, Validators.minLength(8)])],
     })
@@ -34,14 +34,14 @@ export class TeacherLoginComponent {
   }
 
   get f() {
-    return this.teacherLoginForm.controls;
+    return this.adminLoginForm.controls;
   }
 
   changePasswordView() {
     this.toggle_icon = !this.toggle_icon
   }
 
-  teacherLogin(data: any) {
+  adminLogin(data: any) {
     // this.button_loader = true
     // const formData = new FormData();
     // formData.append("email", data?.email);
@@ -59,10 +59,13 @@ export class TeacherLoginComponent {
     //       $this.button_loader = false
     //     },
     //   })
-    this._router.navigateByUrl('/teacher')
+    this._router.navigateByUrl('/admin')
   }
 
 
 
 
 }
+
+
+

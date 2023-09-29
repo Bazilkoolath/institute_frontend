@@ -24,7 +24,7 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="card " style="width: 90%;">
               <div class="card-body py-5 px-md-5">
-                <form [formGroup]="teacherLoginForm">
+                <form [formGroup]="adminLoginForm">
                     <h3 class="my-5 display-4 fw-bold ls-tight">Sign up</h3>
                   <!-- Email input -->
                   <div class="form-outline mb-4">
@@ -39,7 +39,7 @@
                   
   
                   <!-- Submit button -->
-                  <button type="submit" class="btn btn-primary btn-block mb-4" (click)="teacherLogin(teacherLoginForm?.value)">
+                  <button type="submit" class="btn btn-primary btn-block mb-4" (click)="adminLogin(adminLoginForm?.value)">
                     Login
                   </button>
   
