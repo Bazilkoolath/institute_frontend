@@ -16,7 +16,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    // ToastrModule.forRoot({ preventDuplicates: true }),
+    ToastrModule.forRoot({ preventDuplicates: true }),
     HttpClientModule,
     SharedModule
   ],

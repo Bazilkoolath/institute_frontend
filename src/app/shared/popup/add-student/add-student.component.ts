@@ -6,6 +6,7 @@ import { ApiService } from '../../service/api.service';
 import { GeneralService } from '../../service/general.service';
 import { ProfileService } from '../../service/profile.service';
 import { api_constants } from '../../constants/api-constants';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-student',
@@ -22,7 +23,9 @@ export class AddStudentComponent implements OnInit {
     private _form_builder: FormBuilder,
     private _apiService: ApiService,
     private _generalService: GeneralService,
-    private _profileService: ProfileService,) {
+    private _profileService: ProfileService,
+    private _toaster:ToastrService
+    ) {
       this.studentForm = this._form_builder.group({
         email: [null, Validators.compose([Validators.required, Validators.email])],
         name: [null, Validators.required],
@@ -42,20 +45,24 @@ export class AddStudentComponent implements OnInit {
 
   addStudent(data: any) {
     this.button_loader = true
-    const formData = new FormData();
-    formData.append("email", data?.email);
-    formData.append("password", data?.password);
+    let body={
+      name:data?.name,
+      email:data?.email,
+      mobile_no: data?.phone,
+      course: data?.course,
+      dob: data?.dob
+    }
     let $this = this
-    this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.login, formData)
+    this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.inviteStudent, body)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe({
         next(response:any) {
-          // $this._profileService.getProfileData(data?.email, true)
-          // $this.button_loader = false
-          // $this._dialogRef.close()
+          $this._toaster.success("success")
+          $this.button_loader = false
+          $this._dialogRef.close()
         }, error(err:any) {
           console.log(err)
-          // $this._toaster.error(err?.error?.detail)
+          $this._toaster.error(err)
           $this.button_loader = false
         },
       })
