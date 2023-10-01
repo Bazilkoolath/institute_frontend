@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { api_constants } from 'src/app/shared/constants/api-constants';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { GeneralService } from 'src/app/shared/service/general.service';
 import { ProfileService } from 'src/app/shared/service/profile.service';
@@ -18,12 +19,15 @@ export class SetPasswordComponent {
   toggle_icon: boolean = false
   button_loader: boolean = false
   submited: boolean = false
+  email:any
+  userId:any
   constructor(
     private _form_builder: FormBuilder,
     private _router: Router,
     private _apiService: ApiService,
     private _generalService: GeneralService,
     private _profileService: ProfileService,
+    private _activatedRoute: ActivatedRoute,
   ) {
     this.setPasswordForm = this._form_builder.group({
       password: [null, Validators.compose([Validators.required, Validators.minLength(8)])],
@@ -32,6 +36,12 @@ export class SetPasswordComponent {
   }
 
   ngOnInit(): void {
+    this._activatedRoute.params.subscribe((params:any)=>{
+      this.userId=params.id
+    })
+    this._activatedRoute.queryParams.subscribe((params:any)=>{
+      this.email=params.email
+    })
   }
 
   get f() {
@@ -43,23 +53,24 @@ export class SetPasswordComponent {
   }
 
   setPassword(data: any) {
-    // this.button_loader = true
-    // const formData = new FormData();
-    // formData.append("email", data?.email);
-    // formData.append("password", data?.password);
-    // let $this = this
-    // this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.login, formData)
-    //   .pipe(takeUntil(this.unsubscribe))
-    //   .subscribe({
-    //     next(response:any) {
-    //       $this._generalService.setAccessToken=response?.access_token
-    //       $this._profileService.getProfileData(data?.email, true)
-    //       // $this.button_loader = false
-    //     }, error(err:any) {
-    //       console.log(err)
-    //       $this.button_loader = false
-    //     },
-    //   })
+    this.button_loader = true
+   let body={
+    email:this.email,
+    password:data.password
+   }
+    let $this = this
+    this._apiService.ExecutePatch(this._apiService.baseUrl + api_constants.setPassword + this.userId, body)
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe({
+        next(response:any) {
+          $this._generalService.setAccessToken=response?.access_token
+          $this._profileService.getProfileData(data?.email, true)
+          // $this.button_loader = false
+        }, error(err:any) {
+          console.log(err)
+          $this.button_loader = false
+        },
+      })
     this._router.navigateByUrl('/')
   }
 }

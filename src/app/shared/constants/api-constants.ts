@@ -5,6 +5,7 @@ export const api_constants = Object.freeze({
     inviteStudent:"auth/invite-student",
     register:"register/",
     login:"login/",
+    setPassword:"set-password/",
     forgetPassword:"forget_password/",
     resetPassword:"reset_password/",
     changePassword:"change_password/",

@@ -29,7 +29,7 @@ const routes: Routes = [
     path:'admin-login',
     component:AdminLoginComponent
   },{
-    path:'set-password',
+    path:'set-password/:id',
     component:SetPasswordComponent
   }]}
 ];
