@@ -5,6 +5,7 @@ import { StudentRegistrationComponent } from './student-registration/student-reg
 import { AuthComponent } from './auth.component';
 import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { SetPasswordComponent } from './set-password/set-password.component';
 
 const routes: Routes = [
   {
@@ -27,10 +28,13 @@ const routes: Routes = [
   },{
     path:'admin-login',
     component:AdminLoginComponent
+  },{
+    path:'set-password',
+    component:SetPasswordComponent
   }]}
 ];
 
-@NgModule({
+@NgModule({ 
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
