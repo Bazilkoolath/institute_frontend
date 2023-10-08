@@ -19,9 +19,6 @@ export class ProfileService {
   currentUser$: Observable<any> = this.profileData.asObservable().pipe(
     filter(value => Boolean(value))
   );
-
-  private changeLoaderStatus=new BehaviorSubject(false)
-  currentLoaderStatus=this.changeLoaderStatus.asObservable();
   constructor(
     private apiService: ApiService,
     private router: Router,
@@ -30,8 +27,7 @@ export class ProfileService {
   ) { }
 
 
-  getProfileData(email: string, isRedirect?: boolean, signInWithSocial?: boolean) {
-    this.changeLoaderStatus.next(true)
+  getUser(email: string, isRedirect?: boolean) {
     let $this = this
     this.apiService
       .ExecuteGet(this.apiService.baseUrl + api_constants.getUserDetail)
@@ -39,21 +35,42 @@ export class ProfileService {
         next(response: any) {
           $this.profileData.next(response);
           $this._generalService.setUser = response
-          $this.changeLoaderStatus.next(false)
-          if(environment.production){
-          pendo.initialize({
-            account: {
-              id: email,
-              name: response?.contact?.contact_person,
-            }
-          })
-        }
+          $this.router.navigateByUrl('student/dashboard')
         },
         error(err) {
-          if(window?.location?.pathname!="/verify"){
             $this.logout()
-          }
-          $this.changeLoaderStatus.next(false)
+        },
+      })
+  }
+
+  getAdmin(email: string, isRedirect?: boolean) {
+    let $this = this
+    this.apiService
+      .ExecuteGet(this.apiService.baseUrl + api_constants.getAdminDetail)
+      .subscribe({
+        next(response: any) {
+          $this.profileData.next(response);
+          $this._generalService.setUser = response
+          $this.router.navigateByUrl('student/dashboard')
+        },
+        error(err) {
+            $this.logout()
+        },
+      })
+  }
+
+  getTeacher(email: string, isRedirect?: boolean) {
+    let $this = this
+    this.apiService
+      .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherDetail)
+      .subscribe({
+        next(response: any) {
+          $this.profileData.next(response);
+          $this._generalService.setUser = response
+          $this.router.navigateByUrl('student/dashboard')
+        },
+        error(err) {
+            $this.logout()
         },
       })
   }
@@ -61,7 +78,7 @@ export class ProfileService {
 
 
   logout() {
-
+this._generalService.logOut()
   }
 
 }

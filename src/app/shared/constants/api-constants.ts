@@ -4,13 +4,13 @@ export const api_constants = Object.freeze({
     inviteTeacher:"auth/invite-teacher",
     inviteStudent:"auth/invite-student",
     register:"register/",
-    login:"login/",
-    setPassword:"set-password/",
+    login:"auth/login/",
+    setPassword:"auth/set-password/",
     forgetPassword:"forget_password/",
     resetPassword:"reset_password/",
     changePassword:"change_password/",
     // user APIs
-    getUserDetail:"contact-users/",
-    postUserDetail:"contacts-users/",
-    updateUserDetail:"contacts/contact_update/",
+    getUserDetail:"student/user-detail/",
+    getAdminDetail:"admin-detail/",
+    getTeacherDetail:"teacher-detail/",
 })

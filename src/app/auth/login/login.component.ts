@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { api_constants } from 'src/app/shared/constants/api-constants';
+import { Role } from 'src/app/shared/constants/enum';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { GeneralService } from 'src/app/shared/service/general.service';
 import { ProfileService } from 'src/app/shared/service/profile.service';
@@ -43,23 +44,32 @@ export class LoginComponent implements OnInit {
   }
 
   login(data: any) {
-    // this.button_loader = true
-    // const formData = new FormData();
-    // formData.append("email", data?.email);
-    // formData.append("password", data?.password);
-    // let $this = this
-    // this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.login, formData)
-    //   .pipe(takeUntil(this.unsubscribe))
-    //   .subscribe({
-    //     next(response:any) {
-    //       $this._generalService.setAccessToken=response?.access_token
-    //       $this._profileService.getProfileData(data?.email, true)
-    //       // $this.button_loader = false
-    //     }, error(err:any) {
-    //       console.log(err)
-    //       $this.button_loader = false
-    //     },
-    //   })
+    this.button_loader = true
+    let body={
+      email:data?.email,
+      password:data?.password,
+    }
+    let $this = this
+    this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.login, body)
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe({
+        next(response:any) {
+          $this._generalService.setAccessToken=response?.result?.profile_id
+          if(response?.result?.role==Role.USER){
+          $this._profileService.getUser(data?.email, true)
+        }else if(response?.result?.role==Role.ADMIN){
+          $this._profileService.getAdmin(data?.email, true)
+        }else if(response?.result?.role==Role.TEACHER){
+          $this._profileService.getTeacher(data?.email, true)
+        }else{
+           return
+        }
+          // $this.button_loader = false
+        }, error(err:any) {
+          console.log(err)
+          $this.button_loader = false
+        },
+      })
     this._router.navigateByUrl('/student')
   }
 

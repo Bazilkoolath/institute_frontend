@@ -1,7 +1,8 @@
 export enum Role {
-    BUYER='buyer',
-    SELLER='seller',
-    PARTNER='partner',
+    USER='user',
+    ADMIN='admin',
+    SUBADMIN='subadmin',
+    TEACHER='teacher',
 }
 
 export enum Auth {
@@ -11,29 +12,4 @@ export enum Auth {
     RESET_PASSWORD = 'reset_password',
 }
 
-export enum Scope {
-    PRODUCT = 'product',
-    SERVICE = 'service',
-    SYSTEM_INTEGRATORS = 'system_integrators'
-}
-
-export enum Rfp_staus {
-    ACTIVE='active',
-    PENDING='pending',
-    CLOSED='closed'
-}
-
-export enum seller_staus {
-    ACTIVE='active',
-    PENDING='pending',
-    CLOSED='closed'
-}
-
-export enum Supplier_response {
-    ACTIVE='active',
-    SHORTLIST='shortlist',
-    SELECTED='selected',
-    REJECTED='rejected',
-    DECLINED='declined'
-}
 

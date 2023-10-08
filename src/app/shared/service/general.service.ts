@@ -11,7 +11,7 @@ export class GeneralService {
   ) { }
 
   set setAccessToken(token: any) {
-    localStorage.setItem('cc_access_token', token)
+    localStorage.setItem('access_token', token)
   }
 
   set setUser(user: any) {
@@ -28,8 +28,8 @@ export class GeneralService {
   }
 
   get getAccessToken() {
-    if (localStorage.getItem('cc_access_token')) {
-      return localStorage.getItem('cc_access_token')
+    if (localStorage.getItem('access_token')) {
+      return localStorage.getItem('access_token')
     }
     else {
       return null

@@ -54,6 +54,10 @@ export class SetPasswordComponent {
 
   setPassword(data: any) {
     this.button_loader = true
+    if(data?.password!=data.confirmpassword){
+      alert("enter correct confirm password")
+      return
+    }
    let body={
     email:this.email,
     password:data.password
@@ -63,8 +67,7 @@ export class SetPasswordComponent {
       .pipe(takeUntil(this.unsubscribe))
       .subscribe({
         next(response:any) {
-          $this._generalService.setAccessToken=response?.access_token
-          $this._profileService.getProfileData(data?.email, true)
+          $this._router.navigateByUrl('login')
           // $this.button_loader = false
         }, error(err:any) {
           console.log(err)
