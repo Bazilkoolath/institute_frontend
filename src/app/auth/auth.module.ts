@@ -8,6 +8,7 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { SharedModule } from '../shared/shared.module';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { SetPasswordComponent } from './set-password/set-password.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SetPasswordComponent } from './set-password/set-password.component';
     StudentRegistrationComponent,
     TeacherLoginComponent,
     AdminLoginComponent,
-    SetPasswordComponent
+    SetPasswordComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

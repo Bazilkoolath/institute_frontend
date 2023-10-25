@@ -6,6 +6,7 @@ import { AuthComponent } from './auth.component';
 import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { SetPasswordComponent } from './set-password/set-password.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,11 @@ const routes: Routes = [
     component:AuthComponent,
     children:[  {
       path:"",
-      redirectTo:"login",
+      redirectTo:"home",
       pathMatch:"full"
+    }, {
+      path:"home",
+      component:HomeComponent
     },
   {
     path:"login",
@@ -31,6 +35,9 @@ const routes: Routes = [
   },{
     path:'set-password/:id',
     component:SetPasswordComponent
+  },{
+    path:'student-register',
+    component:StudentRegistrationComponent
   }]}
 ];
 
