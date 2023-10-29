@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { api_constants } from 'src/app/shared/constants/api-constants';
 import { AddTeacherComponent } from 'src/app/shared/popup/add-teacher/add-teacher.component';
+import { ApiService } from 'src/app/shared/service/api.service';
 
 
 @Component({
@@ -10,35 +12,32 @@ import { AddTeacherComponent } from 'src/app/shared/popup/add-teacher/add-teache
   styleUrls: ['./teachers-list.component.scss']
 })
 export class TeachersListComponent implements OnInit {
-  teacher_list:any[]=[
-    {
-      id:1,
-      name:"teacher1",
-      phone:"0548448",
-      course:"sd",
-      status:"active"
-    },{
-      id:2,
-      name:"teacher2",
-      phone:"0548448",
-      course:"sd",
-      status:"pending"
-    },{
-      id:3,
-      name:"teacher3",
-      phone:"0548448",
-      course:"sd",
-      status:"deactivated"
-    }
-  ]
+  teacher_list:any[]=[]
 
   constructor(
     private _dialog:MatDialog,
-    private _router:Router
-  ) { }
+    private _router:Router,
+    private apiService: ApiService,
+) { }
 
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+  this.getStudents()
+}
+
+
+getStudents() {
+  let $this = this
+  this.apiService
+    .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherList)
+    .subscribe({
+      next(response: any) {
+        $this.teacher_list=response?.result?.data
+      },
+      error(err) {
+      },
+    })
+}
+
   addTeacher(){
     let dialogRef = this._dialog.open(AddTeacherComponent, {
       width: '400px',

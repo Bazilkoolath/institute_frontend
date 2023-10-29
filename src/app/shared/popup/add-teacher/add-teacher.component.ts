@@ -49,7 +49,7 @@ export class AddTeacherComponent implements OnInit {
       dob: data?.dob
     }
     let $this = this
-    this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.inviteStudent, body)
+    this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.inviteTeacher, body)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe({
         next(response:any) {

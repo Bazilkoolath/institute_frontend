@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-student.component';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/service/api.service';
+import { api_constants } from 'src/app/shared/constants/api-constants';
 
 @Component({
   selector: 'app-students-list-view',
@@ -9,34 +11,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./students-list-view.component.scss']
 })
 export class StudentsListViewComponent implements OnInit {
-  students_list:any[]=[
-    {
-      id:1,
-      name:"basil",
-      phone:"0548448",
-      course:"sd",
-      status:"active"
-    },{
-      id:2,
-      name:"sahal",
-      phone:"0548448",
-      course:"sd",
-      status:"pending"
-    },{
-      id:3,
-      name:"sahal",
-      phone:"0548448",
-      course:"sd",
-      status:"deactivated"
-    }
-  ]
+  students_list:any[]=[]
   constructor(
     private _dialog:MatDialog,
-    private _router:Router
-  ) { }
+    private _router:Router,
+    private apiService: ApiService,
+) { }
 
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+  this.getStudents()
+}
+
+
+getStudents() {
+  let $this = this
+  this.apiService
+    .ExecuteGet(this.apiService.baseUrl + api_constants.getStudentList)
+    .subscribe({
+      next(response: any) {
+        $this.students_list=response?.result?.data
+      },
+      error(err) {
+      },
+    })
+}
 
   addStudent(){
     let dialogRef = this._dialog.open(AddStudentComponent, {
@@ -51,6 +49,7 @@ export class StudentsListViewComponent implements OnInit {
       direction: 'ltr',
       panelClass: "side-popup"
     });
+    
   }
 
   studentDetails(id:any){

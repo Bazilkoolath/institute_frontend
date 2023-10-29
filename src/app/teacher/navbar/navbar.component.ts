@@ -45,6 +45,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    this._router.navigateByUrl("")
   }
 
   navigation(url: any) {
