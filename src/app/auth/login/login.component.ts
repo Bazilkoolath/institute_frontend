@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Subject, takeUntil } from 'rxjs';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { Role } from 'src/app/shared/constants/enum';
@@ -25,10 +26,11 @@ export class LoginComponent implements OnInit {
     private _apiService: ApiService,
     private _generalService: GeneralService,
     private _profileService: ProfileService,
+    private _toasterService:ToastrService
   ) {
     this.loginForm = this._form_builder.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: [null, Validators.compose([Validators.required, Validators.minLength(8)])],
+      password: [null, Validators.compose([Validators.required])],
     })
   }
 
@@ -49,28 +51,24 @@ export class LoginComponent implements OnInit {
       email:data?.email,
       password:data?.password,
     }
+    console.log(body)
     let $this = this
     this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.login, body)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe({
         next(response:any) {
+          console.log(response)
           $this._generalService.setAccessToken=response?.result?.profile_id
-          if(response?.result?.role==Role.USER){
-          $this._profileService.getUser(data?.email, true)
-        }else if(response?.result?.role==Role.ADMIN){
-          $this._profileService.getAdmin(data?.email, true)
-        }else if(response?.result?.role==Role.TEACHER){
-          $this._profileService.getTeacher(data?.email, true)
-        }else{
-           return
-        }
+          $this._generalService.setRole=response?.result?.role
+          $this._profileService.getUser(response?.result?.role)
+      
           // $this.button_loader = false
         }, error(err:any) {
-          console.log(err)
+          console.log("error",err)
+          $this._toasterService.error(err?.error?.message||"login faild, enter valid credentiol")
           $this.button_loader = false
         },
       })
-    this._router.navigateByUrl('/student')
   }
 
 

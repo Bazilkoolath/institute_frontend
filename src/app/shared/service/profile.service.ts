@@ -8,6 +8,7 @@ import { api_constants } from '../constants/api-constants';
 import { MatDialog } from '@angular/material/dialog';
 // import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 declare var pendo: any;
 
 @Injectable({
@@ -24,52 +25,30 @@ export class ProfileService {
     private router: Router,
     private _generalService: GeneralService,
     private _dialog: MatDialog,
+    private _toasterService:ToastrService
   ) { }
 
 
-  getUser(email: string, isRedirect?: boolean) {
+  getUser(role: string) {
     let $this = this
     this.apiService
       .ExecuteGet(this.apiService.baseUrl + api_constants.getUserDetail)
       .subscribe({
         next(response: any) {
           $this.profileData.next(response);
-          $this._generalService.setUser = response
-          $this.router.navigateByUrl('student/dashboard')
+          $this._generalService.setUser = response?.result
+          if(response?.result?.role==Role.STUDENT){
+            $this.router.navigateByUrl('student/dashboard')
+          }else if(response?.result?.role==Role.ADMIN){
+            $this.router.navigateByUrl('admin/dashboard')
+          }else if(response?.result?.role==Role.TEACHER){
+            $this.router.navigateByUrl('teacher/dashboard')
+          }else{
+             return
+          }
         },
         error(err) {
-            $this.logout()
-        },
-      })
-  }
-
-  getAdmin(email: string, isRedirect?: boolean) {
-    let $this = this
-    this.apiService
-      .ExecuteGet(this.apiService.baseUrl + api_constants.getAdminDetail)
-      .subscribe({
-        next(response: any) {
-          $this.profileData.next(response);
-          $this._generalService.setUser = response
-          $this.router.navigateByUrl('student/dashboard')
-        },
-        error(err) {
-            $this.logout()
-        },
-      })
-  }
-
-  getTeacher(email: string, isRedirect?: boolean) {
-    let $this = this
-    this.apiService
-      .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherDetail)
-      .subscribe({
-        next(response: any) {
-          $this.profileData.next(response);
-          $this._generalService.setUser = response
-          $this.router.navigateByUrl('student/dashboard')
-        },
-        error(err) {
+          $this._toasterService.error(err?.error?.message||"login faild, enter valid credentiol")
             $this.logout()
         },
       })

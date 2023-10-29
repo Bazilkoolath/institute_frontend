@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path:"",
-    redirectTo:"",
+    redirectTo:"home",
     pathMatch:"full"
+  },{
+    path:"home", 
+    component:HomeComponent
   },
-{
+  {
     path:"student", 
     loadChildren: () => import('./student/student.module').then(module => module.StudentModule)
   },{
@@ -16,8 +20,7 @@ const routes: Routes = [
   },{
     path:"admin",
     loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule)
-  },
-  {
+  },{
     path:"",
     loadChildren: () => import('./auth/auth.module').then(module => module.AuthModule)
   },

@@ -18,6 +18,10 @@ export class GeneralService {
     localStorage.setItem('user', JSON.stringify(user))
   }
 
+  set setRole(user: any) {
+    localStorage.setItem('role', JSON.stringify(user))
+  }
+
   get getUser() {
     if (localStorage.getItem('user')) {
       let data:any=localStorage.getItem('user')
@@ -36,7 +40,14 @@ export class GeneralService {
     }
   }
 
-
+  get getRole() {
+    if (localStorage.getItem('role')) {
+      let data:any=localStorage.getItem('role')
+      return JSON.parse(data )
+    } else {
+      return null
+    }
+  }
 
   logOut() {
     localStorage.clear();

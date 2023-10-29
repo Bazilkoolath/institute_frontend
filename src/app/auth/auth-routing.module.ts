@@ -3,10 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { StudentRegistrationComponent } from './student-registration/student-registration.component';
 import { AuthComponent } from './auth.component';
-import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { SetPasswordComponent } from './set-password/set-password.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
   {
@@ -14,11 +12,8 @@ const routes: Routes = [
     component:AuthComponent,
     children:[  {
       path:"",
-      redirectTo:"home",
+      redirectTo:"login",
       pathMatch:"full"
-    }, {
-      path:"home",
-      component:HomeComponent
     },
   {
     path:"login",
@@ -26,12 +21,6 @@ const routes: Routes = [
   },{
     path:'sign-up',
     component:StudentRegistrationComponent
-  },{
-    path:'teacher-login',
-    component:TeacherLoginComponent
-  },{
-    path:'admin-login',
-    component:AdminLoginComponent
   },{
     path:'set-password/:id',
     component:SetPasswordComponent

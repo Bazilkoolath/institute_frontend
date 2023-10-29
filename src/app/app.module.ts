@@ -6,13 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { TokenInterceptor } from './shared/interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-   
-  
-   
+    HomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -23,11 +23,11 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     SharedModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true,
-    // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })

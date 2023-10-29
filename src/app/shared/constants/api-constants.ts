@@ -10,7 +10,7 @@ export const api_constants = Object.freeze({
     resetPassword:"reset_password/",
     changePassword:"change_password/",
     // user APIs
-    getUserDetail:"student/user-detail/",
+    getUserDetail:"auth/profile/",
     getAdminDetail:"admin-detail/",
     getTeacherDetail:"teacher-detail/",
 })
