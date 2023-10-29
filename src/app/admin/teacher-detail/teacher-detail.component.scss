@@ -1,0 +1,44 @@
+.section-about .section-box {
+    padding: 0;
+}
+.grid-box, .post-box, .price-box, .section-box, .calendar-busy, .timeline-box-inner, .sidebar-default .profile-photo img {
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+.section-box {
+    padding: 40px 50px;
+}
+.desktop .animate-up {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translate(0, 100px);
+    -moz-transform: translate(0, 100px);
+    transform: translate(0, 100px);
+}
+.col-xs-5 {
+    width: 41.66667%;
+}
+.section-about .profile-photo {
+    margin-right: 10%;
+    margin-bottom: 10px;
+}
+.col-xs-7 {
+    width: 58.33333%;
+}
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.section-about .profile {
+    padding: 57px 50px 15px 50px;
+}
+.profile-list .title {
+    display: block;
+    width: 120px;
+    float: left;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+}
