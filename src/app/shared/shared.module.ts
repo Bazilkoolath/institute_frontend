@@ -19,6 +19,7 @@ import { WarningPopupComponent } from './popup/warning-popup/warning-popup.compo
 import { AddStudentComponent } from './popup/add-student/add-student.component';
 import { AddPaymentComponent } from './popup/add-payment/add-payment.component';
 import { AddTeacherComponent } from './popup/add-teacher/add-teacher.component';
+import { AddAdminComponent } from './popup/add-admin/add-admin.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AddTeacherComponent } from './popup/add-teacher/add-teacher.component';
     AddStudentComponent,
     AddTeacherComponent,
     AddPaymentComponent,
+    AddAdminComponent,
   ],
   imports: [
     CommonModule,
