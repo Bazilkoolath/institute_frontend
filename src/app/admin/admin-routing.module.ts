@@ -14,7 +14,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { ReferencesComponent } from './references/references.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
 import { SilabusComponent } from './silabus/silabus.component';
-import { SubAdminsComponent } from './sub-admins/sub-admins.component';
+import { BatchesComponent } from './batches/batches.component';
+import { ExamsComponent } from './exams/exams.component';
 
 
 const routes: Routes = [
@@ -36,8 +37,11 @@ const routes: Routes = [
     path:"teachers-list",
     component:TeachersListComponent
   },{
-    path:"sub-admins",
-    component:SubAdminsComponent
+    path:"batch",
+    component:BatchesComponent
+  },{
+    path:"exams",
+    component:ExamsComponent
   },{
     path:"students-payment",
     component:StudentsFeeComponent

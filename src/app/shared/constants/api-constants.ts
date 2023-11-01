@@ -14,4 +14,5 @@ export const api_constants = Object.freeze({
     getStudentList:"admin/get-student-list/",
     getTeacherList:"admin/get-teacher-list/",
     getTeacherDetail:"teacher-detail/",
+    
 })

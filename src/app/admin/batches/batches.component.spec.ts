@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubAdminsComponent } from './sub-admins.component';
+import { BatchesComponent } from './batches.component';
 
-describe('SubAdminsComponent', () => {
-  let component: SubAdminsComponent;
-  let fixture: ComponentFixture<SubAdminsComponent>;
+describe('BatchesComponent', () => {
+  let component: BatchesComponent;
+  let fixture: ComponentFixture<BatchesComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SubAdminsComponent]
+      declarations: [BatchesComponent]
     });
-    fixture = TestBed.createComponent(SubAdminsComponent);
+    fixture = TestBed.createComponent(BatchesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
