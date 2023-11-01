@@ -13,24 +13,22 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { SearchFilterPipe } from './pipe/search-filter.pipe';
-import { InfoPopupComponent } from './popup/info-popup/info-popup.component';
-import { LoaderComponent } from './popup/loader/loader.component';
-import { WarningPopupComponent } from './popup/warning-popup/warning-popup.component';
 import { AddStudentComponent } from './popup/add-student/add-student.component';
 import { AddPaymentComponent } from './popup/add-payment/add-payment.component';
 import { AddTeacherComponent } from './popup/add-teacher/add-teacher.component';
 import { AddAdminComponent } from './popup/add-admin/add-admin.component';
+import { AddExamComponent } from './popup/add-exam/add-exam.component';
+import { AddBatchComponent } from './popup/add-batch/add-batch.component';
 
 @NgModule({
   declarations: [
-    InfoPopupComponent,
-    LoaderComponent,
-    WarningPopupComponent,
     SearchFilterPipe,
     AddStudentComponent,
     AddTeacherComponent,
     AddPaymentComponent,
     AddAdminComponent,
+    AddExamComponent,
+    AddBatchComponent,
   ],
   imports: [
     CommonModule,
@@ -61,13 +59,12 @@ import { AddAdminComponent } from './popup/add-admin/add-admin.component';
     MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
-    InfoPopupComponent,
-    LoaderComponent,
-    WarningPopupComponent,
     SearchFilterPipe,
     AddStudentComponent,
     AddPaymentComponent,
-    FullCalendarModule
+    FullCalendarModule,
+    AddExamComponent,
+    AddBatchComponent
   ]
 })
 export class SharedModule { }

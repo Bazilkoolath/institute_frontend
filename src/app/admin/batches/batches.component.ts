@@ -28,7 +28,7 @@ ngOnInit(): void {
 getStudents() {
   let $this = this
   this.apiService
-    .ExecuteGet(this.apiService.baseUrl + api_constants.getStudentList)
+    .ExecuteGet(this.apiService.baseUrl + api_constants.getBatchList)
     .subscribe({
       next(response: any) {
         $this.students_list=response?.result?.data

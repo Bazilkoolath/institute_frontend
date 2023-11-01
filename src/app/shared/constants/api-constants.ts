@@ -13,6 +13,11 @@ export const api_constants = Object.freeze({
     getUserDetail:"auth/profile/",
     getStudentList:"admin/get-student-list/",
     getTeacherList:"admin/get-teacher-list/",
-    getTeacherDetail:"teacher-detail/",
-    
+    getTeacherDetail:"admin/teacher-detail/",
+    createExam:"admin/create-exam",
+    createBatch:"admin/create-course-batch",
+    getBatchList:"admin/get-batch-list/",
+    getBatchDetail:"admin/get-batch-detail/",
+    getExamList:"admin/get-exam-list/",
+    getExamDetail:"admin/get-exam-detail/",
 })
