@@ -18,7 +18,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { ResultDetailsComponent } from './result-details/result-details.component';
 import { ReferencesComponent } from './references/references.component';
 import { SilabusComponent } from './silabus/silabus.component';
-import { SubAdminsComponent } from './sub-admins/sub-admins.component';
+import { BatchesComponent } from './batches/batches.component';
+import { ExamsComponent } from './exams/exams.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { SubAdminsComponent } from './sub-admins/sub-admins.component';
     ResultDetailsComponent,
     ReferencesComponent,
     SilabusComponent,
-    SubAdminsComponent
+    BatchesComponent,
+    ExamsComponent,
   ],
   imports: [
     CommonModule,

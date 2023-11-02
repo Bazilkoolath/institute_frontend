@@ -4,6 +4,7 @@ import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-studen
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
+import { UserStatus } from 'src/app/shared/constants/enum';
 
 @Component({
   selector: 'app-students-list-view',
@@ -12,6 +13,7 @@ import { api_constants } from 'src/app/shared/constants/api-constants';
 })
 export class StudentsListViewComponent implements OnInit {
   students_list:any[]=[]
+  user_status=UserStatus
   constructor(
     private _dialog:MatDialog,
     private _router:Router,

@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-student.component';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
-import { AddTeacherComponent } from 'src/app/shared/popup/add-teacher/add-teacher.component';
-import { ApiService } from 'src/app/shared/service/api.service';
-
 
 @Component({
-  selector: 'app-teachers-list',
-  templateUrl: './teachers-list.component.html',
-  styleUrls: ['./teachers-list.component.scss']
+  selector: 'app-batches',
+  templateUrl: './batches.component.html',
+  styleUrls: ['./batches.component.scss']
 })
-export class TeachersListComponent implements OnInit {
-  teacher_list:any[]=[]
+export class BatchesComponent {
+  students_list:any[]=[]
   user_status=UserStatus
   constructor(
     private _dialog:MatDialog,
@@ -29,18 +28,18 @@ ngOnInit(): void {
 getStudents() {
   let $this = this
   this.apiService
-    .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherList)
+    .ExecuteGet(this.apiService.baseUrl + api_constants.getBatchList)
     .subscribe({
       next(response: any) {
-        $this.teacher_list=response?.result?.data
+        $this.students_list=response?.result?.data
       },
       error(err) {
       },
     })
 }
 
-  addTeacher(){
-    let dialogRef = this._dialog.open(AddTeacherComponent, {
+  addStudent(){
+    let dialogRef = this._dialog.open(AddStudentComponent, {
       width: '400px',
       height: '100%',
       data: {},
@@ -52,10 +51,15 @@ getStudents() {
       direction: 'ltr',
       panelClass: "side-popup"
     });
-  }
-  teacherDetails(id:any){
-    console.log(id)
-     this._router.navigateByUrl('/admin/teacher-detail/'+id)
+    
   }
 
+  studentDetails(id:any){
+    console.log(id)
+     this._router.navigateByUrl('/admin/student-detail/'+id)
+  }
+
+  
+    
 }
+
