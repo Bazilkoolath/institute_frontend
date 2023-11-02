@@ -18,7 +18,7 @@
                                 class="fa fa-search"></i></button>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary " (click)="addStudent()">Student Registration</button>
+                <button type="button" class="btn btn-primary " (click)="addBatch()">Add New Batch</button>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
                 <tr *ngFor="let item of students_list; let i=index">
                     <th scope="row">{{i+1}}</th>
                     <td><div (click)="studentDetails(item?.id)"> {{item?.name}}</div></td>
-                    <td>{{item?.mobile_no}}</td>
+                    <td>{{item?.start_date|date:"short"}}</td>
                    <td>
                         <button class="status-chip active" *ngIf="item?.status==user_status?.ACTIVE">Active </button>
                         <button class="status-chip rejected" *ngIf="item?.status==user_status?.INACTIVE">Deactivated </button>

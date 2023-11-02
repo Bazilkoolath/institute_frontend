@@ -8,22 +8,22 @@
             <label for="">Name</label>
             <input type="text" formControlName="name" class="form-control" placeholder="Full Name" />
         </div>
-        <div class="form-outline mb-2">
+        <!-- <div class="form-outline mb-2">
             <label for="">Course</label>
             <input type="text " formControlName="course" class="form-control " placeholder="Course" />
-        </div>
+        </div> -->
         <div class="form-outline mb-2 ">
             <label for="">Start Date</label>
-            <input type="date" formControlName="dob" class="form-control" placeholder="DOB" />
+            <input type="date" formControlName="start_date" class="form-control" placeholder="DOB" />
         </div>
         <div class="form-outline mb-2 ">
             <label for="">End Date</label>
-            <input type="date" formControlName="dob" class="form-control" placeholder="DOB" />
+            <input type="date" formControlName="end_date" class="form-control" placeholder="DOB" />
         </div>
 
     </div>
     <div class="d-flex gap-5 p-4">
         <button type="button" class="btn btn-secondary" mat-dialog-close>Close</button>
-        <button type="button" class="btn btn-primary " (click)="addStudent(studentForm?.value)">Add Student </button>
+        <button type="button" class="btn btn-primary " (click)="addBatch(studentForm?.value)">Add Batch </button>
     </div>
 </div>

@@ -18,7 +18,7 @@
                                 class="fa fa-search"></i></button>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary " (click)="addStudent()">Student Registration</button>
+                <button type="button" class="btn btn-primary " (click)="addStudent()">Add Exam </button>
             </div>
         </div>
 
@@ -30,8 +30,8 @@
                     <th scope="col">no</th>
                     <th scope="col">Exam </th>
                     <th scope="col">Batch</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Status</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -39,13 +39,9 @@
                 <tr *ngFor="let item of students_list; let i=index">
                     <th scope="row">{{i+1}}</th>
                     <td><div (click)="studentDetails(item?.id)"> {{item?.name}}</div></td>
-                    <td>{{item?.mobile_no}}</td>
-                    <td>{{item?.course}}</td>
-                   <td>
-                        <button class="status-chip active" *ngIf="item?.status==user_status?.ACTIVE">Active </button>
-                        <button class="status-chip rejected" *ngIf="item?.status==user_status?.INACTIVE">Deactivated </button>
-                        <button class="status-chip pending" *ngIf="item?.status==user_status?.INVITED">Pending </button>
-                   </td>
+                    <td>{{item?.batch}}</td>
+                    <td>{{item?.description}}</td>
+                   <td>{{item?.start_date}}</td>
                     <td style="color: gray;">
                         <a data-bs-toggle="modal" data-bs-target="#editModal" class="mr-4"><i
                             class="fas fa-edit"></i></a>

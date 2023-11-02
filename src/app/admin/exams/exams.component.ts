@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
+import { AddExamComponent } from 'src/app/shared/popup/add-exam/add-exam.component';
 
 @Component({
   selector: 'app-exams',
@@ -39,7 +40,7 @@ getStudents() {
 }
 
   addStudent(){
-    let dialogRef = this._dialog.open(AddStudentComponent, {
+    let dialogRef = this._dialog.open(AddExamComponent, {
       width: '400px',
       height: '100%',
       data: {},
@@ -51,7 +52,9 @@ getStudents() {
       direction: 'ltr',
       panelClass: "side-popup"
     });
-    
+    dialogRef.afterClosed().subscribe(result => {
+      this.getStudents()
+    });
   }
 
   studentDetails(id:any){

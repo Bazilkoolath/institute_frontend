@@ -27,11 +27,10 @@ export class AddBatchComponent {
     private _toaster:ToastrService
     ) {
       this.studentForm = this._form_builder.group({
-        email: [null, Validators.compose([Validators.required, Validators.email])],
         name: [null, Validators.required],
-        phone: [null, Validators.required],
         course: [null, Validators.required],
-        dob: [null, Validators.required],
+        start_date:[null, Validators.required],
+        end_date:[null, Validators.required],
       })
      }
 
@@ -43,17 +42,16 @@ export class AddBatchComponent {
   ngOnInit(): void {
   }
 
-  addStudent(data: any) {
+  addBatch(data: any) {
     this.button_loader = true
     let body={
       name:data?.name,
-      email:data?.email,
-      mobile_no: data?.phone,
-      course: data?.course,
-      dob: data?.dob
+      // course: data?.course,
+      start_date:data?.start_date,
+      end_date:data?.end_date
     }
     let $this = this
-    this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.inviteStudent, body)
+    this._apiService.ExecutePost(this._apiService.baseUrl + api_constants.createBatch, body)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe({
         next(response:any) {

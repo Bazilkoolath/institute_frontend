@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-student.component';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
+import { AddBatchComponent } from 'src/app/shared/popup/add-batch/add-batch.component';
 
 @Component({
   selector: 'app-batches',
@@ -38,8 +38,8 @@ getStudents() {
     })
 }
 
-  addStudent(){
-    let dialogRef = this._dialog.open(AddStudentComponent, {
+addBatch(){
+    let dialogRef = this._dialog.open(AddBatchComponent, {
       width: '400px',
       height: '100%',
       data: {},
@@ -50,6 +50,10 @@ getStudents() {
       // enterAnimationDuration: '500ms',
       direction: 'ltr',
       panelClass: "side-popup"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getStudents()
     });
     
   }
