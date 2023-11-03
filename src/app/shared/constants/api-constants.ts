@@ -12,8 +12,9 @@ export const api_constants = Object.freeze({
     // user APIs
     getUserDetail:"auth/profile/",
     getStudentList:"admin/get-student-list/",
+    getStudentDetail:"admin/get-student-detail",
     getTeacherList:"admin/get-teacher-list/",
-    getTeacherDetail:"admin/teacher-detail/",
+    getTeacherDetail:"admin/get-teacher-detail/",
     createExam:"admin/create-exam",
     createBatch:"admin/create-course-batch",
     getBatchList:"admin/get-batch-list/",
