@@ -16,6 +16,7 @@ import { ResultDetailsComponent } from './result-details/result-details.componen
 import { SilabusComponent } from './silabus/silabus.component';
 import { BatchesComponent } from './batches/batches.component';
 import { ExamsComponent } from './exams/exams.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 
 const routes: Routes = [
@@ -75,6 +76,9 @@ const routes: Routes = [
   },{
     path:"teachers-details",
     component:TeacherDetailComponent
+  },{
+    path:"announcement",
+    component:AnnouncementComponent
   }]}
 ];
 

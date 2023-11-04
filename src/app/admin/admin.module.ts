@@ -20,6 +20,7 @@ import { ReferencesComponent } from './references/references.component';
 import { SilabusComponent } from './silabus/silabus.component';
 import { BatchesComponent } from './batches/batches.component';
 import { ExamsComponent } from './exams/exams.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ExamsComponent } from './exams/exams.component';
     SilabusComponent,
     BatchesComponent,
     ExamsComponent,
+    AnnouncementComponent,
   ],
   imports: [
     CommonModule,
