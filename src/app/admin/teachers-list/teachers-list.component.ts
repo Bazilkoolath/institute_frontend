@@ -22,11 +22,11 @@ export class TeachersListComponent implements OnInit {
 ) { }
 
 ngOnInit(): void {
-  this.getStudents()
+  this.getTeacher()
 }
 
 
-getStudents() {
+getTeacher() {
   let $this = this
   this.apiService
     .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherList)

@@ -1,0 +1,29 @@
+<div>
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Announcement</h5>
+        <button type="button" class="btn-close" mat-dialog-close>x</button>
+    </div>
+    <form class="modal-body" [formGroup]="announcementForm" >
+        <div class="form-outline mb-2">
+            <label for="">Title</label>
+            <input type="text" formControlName="Title" class="form-control" placeholder="Title" />
+        </div>
+        <div class="form-outline mb-2 ">
+            <label for="">Date</label>
+            <input type="date" formControlName="dob" class="form-control" placeholder="DOB" />
+        </div>
+        <div class="form-outline mb-2 ">
+            <label for="">Text Area</label>
+            <input type="Text Area" formControlName="Text Area" class="form-control" placeholder="Text Area" />
+        </div>
+        <div class="form-outline mb-2 ">
+            <label for="">URL</label>
+            <input type="text" formControlName="URL" class="form-control" placeholder="URL" />
+        </div>
+
+    </form>
+    <div class="d-flex gap-5 p-4">
+        <button type="button" class="btn btn-secondary" mat-dialog-close>Close</button>
+        <button type="button" class="btn btn-primary " (click)="addAnnouncement(announcementForm?.value)">Add Announcement </button>
+    </div>
+</div>
