@@ -35,7 +35,7 @@ export class ProfileService {
       .ExecuteGet(this.apiService.baseUrl + api_constants.getUserDetail)
       .subscribe({
         next(response: any) {
-          $this.profileData.next(response);
+          $this.profileData.next(response?.result);
           $this._generalService.setUser = response?.result
           if(response?.result?.role==Role.STUDENT){
             $this.router.navigateByUrl('student/dashboard')

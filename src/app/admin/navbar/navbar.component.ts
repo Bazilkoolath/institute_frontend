@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.user_email = this._general?.getUser?.contact?.email
+    
   }
 
 
