@@ -69,6 +69,7 @@ get f() {
       })
   }
   nameProfileImg(name: string) {
+    console.log("dfcgh",name)
     let spaceIndex =0
     if(name?.includes(" ")){
       spaceIndex = name?.indexOf(" ")
