@@ -13,3 +13,20 @@ img {
     vertical-align: middle;
     border-style: none;
 }
+.profile {
+    cursor: pointer;
+    &:hover{
+        opacity: 0.6;
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+    }
+    .no-profile-img {
+        background-color: rgb(5, 104, 209);
+        color: #fff;
+        font-weight: 500;
+        border: none;
+    }
+}
