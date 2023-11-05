@@ -51,7 +51,9 @@ getStudents() {
       direction: 'ltr',
       panelClass: "side-popup"
     });
-    
+    dialogRef.afterClosed().subscribe(result => {
+      this.getStudents()
+    });
   }
 
   nameProfileImg(name: string) {

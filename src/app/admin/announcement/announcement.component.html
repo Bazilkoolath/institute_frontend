@@ -17,10 +17,10 @@
                     <div class="small-size-text">admin</div>
                     </div>
             </div>
-            <div class="small-size-text">jan 12, 1pm</div>
+            <div class="small-size-text">{{item?.created|date:"medium"}}</div>
         </div>
         <div class="p-2" style="border-top: 1px solid rgb(193, 193, 193);margin-top: 15px;"> 
-            <p class="sub-title-text user-name mt-2">Title ewhdbfrehej</p>
+            <p class="sub-title-text user-name mt-2">{{item?.subject}}</p>
             <p >{{item?.message}}</p>
         </div>
     </div>

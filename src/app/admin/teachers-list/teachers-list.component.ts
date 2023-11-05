@@ -52,6 +52,9 @@ getTeacher() {
       direction: 'ltr',
       panelClass: "side-popup"
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getTeacher()
+    });
   }
   teacherDetails(id:any){
     console.log(id)

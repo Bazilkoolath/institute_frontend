@@ -13,8 +13,8 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./announcement.component.scss']
 })
 export class AnnouncementComponent {
-  announcement_list:any[]=[]
   user_status=UserStatus
+  announcement:any=[]
   constructor(
     private _dialog:MatDialog,
     private _router:Router,
@@ -29,10 +29,10 @@ ngOnInit(): void {
 getAnnouncement() {
   let $this = this
   this.apiService
-    .ExecuteGet(this.apiService.baseUrl)
+    .ExecuteGet(this.apiService.baseUrl+api_constants.geAnnouncement)
     .subscribe({
       next(response: any) {
-        $this.announcement_list=response?.result?.data
+        $this.announcement=response?.result?.data
       },
       error(err) {
       },
@@ -52,27 +52,11 @@ getAnnouncement() {
       direction: 'ltr',
       panelClass: "side-popup"
     });
-  }
-  announcementDetails(id:any){
-    console.log(id)
-     this._router.navigateByUrl('/admin/announcement')
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAnnouncement()
+    });
   }
 
-  announcement:any[]=[
-    {
-      message:"In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. WikipediaIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. Wikipedia"
-    },
-    {
-      message:"In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. "
-    },{
-      message:"In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. WikipediaIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. Wikipedia"
-    },
-    {
-      message:"In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. "
-    },{
-      message:"In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. WikipediaIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. Wikipedia"
-    },
-  ]
  
 
 

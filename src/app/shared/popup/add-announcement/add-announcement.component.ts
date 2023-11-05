@@ -30,7 +30,7 @@ export class AddAnnouncementComponent {
     this.announcementForm = this._form_builder.group({
       title: [null, Validators.compose([Validators.required, Validators.email])],
       message: [null, Validators.required],
-      URL: [null, Validators.required],
+      url: [null, Validators.required],
     })
   }
   get f() {
@@ -42,14 +42,12 @@ export class AddAnnouncementComponent {
   addAnnouncement(data: any) {
     this.button_loader = true
     let body={
-      title:data?.title,
-      date: data?.date,
-      text_area:data?.text_area,
-      URL: data?.URL,
-      
+      subject:data?.title,
+      message:data?.message,
+      url: data?.url,
     }
     let $this = this
-    this._apiService.ExecutePost(this._apiService.baseUrl, body)
+    this._apiService.ExecutePost(this._apiService.baseUrl+api_constants.createAnnouncement, body)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe({
         next(response:any) {
