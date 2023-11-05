@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { GeneralService } from 'src/app/shared/service/general.service';
+import { ProfileService } from 'src/app/shared/service/profile.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,21 +10,29 @@ import { GeneralService } from 'src/app/shared/service/general.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  user: any={
-    name:"sahal saman",
-    email:"sahal@gmail.com",
-    img:"https://www.mecgale.com/wp-content/uploads/2017/08/dummy-profile.png"
-  }
+  user: any
   is_login: any
   user_email: any
   constructor(
     private _router: Router,
     private _dialog: MatDialog,
-    private _general: GeneralService
+    private _general: GeneralService,
+    private _profile:ProfileService
   ) { }
 
   ngOnInit(): void {
-    this.user_email = this._general?.getUser?.contact?.email
+    this.user = this._general?.getUser
+    let $this = this
+    this._profile.profileData
+    .subscribe({
+      next(value) {
+        console.log("user",value)
+        if (value) {
+          console.log("user",value)
+          $this.user = value
+        }
+      },
+    })
   }
 
 
