@@ -54,6 +54,18 @@ getStudents() {
     
   }
 
+  nameProfileImg(name: string) {
+    let spaceIndex =0
+    if(name?.includes(" ")){
+      spaceIndex = name?.indexOf(" ")
+    }
+    if (spaceIndex > 1) {
+      return name.slice(0, 1).toUpperCase() + name.slice(spaceIndex + 1, spaceIndex + 2).toUpperCase() || name.slice(1, 2).toUpperCase()
+    } else {
+      return name?.slice(0, 2).toUpperCase()
+    }
+  }
+
   studentDetails(id:any){
     console.log(id)
      this._router.navigateByUrl('/admin/student-detail/'+id)
