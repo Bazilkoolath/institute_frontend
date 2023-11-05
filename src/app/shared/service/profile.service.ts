@@ -17,7 +17,7 @@ declare var pendo: any;
 export class ProfileService {
   private unsubscribe = new Subject<void>();
   profileData: BehaviorSubject<any> = new BehaviorSubject(null);
-  currentUser$: Observable<any> = this.profileData.asObservable().pipe(
+  currentUser: Observable<any> = this.profileData.asObservable().pipe(
     filter(value => Boolean(value))
   );
   constructor(
@@ -37,6 +37,7 @@ export class ProfileService {
         next(response: any) {
           $this.profileData.next(response?.result);
           $this._generalService.setUser = response?.result
+          console.log("user",$this.profileData)
           if(response?.result?.role==Role.STUDENT){
             $this.router.navigateByUrl('student/dashboard')
           }else if(response?.result?.role==Role.ADMIN){

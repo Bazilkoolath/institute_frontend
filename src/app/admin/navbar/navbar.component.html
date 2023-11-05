@@ -9,8 +9,8 @@
         <div >
             <button class="profile btn-none d-flex justify-content-center align-items-center" [matMenuTriggerFor]="user_menu">
                 <p class="profile-name normal-text">{{user?.name}}</p>
-                <img class="profile-img" *ngIf="user?.img"
-                    [src]="user?.img" alt="">
+                <!-- <img class="profile-img" *ngIf="user?.img"
+                    [src]="user?.img" alt=""> -->
                     <button class="profile-img no-profile-img normal-text" *ngIf="!user?.img">{{nameProfileImg(user?.name)}}</button>
             </button>
             <mat-menu class="user-profile-mat-dropdown" #user_menu="matMenu">
