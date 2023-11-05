@@ -28,7 +28,7 @@ export class AddAnnouncementComponent {
     
     ) {
     this.announcementForm = this._form_builder.group({
-      title: [null, Validators.compose([Validators.required, Validators.email])],
+      title: [null, Validators.required],
       message: [null, Validators.required],
       url: [null, Validators.required],
     })

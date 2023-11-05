@@ -12,7 +12,12 @@ $CloudCompete-FE-theme: mat.define-light-theme((color: (primary: $CloudCompete-F
 .gap-5{
     gap: 10px;
 }
-
+.large-title-text {
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 30px !important;
+  line-height: 32px;
+}
 
 //section-sub-title
 .title-text {

@@ -1,8 +1,11 @@
 import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { ApiService } from 'src/app/shared/service/api.service';
+import { GeneralService } from 'src/app/shared/service/general.service';
+import { ProfileService } from 'src/app/shared/service/profile.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -11,21 +14,43 @@ import { ApiService } from 'src/app/shared/service/api.service';
 })
 export class AccountSettingsComponent {
   
+  userDetailForm: any = FormGroup
   data:any
   student_id:any
   constructor(
-    private activatedRoute:ActivatedRoute,
     private _router:Router,
     private apiService: ApiService,
-  ){
-
-  }
+    private _general: GeneralService,
+    private _profile:ProfileService,
+  private _form_builder: FormBuilder,
+  ) {
+  this.userDetailForm = this._form_builder.group({
+    email: [null, Validators.compose([Validators.required, Validators.email])],
+    name: [null, Validators.required],
+    phone: [null, Validators.required],
+    about: [null, Validators.required],
+    gender: [null, Validators.required],
+    course: [null, Validators.required],
+    address: [null, Validators.required],
+    status: [null, Validators.required],
+  })
+}
+get f() {
+  return this.userDetailForm.controls;
+}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: any) => {
-      console.log(params)
-      this.student_id=params?.id
-      this.getStudent()
+    this.data = this._general?.getUser
+    let $this = this
+    this._profile.profileData
+    .subscribe({
+      next(value) {
+        console.log("user",value)
+        if (value) {
+          console.log("user",value)
+          $this.data = value
+        }
+      },
     })
   }
 

@@ -3,8 +3,8 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="card shadow-sm">
-            <div class="card-header bg-transparent text-center">
-              <img  src="https://image.shutterstock.com/image-photo/portrait-handsome-caucasian-man-formal-260nw-2142820441.jpg" alt="">
+            <div class="card-header bg-transparent text-center profile">
+              <button class="profile-img no-profile-img large-title-text" *ngIf="!data?.img">{{nameProfileImg(data?.name)}}</button>
               <h3>{{data?.name}}</h3>
             </div>
             <div class="card-body">
