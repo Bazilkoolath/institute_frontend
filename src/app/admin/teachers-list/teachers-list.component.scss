@@ -20,3 +20,17 @@
     background-color: rgb(255, 229, 229);
     color: rgb(221, 8, 8);
 }
+
+.profile {
+    cursor: pointer;
+    .profile-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+    .no-profile-img {
+        background-color: rgb(5, 104, 209);
+        color: #fff;
+        font-weight: 500;
+    }
+}
