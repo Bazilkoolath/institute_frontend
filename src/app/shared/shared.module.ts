@@ -20,6 +20,7 @@ import { AddAdminComponent } from './popup/add-admin/add-admin.component';
 import { AddExamComponent } from './popup/add-exam/add-exam.component';
 import { AddBatchComponent } from './popup/add-batch/add-batch.component';
 import { AddAnnouncementComponent } from './popup/add-announcement/add-announcement.component';
+import { AddAttendanceComponent } from './popup/add-attendance/add-attendance.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AddAnnouncementComponent } from './popup/add-announcement/add-announcem
     AddExamComponent,
     AddBatchComponent,
     AddAnnouncementComponent,
+    AddAttendanceComponent,
   ],
   imports: [
     CommonModule,
