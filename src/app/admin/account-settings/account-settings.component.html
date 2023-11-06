@@ -1,53 +1,32 @@
 <div class="student-profile py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card shadow-sm">
-            <div class="card-header bg-transparent text-center profile">
-              <button class="profile-img no-profile-img large-title-text" >{{nameProfileImg(data?.name)}}</button>
-                <h3>{{data?.name}}</h3>
-              </div>
-              <div class="card-body">
-                <p class="mb-0"><strong class="pr-1">Email :</strong></p>
-                <input type="text" formControlName="" class="form-control" placeholder="" />
-                <p class="mb-0"><strong class="pr-1">Phone :</strong></p>
-                <input type="text" formControlName="" class="form-control" placeholder="" />
-                <!-- <p class="mb-0"><strong class="pr-1">Course:</strong>{{data?.course}}</p> -->
-              </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center profile">
+            <button class="profile-img no-profile-img large-title-text">{{nameProfileImg(data?.name)}}</button>
+            <h3>{{data?.name}}</h3>
+          </div>
+          <div class="card-body " [formGroup]="userDetailForm ">
+            <p class="mb-0"><strong class="pr-1">Email :</strong></p>
+            <input type="text" formControlName="email" class="form-control" placeholder="email" />
+            <p class="mb-0"><strong class="pr-1">Phone :</strong></p>
+            <input type="text" formControlName="phone" class="form-control" placeholder="phone" />
+            <!-- <p class="mb-0"><strong class="pr-1">Course:</strong>{{data?.course}}</p> -->
           </div>
         </div>
-        <div class="col-lg-8">
-          <div class="card shadow-sm">
-            <div class="card-header bg-transparent border-0">
-              <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
-            </div>
-            <div class="card-body pt-0">
-              <table class="table table-bordered">
-                <tr>
-                  <th width="30%">Gender</th>
-                  <td>
-                    <input type="text" formControlName="" class="form-control" placeholder="" />
-                  </td>
-                </tr>
-                <tr>
-                  <th width="30%">blood</th>
-                  <td>
-                    <input type="text" formControlName="" class="form-control" placeholder="" />
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-            <div style="height: 26px"></div>
-          <div class="card shadow-sm">
-            <div class="card-header bg-transparent border-0">
-              <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
-            </div>
-            <div class="card-body pt-0">
-                <textarea name="" class="form-control" id="" cols="30" rows="10" placeholder="about.."></textarea>
-            </div>
-          </div>
+      </div>
+
+
+      <div style="height: 26px"></div>
+      <div class="card shadow-sm w-full">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+        </div>
+        <div class="card-body pt-0">
+          <textarea name="" class="form-control" id="" cols="30" rows="10" placeholder="about.."></textarea>
         </div>
       </div>
     </div>
   </div>
+</div>

@@ -15,6 +15,7 @@ import { AddExamComponent } from 'src/app/shared/popup/add-exam/add-exam.compone
 export class ExamsComponent {
   students_list:any[]=[]
   user_status=UserStatus
+  searchText:any
   constructor(
     private _dialog:MatDialog,
     private _router:Router,
