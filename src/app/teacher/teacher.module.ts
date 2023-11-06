@@ -16,6 +16,7 @@ import { ReferencesComponent } from './references/references.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { SilabusComponent } from './silabus/silabus.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SilabusComponent } from './silabus/silabus.component';
     ReferencesComponent,
     StudentDetailComponent,
     AccountSettingsComponent,
-    SilabusComponent
+    SilabusComponent,
+    AnnouncementComponent
   ],
   imports: [
     CommonModule,

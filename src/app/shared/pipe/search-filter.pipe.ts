@@ -14,10 +14,7 @@ export class SearchFilterPipe implements PipeTransform {
     }
     searchText = searchText?.toLocaleLowerCase();
     return items.filter((i:any) => {
-      let res = i?.brand_name?i?.brand_name:i?.name
-      if (res.includes("-")) {
-        res= res.replaceAll("-"," ")
-      }
+      let res = i?.name
       return res?.toLocaleLowerCase()?.startsWith(searchText);
     });
   }

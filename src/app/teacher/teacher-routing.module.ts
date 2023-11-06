@@ -12,6 +12,7 @@ import { ReferencesComponent } from './references/references.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
 import { SilabusComponent } from './silabus/silabus.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 const routes: Routes = [
   {
@@ -55,7 +56,10 @@ const routes: Routes = [
   },{
     path:"students-details",
     component:StudentDetailComponent
-  }]}
+  },{
+    path:"announcement",
+    component:AnnouncementComponent
+  },]}
 ];
 
 @NgModule({

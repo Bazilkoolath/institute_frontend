@@ -17,6 +17,7 @@ export class AddStudentComponent implements OnInit {
   private unsubscribe = new Subject<void>();
   studentForm: any = FormGroup
   button_loader: boolean=false
+  selected_course:any
   constructor(
     public _dialogRef: MatDialogRef<AddStudentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -29,8 +30,8 @@ export class AddStudentComponent implements OnInit {
       this.studentForm = this._form_builder.group({
         email: [null, Validators.compose([Validators.required, Validators.email])],
         name: [null, Validators.required],
+        course:[null, Validators.required],
         phone: [null, Validators.required],
-        course: [null, Validators.required],
         dob: [null, Validators.required],
       })
      }
@@ -66,6 +67,10 @@ export class AddStudentComponent implements OnInit {
           $this.button_loader = false
         },
       })
+  }
+
+  onCourseSelect() {
+    console.log(this.studentForm.value); // You can access the selected value here
   }
 
 }

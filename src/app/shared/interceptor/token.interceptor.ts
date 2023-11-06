@@ -21,7 +21,8 @@ export class TokenInterceptor implements HttpInterceptor {
         setHeaders: {
           Authorization: this._general.getAccessToken,
           profile_id: this._general.getAccessToken, // Ensure this is the intended value
-          role: this._general.getRole
+          role: this._general.getRole,
+          course: this._general.getUser?.course,
         }
       });
 

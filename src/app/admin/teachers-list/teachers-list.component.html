@@ -3,20 +3,10 @@
     <div class="container">
         <h3 class="p-4">Teacher List</h3>
         <div class="d-flex justify-content-between">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
+            <div></div>
             <div class="d-flex gap-5">
                 <div class="input-group w-70">
-                    <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Search.." [(ngModel)]="searchText">
                     <div class="input-group-append">
                         <button class="btn" style="background-color: rgb(191, 191, 191);" type="button"><i
                                 class="fa fa-search"></i></button>
@@ -40,11 +30,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of  teacher_list; let i=index">
+                <tr *ngFor="let item of  teacher_list | searchFilter:searchText; let i=index">
                     <th scope="row">{{i+1}}</th>
                     <td class="d-flex gap-5 profile align-items-center"> <button class="profile-img no-profile-img normal-text" *ngIf="!item?.img">{{nameProfileImg(item?.name)}}</button>
                         <div (click)="teacherDetails(item?._id)"> {{item?.name}}</div></td>
-                    <td><div (click)="teacherDetails(item?._id)">{{item?.name}}</div></td>
                     <td>{{item?.mobile_no}}</td>
                     <!-- <td>{{item?.course}}</td> -->
                    <td>

@@ -9,6 +9,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { ReferencesComponent } from './references/references.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
 import { SilabusComponent } from './silabus/silabus.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 const routes: Routes = [
   {
@@ -43,7 +44,10 @@ const routes: Routes = [
   },{
     path:"silabus",
     component:SilabusComponent
-  }]}
+  },{
+    path:"announcement",
+    component:AnnouncementComponent
+  },]}
 ];
 
 @NgModule({

@@ -46,7 +46,7 @@ export class AddBatchComponent {
     this.button_loader = true
     let body={
       name:data?.name,
-      // course: data?.course,
+      course: data?.course,
       start_date:data?.start_date,
       end_date:data?.end_date
     }

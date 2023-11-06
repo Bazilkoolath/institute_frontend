@@ -3,20 +3,20 @@
     <div class="container">
         <h3 class="p-4">Student List</h3>
         <div class="d-flex justify-content-between">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
+            <select style="width: 300px;" class="form-select form-control" [(ngModel)]="selected_course" (click)="selectCourse()"> 
+                <option value="" selected>All</option>
+                <option value="MEAN Stack">MEAN Stack Web Development</option>
+                <option value="MERN Stack">MERN Stack Web Development</option>
+                <option value="Asp.net MVC">Asp.net MVC </option>
+                <option value="PYTHON">PYTHON</option>
+                <option value="Flutter">Flutter</option>
+                <option value="Java">Java Spring Full Stack Development</option>
+                <option value="Software Testing">Software Testing Specialist</option>
+                <option value=""></option>
+              </select>
             <div class="d-flex gap-5">
                 <div class="input-group w-70">
-                    <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Search.." [(ngModel)]="searchText">
                     <div class="input-group-append">
                         <button class="btn" style="background-color: rgb(191, 191, 191);" type="button"><i
                                 class="fa fa-search"></i></button>
@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of students_list; let i=index">
+                <tr *ngFor="let item of students_list | searchFilter:searchText |courseFilter:selected_course;let i=index">
                     <th scope="row">{{i+1}}</th>
                     <td class="d-flex gap-5 profile align-items-center"> <button class="profile-img no-profile-img normal-text" *ngIf="!item?.img">{{nameProfileImg(item?.name)}}</button>
                         <div (click)="studentDetails(item?._id)"> {{item?.name}}</div></td>

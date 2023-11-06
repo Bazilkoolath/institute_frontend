@@ -15,6 +15,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
 export class TeachersListComponent implements OnInit {
   teacher_list:any[]=[]
   user_status=UserStatus
+  searchText:any
   constructor(
     private _dialog:MatDialog,
     private _router:Router,

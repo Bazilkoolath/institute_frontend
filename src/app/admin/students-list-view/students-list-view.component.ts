@@ -13,7 +13,9 @@ import { UserStatus } from 'src/app/shared/constants/enum';
 })
 export class StudentsListViewComponent implements OnInit {
   students_list:any[]=[]
+  selected_course:any
   user_status=UserStatus
+  searchText:any
   constructor(
     private _dialog:MatDialog,
     private _router:Router,
@@ -73,7 +75,9 @@ getStudents() {
      this._router.navigateByUrl('/admin/student-detail/'+id)
   }
 
-  
+  selectCourse(){
+    console.log("dcf",this.selected_course)
+  }
     
 }
 

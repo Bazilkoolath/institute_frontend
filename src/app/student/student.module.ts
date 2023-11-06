@@ -13,6 +13,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { ResultDetailsComponent } from './result-details/result-details.component';
 import { ReferencesComponent } from './references/references.component';
 import { SilabusComponent } from './silabus/silabus.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SilabusComponent } from './silabus/silabus.component';
     AccountSettingsComponent,
     ResultDetailsComponent,
     ReferencesComponent,
-    SilabusComponent
+    SilabusComponent,
+    AnnouncementComponent
   ],
   imports: [
     CommonModule,
