@@ -10,7 +10,9 @@
         </div>
         <div class="form-outline mb-2">
             <label for="">batch</label>
-            <input type="text " formControlName="batch" class="form-control " placeholder="batch" />
+            <select class="form-select" aria-label="Default select example" class="form-control " formControlName="batch" >
+                <option *ngFor="let item of batch_list" [value]="item?.name">{{item?.name}}</option>
+              </select>
         </div>
         <div class="form-outline mb-2">
             <label for="">Desription</label>

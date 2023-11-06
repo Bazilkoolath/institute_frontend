@@ -40,8 +40,8 @@
                     <td><div (click)="studentDetails(item?.id)"> {{item?.name}}</div></td>
                     <td>{{item?.start_date|date:"short"}}</td>
                    <td>
-                        <button class="status-chip active" *ngIf="item?.status==user_status?.ACTIVE">Active </button>
-                        <button class="status-chip rejected" *ngIf="item?.status==user_status?.INACTIVE">Deactivated </button>
+                        <button class="status-chip active" *ngIf="!item?.disabled">Active </button>
+                        <button class="status-chip rejected" *ngIf="item?.disabled">Deactivated </button>
                         <button class="status-chip pending" *ngIf="item?.status==user_status?.INVITED">Pending </button>
                    </td>
                     <td style="color: gray;">

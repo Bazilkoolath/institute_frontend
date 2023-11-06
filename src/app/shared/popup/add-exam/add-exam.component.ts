@@ -17,6 +17,7 @@ export class AddExamComponent {
   private unsubscribe = new Subject<void>();
   studentForm: any = FormGroup
   button_loader: boolean=false
+  batch_list:any
   constructor(
     public _dialogRef: MatDialogRef<AddExamComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -41,8 +42,20 @@ export class AddExamComponent {
   
 
   ngOnInit(): void {
+    this.getStudents()
   }
-
+  getStudents() {
+    let $this = this
+    this._apiService
+      .ExecuteGet(this._apiService.baseUrl + api_constants.getBatchList)
+      .subscribe({
+        next(response: any) {
+          $this.batch_list=response?.result?.data
+        },
+        error(err) {
+        },
+      })
+  }
   addStudent(data: any) {
     this.button_loader = true
     let body={
