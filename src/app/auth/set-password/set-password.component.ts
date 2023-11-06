@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Subject, takeUntil } from 'rxjs';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { ApiService } from 'src/app/shared/service/api.service';
@@ -28,6 +29,7 @@ export class SetPasswordComponent {
     private _generalService: GeneralService,
     private _profileService: ProfileService,
     private _activatedRoute: ActivatedRoute,
+    private _toaster:ToastrService
   ) {
     this.setPasswordForm = this._form_builder.group({
       password: [null, Validators.compose([Validators.required, Validators.minLength(8)])],
@@ -67,6 +69,7 @@ export class SetPasswordComponent {
       .pipe(takeUntil(this.unsubscribe))
       .subscribe({
         next(response:any) {
+          $this._toaster.success("successfully updated")
           $this._router.navigateByUrl('login')
           // $this.button_loader = false
         }, error(err:any) {
@@ -74,6 +77,5 @@ export class SetPasswordComponent {
           $this.button_loader = false
         },
       })
-    this._router.navigateByUrl('/')
   }
 }

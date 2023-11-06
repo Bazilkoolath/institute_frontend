@@ -42,6 +42,15 @@ export class AddStudentComponent implements OnInit {
   
 
   ngOnInit(): void {
+    if(this.data){
+      this.studentForm.patchValue({
+        email: this.data?.email,
+        name: this.data?.name,
+        course:this.data?.course,
+        phone: this.data?.phone,
+        dob: this.data?.dob,
+      })
+    }
   }
 
   addStudent(data: any) {
