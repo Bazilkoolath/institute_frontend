@@ -21,6 +21,7 @@ import { AddExamComponent } from './popup/add-exam/add-exam.component';
 import { AddBatchComponent } from './popup/add-batch/add-batch.component';
 import { AddAnnouncementComponent } from './popup/add-announcement/add-announcement.component';
 import { CourseFilterPipe } from './pipe/course-filter.pipe';
+import { AddAttendanceComponent } from './popup/add-attendance/add-attendance.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CourseFilterPipe } from './pipe/course-filter.pipe';
     AddBatchComponent,
     AddAnnouncementComponent,
     CourseFilterPipe,
+    AddAttendanceComponent,
   ],
   imports: [
     CommonModule,
