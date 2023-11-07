@@ -22,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
           Authorization: this._general.getAccessToken,
           profile_id: this._general.getAccessToken, // Ensure this is the intended value
           role: this._general.getRole,
-          course: this._general.getUser?.course,
+          // course: this._general.getUser.course,
         }
       });
 
