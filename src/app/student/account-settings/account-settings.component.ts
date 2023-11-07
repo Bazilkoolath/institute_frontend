@@ -16,6 +16,7 @@ export class AccountSettingsComponent {
   userDetailForm: any = FormGroup
   data:any
   student_id:any
+  private _toster: any;
   constructor(
     private _router:Router,
     private apiService: ApiService,
@@ -24,14 +25,13 @@ export class AccountSettingsComponent {
   private _form_builder: FormBuilder,
   ) {
   this.userDetailForm = this._form_builder.group({
-    email: [null, Validators.compose([Validators.required, Validators.email])],
     name: [null, Validators.required],
     phone: [null, Validators.required],
     about: [null, Validators.required],
     gender: [null, Validators.required],
     course: [null, Validators.required],
     address: [null, Validators.required],
-    status: [null, Validators.required],
+  
   })
 }
 get f() {
@@ -53,9 +53,8 @@ get f() {
     })
   }
 
-  getStudent() {
+  getUser() {
     let query = new HttpParams();
-    query = query.set('id',this.student_id );
     let $this = this
     this.apiService
       .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherDetail,"",query)
@@ -66,6 +65,35 @@ get f() {
         error(err) {
         },
       })
+  }
+  
+setData(data:any){
+  this.userDetailForm.patchValue({
+    name: data?.name,
+    phone: data?.mobile_no,
+    about: data?.about
+  })
+  }
+  
+  update(data:any){
+    let body={
+      name: data?.name,
+      mobile_no: data?.phone,
+      about: data?.about
+    }
+    let query = new HttpParams();
+      query = query.set('id',this.data?._id );
+      let $this = this
+      this.apiService
+        .ExecutePatch(this.apiService.baseUrl + api_constants.adminProfileUpdate,body,"",query)
+        .subscribe({
+          next(response: any) {
+            $this._toster.success("success")
+          },
+          error(err) {
+            $this._toster.error("error")
+          },
+        })
   }
   nameProfileImg(name: string) {
     console.log("dfcgh",name)
