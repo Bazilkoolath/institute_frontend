@@ -83,7 +83,7 @@ setData(data:any){
       query = query.set('id',this.data?._id );
       let $this = this
       this.apiService
-        .ExecutePatch(this.apiService.baseUrl + api_constants.adminProfileUpdate,body,"",query)
+        .ExecutePatch(this.apiService.baseUrl + api_constants.studentProfileUpdate,body,"",query)
         .subscribe({
           next(response: any) {
             $this._toster.success("success")

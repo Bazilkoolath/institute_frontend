@@ -16,6 +16,7 @@ export class AccountSettingsComponent {
   userDetailForm: any = FormGroup
   data:any
   student_id:any
+  private _toster: any;
   constructor(
     private _router:Router,
     private apiService: ApiService,
@@ -24,14 +25,12 @@ export class AccountSettingsComponent {
   private _form_builder: FormBuilder,
   ) {
   this.userDetailForm = this._form_builder.group({
-    email: [null, Validators.compose([Validators.required, Validators.email])],
     name: [null, Validators.required],
     phone: [null, Validators.required],
     about: [null, Validators.required],
     gender: [null, Validators.required],
-    course: [null, Validators.required],
     address: [null, Validators.required],
-    status: [null, Validators.required],
+  
   })
 }
 get f() {
@@ -40,32 +39,56 @@ get f() {
 
   ngOnInit(): void {
     this.data = this._general?.getUser
-    let $this = this
-    this._profile.profileData
-    .subscribe({
-      next(value) {
-        console.log("user",value)
-        if (value) {
-          console.log("user",value)
-          $this.data = value
-        }
-      },
-    })
+    this.getUser()
   }
 
-  getStudent() {
+  getUser() {
     let query = new HttpParams();
-    query = query.set('id',this.student_id );
+    query = query.set('id',this.data?._id );
     let $this = this
     this.apiService
       .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherDetail,"",query)
       .subscribe({
         next(response: any) {
           $this.data=response?.result
+          $this.setData(response?.result)
         },
         error(err) {
         },
       })
+  }
+  
+setData(data:any){
+  this.userDetailForm.patchValue({
+    name: data?.name,
+    phone: data?.mobile_no,
+    about: data?.about,
+    gender: data?.gender,
+    address: data?.address,
+  })
+  }
+  
+  update(data:any){
+    let body={
+      name: data?.name,
+      mobile_no: data?.phone,
+      about: data?.about,
+      gender: data?.gender,
+      address: data?.address,
+    }
+    let query = new HttpParams();
+      query = query.set('id',this.data?._id );
+      let $this = this
+      this.apiService
+        .ExecutePatch(this.apiService.baseUrl + api_constants.teacherrofileUpdate,body,"",query)
+        .subscribe({
+          next(response: any) {
+            $this._toster.success("success")
+          },
+          error(err) {
+            $this._toster.error("error")
+          },
+        })
   }
   nameProfileImg(name: string) {
     console.log("dfcgh",name)
