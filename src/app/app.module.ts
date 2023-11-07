@@ -15,7 +15,7 @@ import { TokenInterceptor } from './shared/interceptor/token.interceptor';
     HomeComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({ preventDuplicates: true }),
