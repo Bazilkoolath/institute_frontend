@@ -14,6 +14,7 @@ import { AddBatchComponent } from 'src/app/shared/popup/add-batch/add-batch.comp
 export class BatchesComponent {
   students_list:any[]=[]
   user_status=UserStatus
+  searchText:any
   constructor(
     private _dialog:MatDialog,
     private _router:Router,

@@ -33,6 +33,8 @@ export class AccountSettingsComponent {
     course: [null, Validators.required],
     address: [null, Validators.required],
     status: [null, Validators.required],
+    blood: [null, Validators.required],
+
   })
 }
 get f() {
@@ -40,26 +42,16 @@ get f() {
 }
 
   ngOnInit(): void {
-    this.data = this._general?.getUser
-    let $this = this
-    this._profile.profileData
-    .subscribe({
-      next(value) {
-        console.log("user",value)
-        if (value) {
-          console.log("user",value)
-          $this.data = value
-        }
-      },
-    })
+   this.getUser()
+
   }
 
-  getStudent() {
+  getUser() {
     let query = new HttpParams();
-    query = query.set('id',this.student_id );
+    // query = query.set('id',this.student_id );
     let $this = this
     this.apiService
-      .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherDetail,"",query)
+      .ExecuteGet(this.apiService.baseUrl + api_constants.getUserDetail)
       .subscribe({
         next(response: any) {
           $this.data=response?.result
