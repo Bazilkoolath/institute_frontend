@@ -23,16 +23,16 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.user = this._general?.getUser
     let $this = this
-    this._profile.profileData
-    .subscribe({
-      next(value) {
-        console.log("user",value)
-        if (value) {
-          console.log("user",value)
-          $this.user = value
-        }
-      },
-    })
+    // this._profile.profileData
+    // .subscribe({
+    //   next(value) {
+    //     console.log("user",value)
+    //     if (value) {
+    //       console.log("user",value)
+    //       $this.user = value
+    //     }
+    //   },
+    // })
   }
 
 
