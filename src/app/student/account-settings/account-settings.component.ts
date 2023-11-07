@@ -40,27 +40,19 @@ get f() {
 
   ngOnInit(): void {
     this.data = this._general?.getUser
-    let $this = this
-    this._profile.profileData
-    .subscribe({
-      next(value) {
-        console.log("user",value)
-        if (value) {
-          console.log("user",value)
-          $this.data = value
-        }
-      },
-    })
+    this.getUser()
   }
 
   getUser() {
     let query = new HttpParams();
+    query = query.set('id',this.data?._id );
     let $this = this
     this.apiService
-      .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherDetail,"",query)
+      .ExecuteGet(this.apiService.baseUrl + api_constants.getStudentDetail,"",query)
       .subscribe({
         next(response: any) {
           $this.data=response?.result
+          $this.setData(response?.result)
         },
         error(err) {
         },
@@ -71,7 +63,10 @@ setData(data:any){
   this.userDetailForm.patchValue({
     name: data?.name,
     phone: data?.mobile_no,
-    about: data?.about
+    about: data?.about,
+    gender: data?.gender,
+    course: data?.course,
+    address: data?.address,
   })
   }
   
@@ -79,7 +74,10 @@ setData(data:any){
     let body={
       name: data?.name,
       mobile_no: data?.phone,
-      about: data?.about
+      about: data?.about,
+      gender: data?.gender,
+      course: data?.course,
+      address: data?.address,
     }
     let query = new HttpParams();
       query = query.set('id',this.data?._id );

@@ -12,10 +12,11 @@
         </div>
         <table>
             <tr class="d-flex gap-50 row-div" [ngClass]="{'row-1':i%2==0,'row-2':i%2!=0}" *ngFor="let item of results;let i=index">
-                <td scope="row">{{i+1}}</td>
+                <td scope="row">{{i+1}}.</td>
                <td class="w-100 d-flex gap-50 justify-content-between">
-                    <div class="title">{{item?.name}}</div>
-                    <div>{{item?.published_date}} </div>
+                    <div class="title">{{item.batch}}</div>
+                    <div class="title">{{item?.name+", "+item.description}}</div>
+                    <div>{{item?.created|date:"medium"}} </div>
                </td>
             </tr>
         </table>

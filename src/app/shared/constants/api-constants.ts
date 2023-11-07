@@ -24,5 +24,7 @@ export const api_constants = Object.freeze({
     createAnnouncement:"admin/create-announcement/",
     geAnnouncement:"admin/get-announcement-list/",
     adminDashboard:"admin/dashboard/",
-    adminProfileUpdate:"admin/update-me/"
+    adminProfileUpdate:"admin/update-me/",
+    studentProfileUpdate:"student/update-me/",
+    teacherrofileUpdate:"teacher/update-me/"
 })
