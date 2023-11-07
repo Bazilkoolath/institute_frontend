@@ -2,6 +2,7 @@ import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { GeneralService } from 'src/app/shared/service/general.service';
@@ -23,17 +24,14 @@ export class AccountSettingsComponent {
     private _general: GeneralService,
     private _profile:ProfileService,
   private _form_builder: FormBuilder,
+  private _toster:ToastrService
   ) {
   this.userDetailForm = this._form_builder.group({
-    email: [null, Validators.compose([Validators.required, Validators.email])],
     name: [null, Validators.required],
     phone: [null, Validators.required],
     about: [null, Validators.required],
-    gender: [null, Validators.required],
-    course: [null, Validators.required],
     address: [null, Validators.required],
     status: [null, Validators.required],
-    blood: [null, Validators.required],
 
   })
 }
@@ -55,11 +53,43 @@ get f() {
       .subscribe({
         next(response: any) {
           $this.data=response?.result
+          $this.setData(response?.result)
         },
         error(err) {
         },
       })
   }
+
+setData(data:any){
+this.userDetailForm.patchValue({
+  name: data?.name,
+  phone: data?.mobile_no,
+  about: data?.about
+})
+}
+
+update(data:any){
+  let body={
+    name: data?.name,
+    mobile_no: data?.phone,
+    about: data?.about
+  }
+  let query = new HttpParams();
+    query = query.set('id',this.data?._id );
+    let $this = this
+    this.apiService
+      .ExecutePatch(this.apiService.baseUrl + api_constants.adminProfileUpdate,body,"",query)
+      .subscribe({
+        next(response: any) {
+          $this._toster.success("success")
+        },
+        error(err) {
+          $this._toster.error("error")
+        },
+      })
+}
+
+
   nameProfileImg(name: string) {
     console.log("dfcgh",name)
     let spaceIndex =0

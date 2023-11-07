@@ -43,7 +43,7 @@
                 <tr *ngFor="let item of students_list | searchFilter:searchText |courseFilter:selected_course;let i=index">
                     <th scope="row">{{i+1}}</th>
                     <td class="d-flex gap-5 profile align-items-center"> <button class="profile-img no-profile-img normal-text" *ngIf="!item?.img">{{nameProfileImg(item?.name)}}</button>
-                        <div (click)="studentDetails(item?._id)"> {{item?.name}}</div></td>
+                        <div (click)="studentDetails(item?._id)"> <div>{{item?.name}}</div><div class="x-small-text">{{item?.email}}</div></div></td>
                     <td>{{item?.mobile_no}}</td>
                     <td>{{item?.course}}</td>
                    <td>
