@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
           // $this.button_loader = false
         }, error(err:any) {
           // console.log("error",err)
-          $this._toasterService.error(err?.error?.message)
+          $this._toasterService.error(err?.error?.message||"login faild, enter valid credentiol")
           $this.button_loader = false
         },
       })
