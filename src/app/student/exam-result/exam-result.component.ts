@@ -36,4 +36,8 @@ getStudents() {
     })
 }
 
+detail(){
+  this._router.navigateByUrl("student/result-details")
+}
+
 }
