@@ -1,3 +1,20 @@
 label{
     margin: 0;
 }
+.profile {
+    cursor: pointer;
+    &:hover{
+        opacity: 0.6;
+    }
+    .profile-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+    .no-profile-img {
+        background-color: rgb(5, 104, 209);
+        color: #fff;
+        font-weight: 500;
+        border: none;
+    }
+}

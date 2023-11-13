@@ -36,8 +36,8 @@ getStudents() {
     })
 }
 
-detail(){
-  this._router.navigateByUrl("student/result-details")
+detail(id:any){
+  this._router.navigateByUrl("student/result-details/"+id)
 }
 
 }

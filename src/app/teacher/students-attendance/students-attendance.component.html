@@ -1,14 +1,19 @@
-<div style="min-height: 100%;background-color: rgb(243, 243, 243);margin-top: 0%;">
-
+<div>
     <div class="container">
         <h3 class="p-4">Student Attendance</h3>
-        <div class="d-flex">
-            <div class="w-25 me-2">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>All</option>
-                    <option value="1">10th</option>
-                    <option value="2">9th</option>
-                    <option value="3">8th</option>
+        <div class="d-flex mr-2">
+            <div class="form-outline">
+                <select class="form-select" aria-label="Default select example" class="form-control "
+                    [(ngModel)]="course" (change)="selectCourse()">
+                    <option selected>Open this select menu</option>
+                    <option value="MEAN Stack">MEAN Stack Web Development</option>
+                    <option value="MERN Stack">MERN Stack Web Development</option>
+                    <option value="Asp.net MVC">Asp.net MVC </option>
+                    <option value="PYTHON">PYTHON</option>
+                    <option value="Flutter">Flutter</option>
+                    <option value="Java">Java Spring Full Stack Development</option>
+                    <option value="Software Testing">Software Testing Specialist</option>
+                    <option value=""></option>
                 </select>
             </div>
             <div class="input-group w-25">
@@ -20,76 +25,10 @@
 
             </div>
 
-            <button type="button" class="btn btn-success ml-1" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" (click)="addStudentAttendance()">Attendance Register</button>
+            <button type="button" class="btn btn-success ml-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="addStudentAttendance()">Attendance Register</button>
 
         </div>
-
-        <!--  Students Attendance register Modal -->
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Students Attendance</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                            <div class="form-outline mb-4 ">
-                                <label for="">Date</label>
-                                <input type="date" id="form3Example3" class="form-control" placeholder="Date" />
-                            </div>
-                            <label for="">Select Class</label>
-                            <select class="form-select mb-4 w-50" aria-label="Default select example">
-                                <option selected>All</option>
-                                <option value="1">10th</option>
-                                <option value="2">9th</option>
-                                <option value="3">8th</option>
-                            </select>
-                        </div>
-                        <div>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Reg no</th>
-                                        <th scope="col">Full name</th>
-                                        <th scope="col">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td class="text-center"><input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td class="text-center"><input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry the Bird</td>
-                                        <td class="text-center"><input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary ">Update </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--  -->
 
         <!-- Table -->
 
@@ -99,51 +38,25 @@
                     <th scope="col">Reg no</th>
                     <th scope="col">Full name</th>
                     <th scope="col">last 7 day</th>
-                    <th scope="col">Today</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td class="d-flex">
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: red;">A </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: red;">A </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
+                <tr *ngFor="let item of studentsattendance_list,let i=index">
+                    <td scope="row">{{i+1}}</td>
+                    <td class="d-flex gap-5 profile align-items-center"> <button
+                            class="profile-img no-profile-img normal-text"
+                            *ngIf="!item?.img">{{nameProfileImg(item?.name)}}</button>
+                        <div (click)="studentDetails(item?._id)">
+                            <div>{{item?.name}}</div>
+                            <div class="x-small-text">{{item?.email}}</div>
+                        </div>
                     </td>
-                    <td style="color: green;">Present</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td class="d-flex">
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: red;">A </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: red;">A </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
+                    <td>
+                        <span *ngFor="let data of item?.attendance">
+                            <span style="color: green;" *ngIf="data.title=='present'">P </span>&nbsp;
+                            <span style="color: red;" *ngIf="data.title=='absent'">A </span>&nbsp;
+                        </span>
                     </td>
-                    <td style="color: green;">Present</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Jacob</td>
-                    <td class="d-flex">
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: red;">A </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: red;">A </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                        <p style="color: green;">P </p>&nbsp;
-                    </td>
-                    <td style="color: green;">Present</td>
                 </tr>
             </tbody>
         </table>

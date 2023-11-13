@@ -1,6 +1,10 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { api_constants } from 'src/app/shared/constants/api-constants';
+import { ApiService } from 'src/app/shared/service/api.service';
+import { GeneralService } from 'src/app/shared/service/general.service';
 
 @Component({
   selector: 'app-students-attendance',
@@ -13,14 +17,36 @@ export class StudentsAttendanceComponent implements OnInit {
     plugins: [dayGridPlugin],
     // dateClick: this.handleDateClick.bind(this), 
     events: [
-      { title: 'Present', date: '2023-09-23' },
-      { title: 'event 2', date: '2023-09-23' }
+      { title: 'Present', date: '2023-11-23' },
+      { title: 'Absent', date: '2023-11-03',backgroundColor: '#FF5733' }
     ]
   };
   
-  constructor() { }
+eventsCalendar: any[] = [];
+  constructor(
+    private apiService:ApiService,
+    private _general:GeneralService
+  ) { }
 
   ngOnInit(): void {
+    this.getUser()
+  }
+
+  getUser() {
+    let data = this._general?.getUser
+    let query = new HttpParams();
+    query = query.set('id',data?._id );
+    let $this = this
+    this.apiService
+      .ExecuteGet(this.apiService.baseUrl + api_constants.getStudentDetail,"",query)
+      .subscribe({
+        next(response: any) {
+          $this.calendarOptions.events=response?.result?.attendance
+          console.log($this.calendarOptions)
+        },
+        error(err:any) {
+        },
+      })
   }
 
 
