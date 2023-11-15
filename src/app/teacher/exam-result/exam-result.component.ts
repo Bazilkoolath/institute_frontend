@@ -66,7 +66,7 @@ getStudents() {
 
 addResult(){
     let dialogRef = this._dialog.open(AddResultComponent, {
-      width: '400px',
+      width: '600px',
       height: '100%',
       data: {},
       position: {

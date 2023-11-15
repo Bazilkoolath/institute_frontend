@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
+import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-students-list-view',
@@ -20,6 +21,7 @@ export class StudentsListViewComponent implements OnInit {
     private _dialog:MatDialog,
     private _router:Router,
     private apiService: ApiService,
+    private dialog:MatDialog
 ) { }
 
 ngOnInit(): void {
@@ -77,6 +79,16 @@ getStudents() {
 
   selectCourse(){
     console.log("dcf",this.selected_course)
+  }
+
+  deleteUser(){
+    const dialogRef = this.dialog.open(DeletePopupComponent, {
+     width:"500px"
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+      
+    });
   }
     
 }

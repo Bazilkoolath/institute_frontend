@@ -23,6 +23,7 @@ import { AddAnnouncementComponent } from './popup/add-announcement/add-announcem
 import { CourseFilterPipe } from './pipe/course-filter.pipe';
 import { AddAttendanceComponent } from './popup/add-attendance/add-attendance.component';
 import { AddResultComponent } from './popup/add-result/add-result.component';
+import { DeletePopupComponent } from './popup/delete-popup/delete-popup.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AddResultComponent } from './popup/add-result/add-result.component';
     CourseFilterPipe,
     AddAttendanceComponent,
     AddResultComponent,
-    AddResultComponent
+    AddResultComponent,
+    DeletePopupComponent
   ],
   imports: [
     CommonModule,
@@ -74,7 +76,8 @@ import { AddResultComponent } from './popup/add-result/add-result.component';
     FullCalendarModule,
     AddExamComponent,
     AddBatchComponent,
-    CourseFilterPipe
+    CourseFilterPipe,
+    DeletePopupComponent
   ]
 })
 export class SharedModule { }

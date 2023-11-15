@@ -3,33 +3,30 @@
         <h5 class="modal-title" id="exampleModalLabel">Add Result</h5>
         <button type="button" class="btn-close" mat-dialog-close>x</button>
     </div>
-    <div class="modal-body" [formGroup]="resultForm" >
-        <div class="form-outline mb-2">
-            <label for="">Student Id</label>
-            <input type="text" formControlName="Student id" class="form-control" placeholder="Student id" />
-        </div>
-        <div class="form-outline mb-2">
-            <label for="">Course</label>
-            <select class="form-select" aria-label="Default select example" class="form-control " formControlName="course">
-                <option selected>Open this select menu</option>
-                <option value="MEAN Stack">MEAN Stack Web Development</option>
-                <option value="MERN Stack">MERN Stack Web Development</option>
-                <option value="Asp.net MVC">Asp.net MVC </option>
-                <option value="PYTHON">PYTHON</option>
-                <option value="Flutter">Flutter</option>
-                <option value="Java">Java Spring Full Stack Development</option>
-                <option value="Software Testing">Software Testing Specialist</option>
-                <option value=""></option>
-              </select>
-        </div>
-        <div class="form-outline mb-2 ">
-            <label for="">Point</label>
-            <input type="" formControlName="Point" class="form-control" placeholder="Point" />
-        </div>
+    <div class="modal-body" >
+        <table class="table mt-4" style="background-color: white;">
+            <tbody>
+                <tr *ngFor="let item of students,let i=index">
+                    <td scope="row">{{i+1}}</td>
+                    <td class="d-flex gap-5 profile align-items-center"> <button
+                            class="profile-img no-profile-img normal-text"
+                            *ngIf="!item?.img">{{nameProfileImg(item?.name)}}</button>
+                        <div >
+                            <div>{{item?.name}}</div>
+                            <div class="x-small-text">{{item?.email}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" [(ngModel)]="item.point">
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
        
     </div>
     <div class="d-flex gap-5 p-4">
         <button type="button" class="btn btn-secondary" mat-dialog-close>Close</button>
-        <button type="button" class="btn btn-primary " (click)="addResult(resultForm?.value)">Add Result </button>
+        <button type="button" class="btn btn-primary " (click)="addResult()">Add Result </button>
     </div>
 </div>
