@@ -84,9 +84,10 @@ addResult(){
     
   }
 
-  studentDetails(id:any){
+  result(id:any){
     console.log(id)
-     this._router.navigateByUrl('/admin/student-detail/'+id)
+     this._router.navigateByUrl('/teacher/result-list/'+id)
   }
+
 
 }

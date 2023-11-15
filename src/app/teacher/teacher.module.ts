@@ -17,6 +17,7 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { SilabusComponent } from './silabus/silabus.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
+import { ResultListComponent } from './result-list/result-list.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AnnouncementComponent } from './announcement/announcement.component';
     StudentDetailComponent,
     AccountSettingsComponent,
     SilabusComponent,
-    AnnouncementComponent
+    AnnouncementComponent,
+    ResultListComponent
   ],
   imports: [
     CommonModule,
