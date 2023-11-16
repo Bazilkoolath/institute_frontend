@@ -79,7 +79,7 @@ export class AddResultComponent {
     let body={
       student_id:data?.selected_student?._id,
       student_name:data?.student_id,
-      course: data?.course,
+      course: this.data?.course,
       exam:this.data?.exam,
       mark:this.mark_list
     }
