@@ -21,6 +21,8 @@ export const api_constants = Object.freeze({
     getBatchDetail:"admin/get-batch-detail/",
     getExamList:"admin/get-exam-list/",
     getExamDetail:"admin/get-exam-detail/",
+    createResult:"admin/create-result/",
+    results:"admin/get-result-list/",
     createAnnouncement:"admin/create-announcement/",
     geAnnouncement:"admin/get-announcement-list/",
     adminDashboard:"admin/dashboard/",
