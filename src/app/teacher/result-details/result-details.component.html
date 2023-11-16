@@ -1,36 +1,44 @@
-<div>
+<div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Student registration</h5>
-        <button type="button" class="btn-close" mat-dialog-close>x</button>
+        <h4 class="modal-title" id="alert_title">Examination Result</h4>
     </div>
-    <div class="modal-body"  >
-
-        <!-- <div class="form-outline mb-2">
-            <label for="">Course</label>
-            <input type="text " formControlName="course" class="form-control " placeholder="Course" />
-        </div> -->
-        <div class="form-outline mb-2 ">
-            <label for="">Date</label>
-            <input [(ngModel)]="date" type="date"  class="form-control" placeholder="date" />
+    <div class="" id="">
+        <div class="result_top">
+            <p class="toprow"><label class="left">Examination</label><label class="right">: exam name</label></p>
+            <p class="toprow"><label class="left">Register Number</label><label class="right">: 1</label></p>
+            <p class="toprow"><label class="left">Name</label><label class="right">: BAZIL K</label></p>
         </div>
-        <table class="table mt-4" style="background-color: white;">
-            <tbody>
-                <tr *ngFor="let item of mark,let i=index">
-                    <td scope="row">{{i+1}}</td>
-                    <td class="d-flex gap-5 profile align-items-center"> <button
-                            class="profile-img no-profile-img normal-text"
-                            *ngIf="!item?.img">{{nameProfileImg(item?.name)}}</button>
-                        <div >
-                            <div>{{item?.name}}</div>
-                            <div class="x-small-text">{{item?.email}}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <input type="checkbox" [(ngModel)]="item.status">
-                    </td>
-                    <td></td>
+        <table class="table" id="result_marks">
+                <tr class="text-light heding">
+                    <th class=" lefts">Course Code</th>
+                    <th class=" lefts">Course Title</th>
+                    <th class=" ">mark</th>
+                    <th class=" ">Total Mark</th>
+                    <th class=" ">Grade</th>
                 </tr>
-            </tbody>
+                <tr class="row_0">
+                    <td class=" lefts">1</td>
+                    <td class=" lefts">suject 1</td>
+                    <td class=" ">30</td>
+                    <td class=" ">100</td>
+                    <td class=" ">f</td>
+                </tr>
+                <tr class="row_1">
+                    <td class=" lefts">2</td>
+                    <td class=" lefts">suject 2</td>
+                    <td class=" ">50</td>
+                    <td class=" ">100</td>
+                    <td class=" ">c</td>
+                </tr>
+                <tr class="row_0">
+                    <td class=" lefts">3</td>
+                    <td class=" lefts">suject 3</td>
+                    <td class=" ">80</td>
+                    <td class=" ">100</td>
+                    <td class=" ">b</td>
+                </tr>
         </table>
+      
+      
     </div>
 </div>
