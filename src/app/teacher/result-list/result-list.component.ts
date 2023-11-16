@@ -1,9 +1,14 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { Subject, takeUntil } from 'rxjs';
 import { api_constants } from 'src/app/shared/constants/api-constants';
+import { AddBatchComponent } from 'src/app/shared/popup/add-batch/add-batch.component';
 import { ApiService } from 'src/app/shared/service/api.service';
+import { GeneralService } from 'src/app/shared/service/general.service';
+import { ProfileService } from 'src/app/shared/service/profile.service';
 
 @Component({
   selector: 'app-result-list',
@@ -11,19 +16,61 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./result-list.component.scss']
 })
 export class ResultListComponent {
-  course: any
-  date: any
+  private unsubscribe = new Subject<void>();
+  button_loader: boolean = false
+  students:any[]=[]
+  course:any
   constructor(
-    public _dialogRef: MatDialogRef<ResultListComponent>,
-    @Inject(MAT_DIALOG_DATA) public studentsattendance_list: any,
-    private apiService: ApiService,
-    private toaster: ToastrService
+    public _dialogRef: MatDialogRef<AddBatchComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private _form_builder: FormBuilder,
+    private _apiService: ApiService,
+    private _generalService: GeneralService,
+    private _profileService: ProfileService,
+    private _toaster: ToastrService
   ) {
-
   }
+
+
   ngOnInit(): void {
+    this.getStudents()
   }
 
+  getStudents() {
+    let $this = this
+    this._apiService
+      .ExecuteGet(this._apiService.baseUrl + api_constants.getStudentList)
+      .subscribe({
+        next(response: any) {
+          $this.students=response?.result?.data
+        },
+        error(err) {
+        },
+      })
+  }
+
+  addResult() {
+    this.button_loader = true
+    let body = {
+      // student_id: data?.student_id,
+      // course: data?.course,
+      // pont: data?.point
+    }
+    let $this = this
+    this._apiService.ExecutePost(this._apiService.baseUrl, body)
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe({
+        next(response: any) {
+          $this._toaster.success("success")
+          $this.button_loader = false
+          $this._dialogRef.close()
+        }, error(err: any) {
+          console.log(err)
+          $this._toaster.error(err)
+          $this.button_loader = false
+        },
+      })
+  }
 
   nameProfileImg(name: string) {
     let spaceIndex = 0
@@ -35,37 +82,5 @@ export class ResultListComponent {
     } else {
       return name?.slice(0, 2).toUpperCase()
     }
-  }
-
-  submit() {
-    if (!this.date) {
-      this.toaster.error("enter valid date")
-      return
-    }
-    for (let item of this.studentsattendance_list) {
-      this.update(item)
-    }
-  }
-
-  update(data: any) {
-    data.attendance.push({
-      title: data?.status ? "present" : "absent",
-      date: this.date,
-      backgroundColor: !data?.status ? '#FF5733' : ''
-    })
-    let body = {
-      attendance: data.attendance
-    }
-    let query = new HttpParams();
-    query = query.set('id', data?._id);
-    let $this = this
-    this.apiService
-      .ExecutePatch(this.apiService.baseUrl + api_constants.studentProfileUpdate, body, "", query)
-      .subscribe({
-        next(response: any) {
-        },
-        error(err) {
-        },
-      })
   }
 }
