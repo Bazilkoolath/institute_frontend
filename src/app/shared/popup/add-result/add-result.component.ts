@@ -80,7 +80,8 @@ export class AddResultComponent {
       student_id:data?.selected_student?._id,
       student_name:data?.student_id,
       course: data?.course,
-      pont:data?.point
+      exam:this.data?.exam,
+      mark:this.mark_list
     }
     let $this = this
     this._apiService.ExecutePost(this._apiService.baseUrl+api_constants.createResult, body)

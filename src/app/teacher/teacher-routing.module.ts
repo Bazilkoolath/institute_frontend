@@ -49,7 +49,7 @@ const routes: Routes = [
     path:"references",
     component:ReferencesComponent
   },{
-    path:"result-details",
+    path:"result-detail/:id",
     component:ResultDetailsComponent
   },{
     path:"silabus",

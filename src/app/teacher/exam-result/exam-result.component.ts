@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { AddBatchComponent } from 'src/app/shared/popup/add-batch/add-batch.component';
 import { AddResultComponent } from 'src/app/shared/popup/add-result/add-result.component';
@@ -12,29 +13,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./exam-result.component.scss']
 })
 export class ExamResultComponent implements OnInit {
-  results:any[]=[
-    {
-      code:"CD84",
-      name:"edfrg ygbhunjmk, rvgbhnjmk, tbynumk",
-      published_date:"12/12/2023"
-    },  {
-      code:"CD84",
-      name:"edfrg ygbhunjmk, rvgbhnjmk, tbynumk",
-      published_date:"12/12/2023"
-    },  {
-      code:"CD84",
-      name:"edfrg ygbhunjmk, rvgbhnjmk, tbynumk",
-      published_date:"12/12/2023"
-    }, {
-      code:"CD84",
-      name:"edfrg ygbhunjmk, rvgbhnjmk, tbynumk",
-      published_date:"12/12/2023"
-    }, {
-      code:"CD84",
-      name:"edfrg ygbhunjmk, rvgbhnjmk, tbynumk",
-      published_date:"12/12/2023"
-    },
-  ]
+  results:any[]=[  ]
 
 
   students_list:any[]=[]
@@ -54,7 +33,7 @@ ngOnInit(): void {
 getStudents() {
   let $this = this
   this.apiService
-    .ExecuteGet(this.apiService.baseUrl)
+    .ExecuteGet(this.apiService.baseUrl+api_constants.getExamList)
     .subscribe({
       next(response: any) {
         $this.students_list=response?.result?.data
@@ -63,6 +42,8 @@ getStudents() {
       },
     })
 }
+
+
 
 addResult(){
     let dialogRef = this._dialog.open(AddResultComponent, {

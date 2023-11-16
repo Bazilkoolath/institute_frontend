@@ -13,9 +13,8 @@ import { ApiService } from 'src/app/shared/service/api.service';
 export class ResultDetailsComponent {
   course: any
   date: any
+  mark:any
   constructor(
-    public _dialogRef: MatDialogRef<ResultDetailsComponent>,
-    @Inject(MAT_DIALOG_DATA) public studentsattendance_list: any,
     private apiService: ApiService,
     private toaster: ToastrService
   ) {
@@ -34,16 +33,6 @@ export class ResultDetailsComponent {
       return name.slice(0, 1).toUpperCase() + name.slice(spaceIndex + 1, spaceIndex + 2).toUpperCase() || name.slice(1, 2).toUpperCase()
     } else {
       return name?.slice(0, 2).toUpperCase()
-    }
-  }
-
-  submit() {
-    if (!this.date) {
-      this.toaster.error("enter valid date")
-      return
-    }
-    for (let item of this.studentsattendance_list) {
-      this.update(item)
     }
   }
 
