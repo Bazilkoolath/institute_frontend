@@ -13,6 +13,7 @@ import { ResultDetailsComponent } from './result-details/result-details.componen
 import { SilabusComponent } from './silabus/silabus.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
+import { ResultListComponent } from './result-list/result-list.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,9 @@ const routes: Routes = [
   },{
     path:"announcement",
     component:AnnouncementComponent
+  },{
+    path:"result-list/:id",
+    component:ResultListComponent
   },]}
 ];
 

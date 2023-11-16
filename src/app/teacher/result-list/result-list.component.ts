@@ -6,15 +6,15 @@ import { api_constants } from 'src/app/shared/constants/api-constants';
 import { ApiService } from 'src/app/shared/service/api.service';
 
 @Component({
-  selector: 'app-result-details',
-  templateUrl: './result-details.component.html',
-  styleUrls: ['./result-details.component.scss']
+  selector: 'app-result-list',
+  templateUrl: './result-list.component.html',
+  styleUrls: ['./result-list.component.scss']
 })
-export class ResultDetailsComponent {
+export class ResultListComponent {
   course: any
   date: any
   constructor(
-    public _dialogRef: MatDialogRef<ResultDetailsComponent>,
+    public _dialogRef: MatDialogRef<ResultListComponent>,
     @Inject(MAT_DIALOG_DATA) public studentsattendance_list: any,
     private apiService: ApiService,
     private toaster: ToastrService
