@@ -1,6 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { ApiService } from 'src/app/shared/service/api.service';
@@ -11,16 +12,20 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./result-details.component.scss']
 })
 export class ResultDetailsComponent {
-  course: any
-  date: any
+  data: any
   mark:any
   constructor(
     private apiService: ApiService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private activatedRoute:ActivatedRoute
   ) {
 
   }
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe((res:any)=>{
+      console.log("res",res)
+      this.getData(res?.id)
+    })
   }
 
 
@@ -36,22 +41,15 @@ export class ResultDetailsComponent {
     }
   }
 
-  update(data: any) {
-    data.attendance.push({
-      title: data?.status ? "present" : "absent",
-      date: this.date,
-      backgroundColor: !data?.status ? '#FF5733' : ''
-    })
-    let body = {
-      attendance: data.attendance
-    }
+  getData(data: any) {
     let query = new HttpParams();
-    query = query.set('id', data?._id);
+    query = query.set('id', data);
     let $this = this
     this.apiService
-      .ExecutePatch(this.apiService.baseUrl + api_constants.studentProfileUpdate, body, "", query)
+      .ExecuteGet(this.apiService.baseUrl + api_constants.getResultDetail,"",query)
       .subscribe({
         next(response: any) {
+          $this.data=response?.result
         },
         error(err) {
         },

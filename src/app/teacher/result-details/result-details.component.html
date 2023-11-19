@@ -4,38 +4,22 @@
     </div>
     <div class="" id="">
         <div class="result_top">
-            <p class="toprow"><label class="left">Examination</label><label class="right">: exam name</label></p>
-            <p class="toprow"><label class="left">Register Number</label><label class="right">: 1</label></p>
-            <p class="toprow"><label class="left">Name</label><label class="right">: BAZIL K</label></p>
+            <p class="toprow"><label class="left">Examination</label><label class="right">: {{data?.exam}}</label></p>
+            <p class="toprow"><label class="left">Register Number</label><label class="right">: {{data?._id}}</label></p>
+            <p class="toprow"><label class="left">Name</label><label class="right">: {{data?.student_name}}</label></p>
         </div>
         <table class="table" id="result_marks">
                 <tr class="text-light heding">
                     <th class=" lefts">Course Code</th>
                     <th class=" lefts">Course Title</th>
                     <th class=" ">mark</th>
-                    <th class=" ">Total Mark</th>
                     <th class=" ">Grade</th>
                 </tr>
-                <tr class="row_0">
-                    <td class=" lefts">1</td>
-                    <td class=" lefts">suject 1</td>
-                    <td class=" ">30</td>
-                    <td class=" ">100</td>
-                    <td class=" ">f</td>
-                </tr>
-                <tr class="row_1">
-                    <td class=" lefts">2</td>
-                    <td class=" lefts">suject 2</td>
-                    <td class=" ">50</td>
-                    <td class=" ">100</td>
-                    <td class=" ">c</td>
-                </tr>
-                <tr class="row_0">
-                    <td class=" lefts">3</td>
-                    <td class=" lefts">suject 3</td>
-                    <td class=" ">80</td>
-                    <td class=" ">100</td>
-                    <td class=" ">b</td>
+                <tr class="row_0" *ngFor="let item of data?.mark,let i=index">
+                    <td class=" lefts">{{i}}</td>
+                    <td class=" lefts">{{item?.subject}}</td>
+                    <td class=" ">{{item?.point}}</td>
+                    <td class=" ">{{item?.point>80?"A":item?.point>60?"B":item?.point>40?"C":"F"}}</td>
                 </tr>
         </table>
       
