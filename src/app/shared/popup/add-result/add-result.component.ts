@@ -77,7 +77,7 @@ export class AddResultComponent {
   addResult(data: any) {
     this.button_loader = true
     let body={
-      student_id:data?.selected_student?._id,
+      student_id:this.selected_student?._id,
       student_name:data?.student_id,
       course: this.data?.course,
       exam:this.data?.exam,
