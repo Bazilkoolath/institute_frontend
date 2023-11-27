@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
+import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-students-list-view',
@@ -58,7 +59,17 @@ export class StudentsListViewComponent implements OnInit {
     console.log(id)
     this._router.navigateByUrl('/admin/student-detail/' + id)
   }
+  deleteUser(){
+    const dialogRef = this._dialog.open(DeletePopupComponent, {
+     width:"500px"
+    });
 
+    dialogRef.afterClosed().subscribe((result:any) => {
+      
+    });
+  }
+  
+  
 
 
 }

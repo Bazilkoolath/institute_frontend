@@ -42,9 +42,9 @@
                     <button class="status-chip pending" *ngIf="item?.status==user_status?.INVITED">Pending </button>
                    </td>
                     <td style="color: gray;">
-                        <a data-bs-toggle="modal" data-bs-target="#editModal" class="mr-4"><i
+                        <a data-bs-toggle="modal" data-bs-target="#editModal" class="mr-4" (click)="addStudent(item)"><i
                                 class="fas fa-edit"></i></a>
-                        <a data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt"></i></a>
+                        <a data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteUser()"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </tbody>

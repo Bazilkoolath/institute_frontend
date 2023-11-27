@@ -3,7 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
+import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-student.component';
 import { AddTeacherComponent } from 'src/app/shared/popup/add-teacher/add-teacher.component';
+import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
 import { ApiService } from 'src/app/shared/service/api.service';
 
 
@@ -72,6 +74,35 @@ getTeacher() {
   teacherDetails(id:any){
     console.log(id)
      this._router.navigateByUrl('/admin/teacher-detail/'+id)
+  }
+  deleteUser(){
+    const dialogRef = this._dialog.open(DeletePopupComponent, {
+     width:"500px"
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+      
+    });
+  }
+  addStudent(data?:any){
+    let dialogRef = this._dialog.open(AddStudentComponent, {
+      width: '400px',
+      height: '100%',
+      data: data,
+      position: {
+        top: '0px',
+        right: '0px',
+      },
+      // enterAnimationDuration: '500ms',
+      direction: 'ltr',
+      panelClass: "side-popup"
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getStudents()
+    });
+  }
+  getStudents() {
+    throw new Error('Method not implemented.');
   }
 
 }

@@ -31,7 +31,8 @@
                     <th scope="col">Exam </th>
                     <th scope="col">Batch</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -43,9 +44,9 @@
                     <td>{{item?.description}}</td>
                    <td>{{item?.start_date}}</td>
                     <td style="color: gray;">
-                        <a data-bs-toggle="modal" data-bs-target="#editModal" class="mr-4"><i
-                            class="fas fa-edit"></i></a>
-                        <a data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt"></i></a>
+                        <!-- <a data-bs-toggle="modal" data-bs-target="#editModal" class="mr-4"><i
+                            class="fas fa-edit"></i></a> -->
+                        <a data-bs-toggle="modal" data-bs-target="#deleteModal"(click)="deleteUser()"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </tbody>

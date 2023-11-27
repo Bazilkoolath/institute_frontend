@@ -6,6 +6,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { AddExamComponent } from 'src/app/shared/popup/add-exam/add-exam.component';
+import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-exams',
@@ -62,7 +63,15 @@ getStudents() {
     console.log(id)
      this._router.navigateByUrl('/admin/student-detail/'+id)
   }
+  deleteUser(){
+    const dialogRef = this._dialog.open(DeletePopupComponent, {
+     width:"500px"
+    });
 
+    dialogRef.afterClosed().subscribe((result:any) => {
+      
+    });
+  }
   
     
 }
