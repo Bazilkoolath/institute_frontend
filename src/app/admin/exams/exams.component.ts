@@ -61,7 +61,7 @@ getStudents() {
 
   studentDetails(id:any){
     console.log(id)
-     this._router.navigateByUrl('/admin/student-detail/'+id)
+     this._router.navigateByUrl('/admin/result-list/'+id)
   }
   deleteUser(){
     const dialogRef = this._dialog.open(DeletePopupComponent, {

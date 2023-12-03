@@ -15,6 +15,8 @@ export class StudentsAttendanceComponent implements OnInit {
   course:any
   studentsattendance_list: any[] = []
   user_status = UserStatus
+  selected_course:any
+  searchText:any
   constructor(
     private _dialog: MatDialog,
     private _router: Router,

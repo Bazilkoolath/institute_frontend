@@ -13,8 +13,10 @@ import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-p
   styleUrls: ['./students-list-view.component.scss']
 })
 export class StudentsListViewComponent implements OnInit {
-  students_list: any[] = []
-  user_status = UserStatus
+  students_list:any[]=[]
+  selected_course:any
+  user_status=UserStatus
+  searchText:any
   constructor(
     private _dialog: MatDialog,
     private _router: Router,
@@ -57,7 +59,7 @@ export class StudentsListViewComponent implements OnInit {
 
   studentDetails(id: any) {
     console.log(id)
-    this._router.navigateByUrl('/admin/student-detail/' + id)
+    this._router.navigateByUrl('teacher/students-details/' + id)
   }
   deleteUser(){
     const dialogRef = this._dialog.open(DeletePopupComponent, {

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentComponent } from 'src/app/shared/popup/add-student/add-student.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-students-list-view',
@@ -17,22 +18,35 @@ export class StudentsListViewComponent implements OnInit {
   selected_course:any
   user_status=UserStatus
   searchText:any
+  batch: any;
   constructor(
     private _dialog:MatDialog,
     private _router:Router,
     private apiService: ApiService,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private activatedRoute:ActivatedRoute
 ) { }
 
 ngOnInit(): void {
-  this.getStudents()
+  // this.getStudents()
+  this.activatedRoute.queryParams.subscribe((params: any) => {
+    console.log(params)
+    this.batch=params?.batch
+    this.getStudents()
+  },(err)=>{
+    this.getStudents()
+  })
 }
 
 
 getStudents() {
   let $this = this
+  let query = new HttpParams();
+  if(this.batch){
+  query = query.set('batch',this.batch );
+}
   this.apiService
-    .ExecuteGet(this.apiService.baseUrl + api_constants.getStudentList)
+    .ExecuteGet(this.apiService.baseUrl + api_constants.getStudentList,"",query)
     .subscribe({
       next(response: any) {
         $this.students_list=response?.result?.data

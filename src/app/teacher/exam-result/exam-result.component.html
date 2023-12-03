@@ -17,7 +17,8 @@
                     <th scope="col">Exam </th>
                     <th scope="col">Batch</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -27,7 +28,8 @@
                     <td><div (click)="result(item?.name)"> {{item?.name}}</div></td>
                     <td>{{item?.batch}}</td>
                     <td>{{item?.description}}</td>
-                   <td>{{item?.start_date}}</td>
+                    <td>{{item?.start_date}}</td>
+                    <td>{{item?.end_date}}</td>
                 </tr>
             </tbody>
         </table>

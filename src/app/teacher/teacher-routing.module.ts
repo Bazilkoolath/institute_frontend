@@ -55,7 +55,7 @@ const routes: Routes = [
     path:"silabus",
     component:SilabusComponent
   },{
-    path:"students-details",
+    path:"students-details/:id",
     component:StudentDetailComponent
   },{
     path:"announcement",

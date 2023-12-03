@@ -17,6 +17,7 @@ import { SilabusComponent } from './silabus/silabus.component';
 import { BatchesComponent } from './batches/batches.component';
 import { ExamsComponent } from './exams/exams.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
+import { ResultListComponent } from './result-list/result-list.component';
 
 
 const routes: Routes = [
@@ -68,7 +69,7 @@ const routes: Routes = [
     path:"references",
     component:ReferencesComponent
   },{
-    path:"result-details",
+    path:"result-detail/:id",
     component:ResultDetailsComponent
   },{
     path:"silabus",
@@ -79,7 +80,10 @@ const routes: Routes = [
   },{
     path:"announcement",
     component:AnnouncementComponent
-  }]}
+  },{
+    path:"result-list/:id",
+    component:ResultListComponent
+  },]}
 ];
 
 @NgModule({

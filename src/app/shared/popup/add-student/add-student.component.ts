@@ -18,6 +18,7 @@ export class AddStudentComponent implements OnInit {
   studentForm: any = FormGroup
   button_loader: boolean=false
   selected_course:any
+  batches:any
   constructor(
     public _dialogRef: MatDialogRef<AddStudentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -33,6 +34,7 @@ export class AddStudentComponent implements OnInit {
         course:[null, Validators.required],
         phone: [null, Validators.required],
         dob: [null, Validators.required],
+        batch :[null, Validators.required],
       })
      }
 
@@ -51,6 +53,20 @@ export class AddStudentComponent implements OnInit {
         dob: this.data?.dob,
       })
     }
+    this.getBatches()
+  }
+
+  getBatches() {
+    let $this = this
+    this._apiService
+      .ExecuteGet(this._apiService.baseUrl + api_constants.getBatchList)
+      .subscribe({
+        next(response: any) {
+          $this.batches=response?.result?.data
+        },
+        error(err) {
+        },
+      })
   }
 
   addStudent(data: any) {
@@ -60,6 +76,7 @@ export class AddStudentComponent implements OnInit {
       email:data?.email,
       mobile_no: data?.phone,
       course: data?.course,
+      batch:data?.batch,
       dob: data?.dob
     }
     let $this = this

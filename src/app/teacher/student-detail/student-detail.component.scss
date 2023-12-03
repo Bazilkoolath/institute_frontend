@@ -1,0 +1,32 @@
+body {
+    background: #67B26F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: #000;
+}
+img {
+    height: 200px;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.profile {
+    cursor: pointer;
+    &:hover{
+        opacity: 0.6;
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+    }
+    .no-profile-img {
+        background-color: rgb(5, 104, 209);
+        color: #fff;
+        font-weight: 500;
+        border: none;
+    }
+}

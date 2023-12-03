@@ -45,7 +45,7 @@
                     <td class="d-flex gap-5 profile align-items-center"> <button class="profile-img no-profile-img normal-text" *ngIf="!item?.img">{{nameProfileImg(item?.name)}}</button>
                         <div (click)="studentDetails(item?._id)"> <div>{{item?.name}}</div><div class="x-small-text">{{item?.email}}</div></div></td>
                     <td>{{item?.mobile_no}}</td>
-                    <td>{{item?.course}}</td>
+                    <td>{{item?.course}}, {{item?.batch}}</td>
                    <td>
                         <button class="status-chip active" *ngIf="item?.status==user_status?.ACTIVE">Active </button>
                         <button class="status-chip rejected" *ngIf="item?.status==user_status?.INACTIVE">Deactivated </button>

@@ -2,10 +2,9 @@
     <div class="container">
         <h3 class="p-4">Student Attendance</h3>
         <div class="d-flex mr-2">
-            <div class="form-outline">
-                <select class="form-select" aria-label="Default select example" class="form-control "
-                    [(ngModel)]="course" (change)="selectCourse()">
-                    <option selected>Open this select menu</option>
+            <div class="d-flex justify-content-between gap-5">
+                <select style="width: 300px;" class="form-select form-control" [(ngModel)]="selected_course"> 
+                    <option value="" selected>All</option>
                     <option value="MEAN Stack">MEAN Stack Web Development</option>
                     <option value="MERN Stack">MERN Stack Web Development</option>
                     <option value="Asp.net MVC">Asp.net MVC </option>
@@ -14,15 +13,16 @@
                     <option value="Java">Java Spring Full Stack Development</option>
                     <option value="Software Testing">Software Testing Specialist</option>
                     <option value=""></option>
-                </select>
-            </div>
-            <div class="input-group w-25">
-                <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" style="background-color: gray;" type="button"><i
-                            class="fa fa-search"></i></button>
+                  </select>
+                <div class="d-flex gap-5">
+                    <div class="input-group w-70">
+                        <input type="text" class="form-control" placeholder="Search.." [(ngModel)]="searchText">
+                        <div class="input-group-append">
+                            <button class="btn" style="background-color: rgb(191, 191, 191);" type="button"><i
+                                    class="fa fa-search"></i></button>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
             <button type="button" class="btn btn-success ml-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -41,7 +41,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of studentsattendance_list,let i=index">
+                <tr *ngFor="let item of studentsattendance_list | searchFilter:searchText |courseFilter:selected_course;let i=index">
                     <td scope="row">{{i+1}}</td>
                     <td class="d-flex gap-5 profile align-items-center"> <button
                             class="profile-img no-profile-img normal-text"

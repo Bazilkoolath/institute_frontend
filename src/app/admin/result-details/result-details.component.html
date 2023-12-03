@@ -1,1 +1,28 @@
-<p>result-details works!</p>
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="alert_title">Examination Result</h4>
+    </div>
+    <div class="" id="">
+        <div class="result_top">
+            <p class="toprow"><label class="left">Examination</label><label class="right">: {{data?.exam}}</label></p>
+            <p class="toprow"><label class="left">Register Number</label><label class="right">: {{data?._id}}</label></p>
+            <p class="toprow"><label class="left">Name</label><label class="right">: {{data?.student_name}}</label></p>
+        </div>
+        <table class="table" id="result_marks">
+                <tr class="text-light heding">
+                    <th class=" lefts">Course Code</th>
+                    <th class=" lefts">Course Title</th>
+                    <th class=" ">mark</th>
+                    <th class=" ">Grade</th>
+                </tr>
+                <tr class="row_0" *ngFor="let item of data?.mark,let i=index">
+                    <td class=" lefts">{{i+1}}</td>
+                    <td class=" lefts">{{item?.subject}}</td>
+                    <td class=" ">{{item?.point}}</td>
+                    <td class=" ">{{item?.point>80?"A":item?.point>60?"B":item?.point>40?"C":"F"}}</td>
+                </tr>
+        </table>
+      
+      
+    </div>
+</div>

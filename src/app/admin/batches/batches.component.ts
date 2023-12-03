@@ -62,7 +62,7 @@ addBatch(){
 
   studentDetails(id:any){
     console.log(id)
-     this._router.navigateByUrl('/admin/student-detail/'+id)
+     this._router.navigateByUrl('/admin/students-list?batch='+id)
   }
   deleteUser(){
     const dialogRef = this._dialog.open(DeletePopupComponent, {

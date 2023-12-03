@@ -16,7 +16,7 @@
                     <th class=" ">Grade</th>
                 </tr>
                 <tr class="row_0" *ngFor="let item of data?.mark,let i=index">
-                    <td class=" lefts">{{i}}</td>
+                    <td class=" lefts">{{i+1}}</td>
                     <td class=" lefts">{{item?.subject}}</td>
                     <td class=" ">{{item?.point}}</td>
                     <td class=" ">{{item?.point>80?"A":item?.point>60?"B":item?.point>40?"C":"F"}}</td>

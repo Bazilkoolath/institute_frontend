@@ -13,13 +13,14 @@ import { ToastrService } from 'ngx-toastr';
 export class AddAttendanceComponent implements OnInit {
   course: any
   date: any
+  today:any
   constructor(
     public _dialogRef: MatDialogRef<AddAttendanceComponent>,
     @Inject(MAT_DIALOG_DATA) public studentsattendance_list: any,
     private apiService: ApiService,
     private toaster: ToastrService
   ) {
-
+    this.today = new Date().toISOString().split('T')[0];
   }
   ngOnInit(): void {
   }
