@@ -29,7 +29,6 @@ export class AddComplaintComponent {
     this.complaintForm = this._form_builder.group({
       title: [null, Validators.required],
       message: [null, Validators.required],
-      url: [null, Validators.required],
     })
   }
   get f() {

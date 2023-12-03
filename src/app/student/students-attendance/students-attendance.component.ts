@@ -1,5 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { api_constants } from 'src/app/shared/constants/api-constants';
@@ -25,10 +26,10 @@ export class StudentsAttendanceComponent implements OnInit {
   };
   
 eventsCalendar: any[] = [];
-  private _dialog: any;
   constructor(
     private apiService:ApiService,
-    private _general:GeneralService
+    private _general:GeneralService,
+    private _dialog:MatDialog
     
   ) { }
 
@@ -71,7 +72,7 @@ addComplaint(){
     panelClass: "side-popup"
   });
   dialogRef.afterClosed().subscribe(() => {
-    this.addComplaint()
+   
   });
 }
 
