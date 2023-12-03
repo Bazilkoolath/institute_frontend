@@ -24,6 +24,7 @@ import { CourseFilterPipe } from './pipe/course-filter.pipe';
 import { AddAttendanceComponent } from './popup/add-attendance/add-attendance.component';
 import { AddResultComponent } from './popup/add-result/add-result.component';
 import { DeletePopupComponent } from './popup/delete-popup/delete-popup.component';
+import { AddComplaintComponent } from './popup/add-complaint/add-complaint.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DeletePopupComponent } from './popup/delete-popup/delete-popup.componen
     AddAttendanceComponent,
     AddResultComponent,
     AddResultComponent,
-    DeletePopupComponent
+    DeletePopupComponent,
+    AddComplaintComponent
   ],
   imports: [
     CommonModule,

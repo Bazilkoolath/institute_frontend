@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { AddAnnouncementComponent } from 'src/app/shared/popup/add-announcement/add-announcement.component';
-import { AddTeacherComponent } from 'src/app/shared/popup/add-teacher/add-teacher.component';
 import { ApiService } from 'src/app/shared/service/api.service';
 
 @Component({

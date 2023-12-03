@@ -17,8 +17,12 @@ const routes: Routes = [
     component:StudentComponent,
     children:[  {
       path:"",
-      redirectTo:"dashboard",
+      redirectTo:"announcement",
       pathMatch:"full"
+    },
+  {
+      path:"announcement",
+      component:AnnouncementComponent
     },
   {
     path:'dashboard',
@@ -44,9 +48,6 @@ const routes: Routes = [
   },{
     path:"silabus",
     component:SilabusComponent
-  },{
-    path:"announcement",
-    component:AnnouncementComponent
   },]}
 ];
 

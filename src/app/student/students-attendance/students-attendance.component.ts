@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { api_constants } from 'src/app/shared/constants/api-constants';
+import { AddAnnouncementComponent } from 'src/app/shared/popup/add-announcement/add-announcement.component';
+import { AddComplaintComponent } from 'src/app/shared/popup/add-complaint/add-complaint.component';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { GeneralService } from 'src/app/shared/service/general.service';
 
@@ -23,13 +25,15 @@ export class StudentsAttendanceComponent implements OnInit {
   };
   
 eventsCalendar: any[] = [];
+  private _dialog: any;
   constructor(
     private apiService:ApiService,
     private _general:GeneralService
+    
   ) { }
 
   ngOnInit(): void {
-    this.getUser()
+ 
   }
 
   getUser() {
@@ -53,4 +57,22 @@ eventsCalendar: any[] = [];
 handleDateClick(arg:any) {
   alert('date click! ' + arg.dateStr)
 }
+addComplaint(){
+  let dialogRef = this._dialog.open(AddComplaintComponent,{
+    width: '400px',
+    height: '100%',
+    data: {},
+    position: {
+      top: '0px',
+      right: '0px',
+    },
+    // enterAnimationDuration: '500ms',
+    direction: 'ltr',
+    panelClass: "side-popup"
+  });
+  dialogRef.afterClosed().subscribe(() => {
+    this.addComplaint()
+  });
+}
+
 }
