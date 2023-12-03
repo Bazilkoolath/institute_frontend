@@ -22,6 +22,7 @@ import { BatchesComponent } from './batches/batches.component';
 import { ExamsComponent } from './exams/exams.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { ResultListComponent } from './result-list/result-list.component';
+import { StudentComplaintComponent } from './student-complaint/student-complaint.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ResultListComponent } from './result-list/result-list.component';
     ExamsComponent,
     AnnouncementComponent,
     ResultListComponent,
+    StudentComplaintComponent,
   ],
   imports: [
     CommonModule,

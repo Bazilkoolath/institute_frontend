@@ -18,6 +18,7 @@ import { BatchesComponent } from './batches/batches.component';
 import { ExamsComponent } from './exams/exams.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { ResultListComponent } from './result-list/result-list.component';
+import { StudentComplaintComponent } from './student-complaint/student-complaint.component';
 
 
 const routes: Routes = [
@@ -83,7 +84,10 @@ const routes: Routes = [
   },{
     path:"result-list/:id",
     component:ResultListComponent
-  },]}
+  },{
+    path:"student_complaint",
+    component:StudentComplaintComponent
+  }]}
 ];
 
 @NgModule({

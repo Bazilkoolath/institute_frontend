@@ -14,6 +14,7 @@ import { SilabusComponent } from './silabus/silabus.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { ResultListComponent } from './result-list/result-list.component';
+import { StudentComplaintComponent } from './student-complaint/student-complaint.component';
 
 const routes: Routes = [
   {
@@ -63,7 +64,10 @@ const routes: Routes = [
   },{
     path:"result-list/:id",
     component:ResultListComponent
-  },]}
+  },{
+    path:"student_complaint",
+    component:StudentComplaintComponent
+  }]}
 ];
 
 @NgModule({
