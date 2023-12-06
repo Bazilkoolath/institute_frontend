@@ -7,6 +7,7 @@ import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
 import { HttpParams } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-students-list-view',
@@ -24,7 +25,8 @@ export class StudentsListViewComponent implements OnInit {
     private _router:Router,
     private apiService: ApiService,
     private dialog:MatDialog,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private toasterService:ToastrService
 ) { }
 
 ngOnInit(): void {
@@ -54,6 +56,31 @@ getStudents() {
       error(err) {
       },
     })
+}
+
+deleteStudent(id:any) {
+  let $this = this
+  let query = new HttpParams();
+  query = query.set('id',id );
+  const dialogRef = this.dialog.open(DeletePopupComponent, {
+    width:"500px"
+   });
+
+   dialogRef.afterClosed().subscribe((result:any) => {
+    if(result){
+  this.apiService
+  .ExecuteDelete(this.apiService.baseUrl + api_constants.deleteStudent,"",query)
+  .subscribe({
+    next(response: any) {
+      $this.toasterService.success("successfully deleted ")
+      $this.getStudents()
+    },
+    error(err) {
+    },
+  })
+    }
+     
+   });
 }
 
   addStudent(data?:any){
@@ -95,15 +122,7 @@ getStudents() {
     console.log("dcf",this.selected_course)
   }
 
-  deleteUser(){
-    const dialogRef = this.dialog.open(DeletePopupComponent, {
-     width:"500px"
-    });
-
-    dialogRef.afterClosed().subscribe((result:any) => {
-      
-    });
-  }
+ 
     
 }
 
