@@ -6,6 +6,7 @@ import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { AddBatchComponent } from 'src/app/shared/popup/add-batch/add-batch.component';
 import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-batches',
@@ -16,6 +17,7 @@ export class BatchesComponent {
   students_list:any[]=[]
   user_status=UserStatus
   searchText:any
+  toasterService: any;
   constructor(
     private _dialog:MatDialog,
     private _router:Router,
@@ -24,6 +26,30 @@ export class BatchesComponent {
 
 ngOnInit(): void {
   this.getStudents()
+}
+deleteBatch(id:any) {
+  let $this = this
+  let query = new HttpParams();
+  query = query.set('id',id );
+  const dialogRef = this._dialog.open(DeletePopupComponent, {
+    width:"500px"
+   });
+
+   dialogRef.afterClosed().subscribe((result:any) => {
+    if(result){
+  this.apiService
+  .ExecuteDelete(this.apiService.baseUrl + api_constants.deleteBatch,"",query)
+  .subscribe({
+    next(response: any) {
+      $this.toasterService.success("successfully deleted ")
+      $this.getStudents()
+    },
+    error(err) {
+    },
+  })
+    }
+     
+   });
 }
 
 

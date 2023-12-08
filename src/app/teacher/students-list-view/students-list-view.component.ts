@@ -6,6 +6,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-students-list-view',
@@ -17,6 +18,7 @@ export class StudentsListViewComponent implements OnInit {
   selected_course:any
   user_status=UserStatus
   searchText:any
+  toasterService: any;
   constructor(
     private _dialog: MatDialog,
     private _router: Router,
@@ -26,6 +28,31 @@ export class StudentsListViewComponent implements OnInit {
   ngOnInit(): void {
     this.getStudents()
   }
+  deleteStudent(id:any) {
+    let $this = this
+    let query = new HttpParams();
+    query = query.set('id',id );
+    const dialogRef = this._dialog.open(DeletePopupComponent, {
+      width:"500px"
+     });
+  
+     dialogRef.afterClosed().subscribe((result:any) => {
+      if(result){
+    this.apiService
+    .ExecuteDelete(this.apiService.baseUrl + api_constants.deleteStudent,"",query)
+    .subscribe({
+      next(response: any) {
+        $this.toasterService.success("successfully deleted ")
+        $this.getStudents()
+      },
+      error(err) {
+      },
+    })
+      }
+       
+     });
+  }
+  
 
 
   getStudents() {

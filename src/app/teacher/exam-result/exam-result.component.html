@@ -1,15 +1,29 @@
 <div>
+
     <div class="container">
-        <h3 class="p-4">Exam Lists</h3>
-        <div class="d-flex mb-3">
-            <div class="input-group w-25">
-                <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" style="background-color: rgb(54, 54, 138);" type="button"><i
-                            class="fa fa-search"></i></button>
+        <h3 class="p-4">Exams</h3>
+        <div class="d-flex justify-content-between">
+            <div class="dropdown">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </div>
+            <div class="d-flex gap-5">
+                <div class="input-group w-70">
+                    <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2" [(ngModel)]="searchText">
+                    <div class="input-group-append">
+                        <button class="btn" style="background-color: rgb(191, 191, 191);" type="button"><i
+                                class="fa fa-search"></i></button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary " (click)="addStudent()">Add Exam </button>
+            </div>
         </div>
+
+        <!-- Table -->
+
         <table class="table mt-4" style="background-color: white;">
             <thead>
                 <tr>
@@ -25,11 +39,16 @@
             <tbody>
                 <tr *ngFor="let item of students_list | searchFilter:searchText ; let i=index">
                     <th scope="row">{{i+1}}</th>
-                    <td><div (click)="result(item?.name)"> {{item?.name}}</div></td>
+                    <td><div (click)="studentDetails(item?.id)"> {{item?.name}}</div></td>
                     <td>{{item?.batch}}</td>
                     <td>{{item?.description}}</td>
-                    <td>{{item?.start_date}}</td>
-                    <td>{{item?.end_date}}</td>
+                   <td>{{item?.start_date}}</td>
+                   <td>{{item?.end_date}}</td>
+                    <td style="color: gray;">
+                        <!-- <a data-bs-toggle="modal" data-bs-target="#editModal" class="mr-4"><i
+                            class="fas fa-edit"></i></a> -->
+                        <a data-bs-toggle="modal" data-bs-target="#deleteModal"(click)="deleteExam(item?._id)"><i class="fas fa-trash-alt"></i></a>
+                    </td>
                 </tr>
             </tbody>
         </table>

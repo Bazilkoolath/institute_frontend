@@ -1,10 +1,13 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { AddBatchComponent } from 'src/app/shared/popup/add-batch/add-batch.component';
+import { AddExamComponent } from 'src/app/shared/popup/add-exam/add-exam.component';
 import { AddResultComponent } from 'src/app/shared/popup/add-result/add-result.component';
+import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
 import { ApiService } from 'src/app/shared/service/api.service';
 
 @Component({
@@ -13,12 +16,10 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./exam-result.component.scss']
 })
 export class ExamResultComponent implements OnInit {
-  results:any[]=[  ]
-
-
   students_list:any[]=[]
   user_status=UserStatus
   searchText:any
+  toasterService: any;
   constructor(
     private _dialog:MatDialog,
     private _router:Router,
@@ -29,11 +30,36 @@ ngOnInit(): void {
   this.getStudents()
 }
 
+deleteExam(id:any) {
+  let $this = this
+  let query = new HttpParams();
+  query = query.set('id',id );
+  const dialogRef = this._dialog.open(DeletePopupComponent, {
+    width:"500px"
+   });
+
+   dialogRef.afterClosed().subscribe((result:any) => {
+    if(result){
+  this.apiService
+  .ExecuteDelete(this.apiService.baseUrl + api_constants.deleteExam,"",query)
+  .subscribe({
+    next(response: any) {
+      $this.toasterService.success("successfully deleted ")
+      $this.getStudents()
+    },
+    error(err) {
+    },
+  })
+    }
+     
+   });
+}
+
 
 getStudents() {
   let $this = this
   this.apiService
-    .ExecuteGet(this.apiService.baseUrl+api_constants.getExamList)
+    .ExecuteGet(this.apiService.baseUrl + api_constants.getExamList)
     .subscribe({
       next(response: any) {
         $this.students_list=response?.result?.data
@@ -43,11 +69,9 @@ getStudents() {
     })
 }
 
-
-
-addResult(){
-    let dialogRef = this._dialog.open(AddResultComponent, {
-      width: '600px',
+  addStudent(){
+    let dialogRef = this._dialog.open(AddExamComponent, {
+      width: '400px',
       height: '100%',
       data: {},
       position: {
@@ -58,17 +82,24 @@ addResult(){
       direction: 'ltr',
       panelClass: "side-popup"
     });
-
     dialogRef.afterClosed().subscribe(result => {
       this.getStudents()
     });
-    
   }
 
-  result(id:any){
+  studentDetails(id:any){
     console.log(id)
-     this._router.navigateByUrl('/teacher/result-list/'+id)
+     this._router.navigateByUrl('/admin/result-list/'+id)
   }
+  deleteUser(){
+    const dialogRef = this._dialog.open(DeletePopupComponent, {
+     width:"500px"
+    });
 
+    dialogRef.afterClosed().subscribe((result:any) => {
+      
+    });
+  }
+  
 
 }

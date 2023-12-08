@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -18,6 +19,7 @@ export class TeachersListComponent implements OnInit {
   teacher_list:any[]=[]
   user_status=UserStatus
   searchText:any
+  toasterService: any;
   constructor(
     private _dialog:MatDialog,
     private _router:Router,
@@ -26,6 +28,30 @@ export class TeachersListComponent implements OnInit {
 
 ngOnInit(): void {
   this.getTeacher()
+}
+deleteTeacher(id:any) {
+  let $this = this
+  let query = new HttpParams();
+  query = query.set('id',id );
+  const dialogRef = this._dialog.open(DeletePopupComponent, {
+    width:"500px"
+   });
+
+   dialogRef.afterClosed().subscribe((result:any) => {
+    if(result){
+  this.apiService
+  .ExecuteDelete(this.apiService.baseUrl + api_constants.deleteTeacher,"",query)
+  .subscribe({
+    next(response: any) {
+      $this.toasterService.success("successfully deleted ")
+      $this.getStudents()
+    },
+    error(err) {
+    },
+  })
+    }
+     
+   });
 }
 
 

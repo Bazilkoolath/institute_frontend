@@ -1,22 +1,22 @@
-.gap-50{
-    gap: 50px;
+.status-chip{
+    padding: 2.5px 15px;
+    font-size: 14px;
+    border-radius: 15px;
+    width: fit-content;
+    border: none;
 }
 
-.row-div{
-    padding: 10px 20px ;
-    cursor: pointer;
-    width: 100%;
-    .title:hover{
-      text-decoration: underline;
-    }
+.active{
+    background-color: rgb(221, 246, 221);
+    color: green;
 }
 
-
-.row-1{
-    background-color: rgb(237, 237, 237);
-    
+.pending{
+    background-color: rgb(226, 241, 248);
+    color: rgb(0, 120, 168);
 }
 
-.row-2{
-    background-color: rgb(249, 249, 249);
+.rejected{
+    background-color: rgb(255, 229, 229);
+    color: rgb(221, 8, 8);
 }

@@ -1,9 +1,11 @@
+import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { UserStatus } from 'src/app/shared/constants/enum';
 import { AddAnnouncementComponent } from 'src/app/shared/popup/add-announcement/add-announcement.component';
+import { DeletePopupComponent } from 'src/app/shared/popup/delete-popup/delete-popup.component';
 import { ApiService } from 'src/app/shared/service/api.service';
 
 @Component({
@@ -12,8 +14,12 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./announcement.component.scss']
 })
 export class AnnouncementComponent {
+  getStudents() {
+    throw new Error('Method not implemented.');
+  }
   user_status=UserStatus
   announcement:any=[]
+  toasterService: any;
   constructor(
     private _dialog:MatDialog,
     private _router:Router,
@@ -24,6 +30,30 @@ ngOnInit(): void {
   this.getAnnouncement()
 }
 
+deleteAnnouncement(id:any) {
+  let $this = this
+  let query = new HttpParams();
+  query = query.set('id',id );
+  const dialogRef = this._dialog.open(DeletePopupComponent, {
+    width:"500px"
+   });
+
+   dialogRef.afterClosed().subscribe((result:any) => {
+    if(result){
+  this.apiService
+  .ExecuteDelete(this.apiService.baseUrl + api_constants.deleteAnnouncement,"",query)
+  .subscribe({
+    next(response: any) {
+      $this.toasterService.success("successfully deleted ")
+      $this.getStudents()
+    },
+    error(err) {
+    },
+  })
+    }
+     
+   });
+}
 
 getAnnouncement() {
   let $this = this
