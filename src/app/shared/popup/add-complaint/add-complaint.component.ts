@@ -6,6 +6,7 @@ import { ApiService } from '../../service/api.service';
 import { GeneralService } from '../../service/general.service';
 import { ProfileService } from '../../service/profile.service';
 import { ToastrService } from 'ngx-toastr';
+import { api_constants } from '../../constants/api-constants';
 
 @Component({
   selector: 'app-add-complaint',
@@ -45,7 +46,7 @@ export class AddComplaintComponent {
       url: data?.url,
     }
     let $this = this
-    this._apiService.ExecutePost(this._apiService.baseUrl, body)
+    this._apiService.ExecutePost(this._apiService.baseUrl+api_constants.complaintRegister, body)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe({
         next(response:any) {

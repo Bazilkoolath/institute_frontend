@@ -16,6 +16,6 @@
     </form>
     <div class="d-flex gap-5 p-4">
         <button type="button" class="btn btn-secondary" mat-dialog-close>Close</button>
-        <button type="button" class="btn btn-primary " >Add Complaint </button>
+        <button type="button" class="btn btn-primary " (click)="addComplaint(complaintForm?.value)">Add Complaint </button>
     </div>
 </div>

@@ -5,7 +5,7 @@
     <div> 
     </div><br>
     
-    <div  style="background-color: rgb(245, 245, 245);border-radius: 10px;padding: 20px;margin-bottom: 20px;">
+    <div *ngFor="let item of complaint" style="background-color: rgb(245, 245, 245);border-radius: 10px;padding: 20px;margin-bottom: 20px;">
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex gap-5 align-items-center">
                 <img class="logo"
@@ -16,11 +16,11 @@
                     <div class="small-size-text">Student</div>
                     </div>
             </div>
-            <div class="small-size-text"></div>
+            <div class="small-size-text">{{item?.created|date:"medium"}}</div>
         </div>
         <div class="p-2" style="border-top: 1px solid rgb(193, 193, 193);margin-top: 15px;"> 
-            <p class="sub-title-text user-name mt-2"></p>
-            <p ></p>
+            <p class="sub-title-text user-name mt-2">{{item?.subject}}</p>
+            <p >{{item?.message}}</p>
         </div>
     </div>
 </div>

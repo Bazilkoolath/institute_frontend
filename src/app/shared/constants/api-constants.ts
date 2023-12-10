@@ -37,6 +37,8 @@ export const api_constants = Object.freeze({
     deleteExam:"admin/delete-exam",
     deleteAnnouncement:"admin/delete-announcement",
     deleteComplaint:"admin/delete-complaint",
+    getComplaintLst:"student/complaint-register"
+
 
 
 })
