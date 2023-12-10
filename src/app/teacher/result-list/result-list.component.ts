@@ -39,11 +39,21 @@ ngOnInit(): void {
 
 getStudents() {
   let $this = this
+  let body={
+    id:this.exam
+  }
   this.apiService
     .ExecuteGet(this.apiService.baseUrl+api_constants.results)
     .subscribe({
       next(response: any) {
-        $this.result_list=response?.result?.data
+        $this.result_list=[]
+        response?.result?.data.forEach((element:any) => {
+          console.log("element.exam==$this.exam",element.exam,$this.exam);
+          if(element.exam==$this.exam){
+            
+            $this.result_list.push(element)
+          }
+        });
       },
       error(err) {
       },

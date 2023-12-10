@@ -39,7 +39,7 @@ export class ProfileService {
           $this._generalService.setUser = response?.result
           console.log("user",$this.profileData)
           if(response?.result?.role==Role.STUDENT){
-            $this.router.navigateByUrl('student/dashboard')
+            $this.router.navigateByUrl('student/announcement')
           }else if(response?.result?.role==Role.ADMIN){
             $this.router.navigateByUrl('admin/dashboard')
           }else if(response?.result?.role==Role.TEACHER){

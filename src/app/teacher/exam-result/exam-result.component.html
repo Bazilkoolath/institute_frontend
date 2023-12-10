@@ -39,7 +39,7 @@
             <tbody>
                 <tr *ngFor="let item of students_list | searchFilter:searchText ; let i=index">
                     <th scope="row">{{i+1}}</th>
-                    <td><div (click)="studentDetails(item?.id)"> {{item?.name}}</div></td>
+                    <td><div (click)="studentDetails(item)"> {{item?.name}}</div></td>
                     <td>{{item?.batch}}</td>
                     <td>{{item?.description}}</td>
                    <td>{{item?.start_date}}</td>

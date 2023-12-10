@@ -43,7 +43,9 @@ export class AddComplaintComponent {
     let body={
       subject:data?.title,
       message:data?.message,
-      url: data?.url,
+      student_id:this._generalService.getUser._id,
+      student_name:this._generalService.getUser.name,
+      reponse:""
     }
     let $this = this
     this._apiService.ExecutePost(this._apiService.baseUrl+api_constants.complaintRegister, body)
