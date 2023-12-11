@@ -20,8 +20,8 @@ export class StudentsAttendanceComponent implements OnInit {
     plugins: [dayGridPlugin],
     // dateClick: this.handleDateClick.bind(this), 
     events: [
-      { title: 'Present', date: '2023-11-23' },
-      { title: 'Absent', date: '2023-11-03',backgroundColor: '#FF5733' }
+      { title: 'Present', date: '2023-12-23' },
+      { title: 'Absent', date: '2023-12-03',backgroundColor: '#FF5733' }
     ]
   };
   

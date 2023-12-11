@@ -100,5 +100,8 @@ export class AddResultComponent {
   }
   slecectStudent(data:any){
   this.selected_student=data
+  
+  
+  
   }
 }

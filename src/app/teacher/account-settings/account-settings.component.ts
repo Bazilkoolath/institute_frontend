@@ -15,7 +15,7 @@ import { ProfileService } from 'src/app/shared/service/profile.service';
 export class AccountSettingsComponent {
   userDetailForm: any = FormGroup
   data:any
-  teacher_id:any
+  student_id:any
   private _toster: any;
   constructor(
     private _router:Router,
@@ -48,7 +48,7 @@ get f() {
     query = query.set('id',this.data?._id );
     let $this = this
     this.apiService
-      .ExecuteGet(this.apiService.baseUrl + api_constants.getStudentDetail,"",query)
+      .ExecuteGet(this.apiService.baseUrl + api_constants.getTeacherDetail,"",query)
       .subscribe({
         next(response: any) {
           $this.data=response?.result
@@ -83,7 +83,7 @@ setData(data:any){
       query = query.set('id',this.data?._id );
       let $this = this
       this.apiService
-        .ExecutePatch(this.apiService.baseUrl + api_constants.studentProfileUpdate,body,"",query)
+        .ExecutePatch(this.apiService.baseUrl + api_constants.teacherrofileUpdate,body,"",query)
         .subscribe({
           next(response: any) {
             $this._toster.success("success")

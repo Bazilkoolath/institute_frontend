@@ -14,6 +14,12 @@ export class AddAttendanceComponent implements OnInit {
   course: any
   date: any
   today:any
+  selected_course:any
+  private _router: any;
+  studentForm: any;
+  batch: any;
+  students_list: any;
+  activatedRoute: any;
   constructor(
     public _dialogRef: MatDialogRef<AddAttendanceComponent>,
     @Inject(MAT_DIALOG_DATA) public studentsattendance_list: any,
@@ -23,6 +29,7 @@ export class AddAttendanceComponent implements OnInit {
     this.today = new Date().toISOString().split('T')[0];
   }
   ngOnInit(): void {
+ 
   }
 
 
@@ -37,6 +44,8 @@ export class AddAttendanceComponent implements OnInit {
       return name?.slice(0, 2).toUpperCase()
     }
   }
+
+
 
   submit() {
     if (!this.date) {
@@ -69,4 +78,7 @@ export class AddAttendanceComponent implements OnInit {
         },
       })
   }
+
+  
+ 
 }

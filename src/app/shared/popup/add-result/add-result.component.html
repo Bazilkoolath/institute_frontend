@@ -6,19 +6,20 @@
     <div class="modal-body" >
         <div class="form-outline mb-2" [formGroup]="resultForm" >
             <label for="">Student</label>
-            <select class="form-select" aria-label="Default select example" class="form-control " formControlName="student_id">
+            <select class="form-select" aria-label="Default select example" class="form-control" formControlName="student_id">
                 <option *ngFor="let item of students" (click)="slecectStudent(item)">{{item?.name}}</option>
               </select>
         </div>
         <table class="table mt-4" style="background-color: white;">
             <tbody>
                 <tr *ngFor="let item of mark_list,let i=index">
-                    <td scope="row">{{i+1}}</td>
+                    <td scope="row">Subject:{{i+1}}</td>
                     <td class="d-flex gap-5 profile align-items-center">
                         <input type="text" [(ngModel)]="item.subject">
                     </td>
+                    <td scope="row">Mark</td>
                     <td>
-                        <input type="number" [(ngModel)]="item.point">
+                     <input type="number"[(ngModel)]="item.point">
                     </td>
                     <td></td>
                 </tr>
