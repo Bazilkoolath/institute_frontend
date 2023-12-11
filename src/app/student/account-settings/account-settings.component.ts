@@ -17,6 +17,7 @@ export class AccountSettingsComponent {
   data:any
   student_id:any
   private _toster: any;
+  private _toaster: any;
   constructor(
     private _router:Router,
     private apiService: ApiService,
@@ -86,10 +87,10 @@ setData(data:any){
         .ExecutePatch(this.apiService.baseUrl + api_constants.studentProfileUpdate,body,"",query)
         .subscribe({
           next(response: any) {
-            $this._toster.success("success")
+            $this._toaster.success("success")
           },
           error(err) {
-            $this._toster.error("error")
+            $this._toaster.error("error")
           },
         })
   }

@@ -13,9 +13,9 @@ import { ProfileService } from 'src/app/shared/service/profile.service';
   styleUrls: ['./account-settings.component.scss']
 })
 export class AccountSettingsComponent {
-  userDetailForm: any = FormGroup
+  teacherDetailForm: any = FormGroup
   data:any
-  student_id:any
+  teacher_id:any
   private _toster: any;
   constructor(
     private _router:Router,
@@ -24,7 +24,7 @@ export class AccountSettingsComponent {
     private _profile:ProfileService,
   private _form_builder: FormBuilder,
   ) {
-  this.userDetailForm = this._form_builder.group({
+  this.teacherDetailForm = this._form_builder.group({
     name: [null, Validators.required],
     phone: [null, Validators.required],
     about: [null, Validators.required],
@@ -35,7 +35,7 @@ export class AccountSettingsComponent {
   })
 }
 get f() {
-  return this.userDetailForm.controls;
+  return this.teacherDetailForm.controls;
 }
 
   ngOnInit(): void {
@@ -60,7 +60,7 @@ get f() {
   }
   
 setData(data:any){
-  this.userDetailForm.patchValue({
+  this.teacherDetailForm.patchValue({
     name: data?.name,
     phone: data?.mobile_no,
     about: data?.about,

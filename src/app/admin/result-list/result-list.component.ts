@@ -50,26 +50,6 @@ getStudents() {
     })
 }
 
-addResult(){
-    let dialogRef = this._dialog.open(AddResultComponent, {
-      width: '600px',
-      height: '100%',
-      data: {
-        exam:this.exam
-      },
-      position: {
-        top: '0px',
-        right: '0px',
-      },
-      // enterAnimationDuration: '500ms',
-      direction: 'ltr',
-      panelClass: "side-popup"
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.getStudents()
-    });
-  }
 
   result(id:any){
     console.log(id)

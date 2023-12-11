@@ -86,9 +86,11 @@ getStudents() {
     });
   }
 
-  studentDetails(id:any){
-    console.log(id)
-     this._router.navigateByUrl('/admin/result-list/'+id)
+  studentDetails(data:any){
+
+    console.log("dfgbh",data)
+     this._router.navigateByUrl('/admin/result-list/'+data?.name)
+    //  ?.includes(" ")?data?.name.replace(" ","-"):data?.name 
   }
   deleteUser(){
     const dialogRef = this._dialog.open(DeletePopupComponent, {

@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { api_constants } from 'src/app/shared/constants/api-constants';
 import { ApiService } from 'src/app/shared/service/api.service';
+import { GeneralService } from 'src/app/shared/service/general.service';
 
 @Component({
   selector: 'app-result-details',
@@ -17,7 +18,9 @@ export class ResultDetailsComponent {
   constructor(
     private apiService: ApiService,
     private toaster: ToastrService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private general:GeneralService
+
   ) {
 
   }

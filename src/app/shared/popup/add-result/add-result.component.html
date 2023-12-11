@@ -7,6 +7,7 @@
         <div class="form-outline mb-2" [formGroup]="resultForm" >
             <label for="">Student</label>
             <select class="form-select" aria-label="Default select example" class="form-control" formControlName="student_id">
+                <option ></option>
                 <option *ngFor="let item of students" (click)="slecectStudent(item)">{{item?.name}}</option>
               </select>
         </div>
