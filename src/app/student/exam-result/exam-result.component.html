@@ -1,24 +1,54 @@
 <div>
+
     <div class="container">
-        <h3 class="p-4">Exam Lists</h3>
-        <div class="d-flex mb-3">
-            <div class="input-group w-25">
-                <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" style="background-color: gray;" type="button"><i
-                            class="fa fa-search"></i></button>
+        <h3 class="p-4">Exams</h3>
+        <div class="d-flex justify-content-between">
+            <div class="dropdown">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+            <div class="d-flex gap-5">
+                <div class="input-group w-70">
+                    <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2" [(ngModel)]="searchText">
+                    <div class="input-group-append">
+                        <button class="btn" style="background-color: rgb(191, 191, 191);" type="button"><i
+                                class="fa fa-search"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
-        <table>
-            <tr class="d-flex gap-50 row-div" [ngClass]="{'row-1':i%2==0,'row-2':i%2!=0}" *ngFor="let item of results;let i=index">
-                <td scope="row">{{i+1}}.</td>
-               <td class="w-100 d-flex gap-50 justify-content-between" (click)="detail(item?.name)">
-                    <div class="title">{{item.batch}}</div>
-                    <div class="title">{{item?.name+", "+item.description}}</div>
-                    <div>{{item?.created|date:"medium"}} </div>
-               </td>
-            </tr>
+
+        <!-- Table -->
+
+        <table class="table mt-4" style="background-color: white;">
+            <thead>
+                <tr>
+                    <th scope="col">no</th>
+                    <th scope="col">Exam </th>
+                    <th scope="col">Batch</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of students_list | searchFilter:searchText ; let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td><div (click)="studentDetails(item)"> {{item?.name}}</div></td>
+                    <td>{{item?.batch}}</td>
+                    <td>{{item?.description}}</td>
+                   <td>{{item?.start_date}}</td>
+                   <td>{{item?.end_date}}</td>
+                    <td style="color: gray;">
+                        <!-- <a data-bs-toggle="modal" data-bs-target="#editModal" class="mr-4"><i
+                            class="fas fa-edit"></i></a> -->
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

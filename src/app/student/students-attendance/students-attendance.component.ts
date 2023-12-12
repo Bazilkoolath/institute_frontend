@@ -34,8 +34,10 @@ eventsCalendar: any[] = [];
   ) { }
 
   ngOnInit(): void {
- 
+ this.getUser()
   }
+  
+  
 
   getUser() {
     let data = this._general?.getUser

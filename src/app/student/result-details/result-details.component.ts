@@ -25,7 +25,8 @@ export class ResultDetailsComponent {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((res:any)=>{
       console.log("res",res)
-      this.getData(res?.id)
+      
+      this.getData(res.id);
     })
   }
 
@@ -43,9 +44,10 @@ export class ResultDetailsComponent {
   }
 
   getData(data: any) {
+    console.log(data);
+    
     let query = new HttpParams();
-
-    query = query.set('id', this.general.getUser?._id);
+    query = query.set('id', data);
     let $this = this
     this.apiService
       .ExecuteGet(this.apiService.baseUrl + api_constants.getResultDetail,"",query)

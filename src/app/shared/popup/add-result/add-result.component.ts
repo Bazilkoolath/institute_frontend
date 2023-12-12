@@ -20,6 +20,7 @@ export class AddResultComponent {
   button_loader: boolean=false
   students:any
   selected_student:any
+  exma_id:any
   mark_list:any[]=[
     {
       subject:" ",
@@ -62,6 +63,7 @@ export class AddResultComponent {
     }
   
     getStudents() {
+      debugger;
       let $this = this
       this._apiService
         .ExecuteGet(this._apiService.baseUrl + api_constants.getStudentList)
@@ -81,7 +83,8 @@ export class AddResultComponent {
       student_name:data?.student_id,
       course: this.data?.course,
       exam:this.data?.exam,
-      mark:this.mark_list
+      mark:this.mark_list,
+      //exam_id:this.exam_id,
     }
     let $this = this
     this._apiService.ExecutePost(this._apiService.baseUrl+api_constants.createResult, body)

@@ -1,0 +1,25 @@
+<div>
+    <div class="container">
+        <h3 class="p-4">{{exam}}</h3>
+        <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex gap-5">
+                <div class="input-group w-70">
+                    <input type="text" class="form-control" placeholder="Search.." aria-describedby="basic-addon2" [(ngModel)]="searchText">
+                    <div class="input-group-append">
+                        <button class="btn" style="background-color: rgb(191, 191, 191);" type="button"><i
+                                class="fa fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div><button class="btn btn-primary " (click)="addResult()">Add Result</button></div>
+            </div>
+        </div>
+        <tr class="d-flex gap-50 row-div" [ngClass]="{'row-1':i%2==0,'row-2':i%2!=0}" *ngFor="let item of result_list;let i=index">
+            <td scope="row">{{i+1}}</td>
+           <td class="w-100 d-flex gap-50 justify-content-between">
+                <div class="title" (click)="result(item?._id)">{{item?.student_name}}</div>
+                <div>{{item?.published_date}} </div>
+           </td>
+        </tr>
+    </div>
+</div>

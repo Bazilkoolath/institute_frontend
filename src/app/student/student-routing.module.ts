@@ -10,6 +10,7 @@ import { ReferencesComponent } from './references/references.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
 import { SilabusComponent } from './silabus/silabus.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
+import { ResultListComponent } from './result-list/result-list.component';
 
 const routes: Routes = [
   {
@@ -43,11 +44,14 @@ const routes: Routes = [
     path:"references",
     component:ReferencesComponent
   },{
-    path:"result-details/:id",
+    path:"result-detail/:id",
     component:ResultDetailsComponent
   },{
     path:"silabus",
     component:SilabusComponent
+  },{
+    path:"result-list/:id",
+    component:ResultListComponent
   },]}
 ];
 

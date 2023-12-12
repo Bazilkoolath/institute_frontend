@@ -14,6 +14,7 @@ import { ResultDetailsComponent } from './result-details/result-details.componen
 import { ReferencesComponent } from './references/references.component';
 import { SilabusComponent } from './silabus/silabus.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
+import { ResultListComponent } from './result-list/result-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AnnouncementComponent } from './announcement/announcement.component';
     ResultDetailsComponent,
     ReferencesComponent,
     SilabusComponent,
-    AnnouncementComponent
+    AnnouncementComponent,
+    ResultListComponent
   ],
   imports: [
     CommonModule,
